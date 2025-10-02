@@ -1,6 +1,6 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "./ui/button";
-import logo from "/imgs/icon/logo remove.png";
+import logo from "../../public/imgs/icon/logo remove.png";
 
 export function Hero() {
   const handleWhatsAppClick = () => {
