@@ -24,7 +24,7 @@ const solutions = [
     icon: Link2,
     name: "Ionos Link",
     description: "Integraciones/API & RPA",
-    color: "from-primary to-accent"
+    color: "from-accent to-orange-500"
   },
   {
     icon: Shield,
@@ -48,7 +48,7 @@ const solutions = [
     icon: Users,
     name: "Ionos Advisory",
     description: "Consultoría tecnológica",
-    color: "from-accent to-primary"
+    color: "from-accent to-orange-500"
   }
 ];
 

@@ -30,7 +30,7 @@ const services = [
     icon: Rocket,
     title: "Transformación Digital",
     description: "Automatización de procesos y modernización tecnológica sin detener tu operación.",
-    gradient: "from-primary to-accent"
+    gradient: "from-accent to-orange-500"
   },
   {
     icon: Shield,

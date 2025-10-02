@@ -1,5 +1,5 @@
 import { MessageCircle, Mail, MapPin } from "lucide-react";
-import logo from "@/assets/ionoshub-logo.png";
+import logo from "/imgs/icon/logo remove.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();

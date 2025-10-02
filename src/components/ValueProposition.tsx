@@ -28,7 +28,7 @@ export function ValueProposition() {
             <div className="space-y-6 animate-fade-in">
               <h2 className="text-3xl md:text-5xl font-bold">
                 ¿Por qué elegir{" "}
-                <span className="bg-gradient-to-r from-primary to-blue-light bg-clip-text text-transparent">
+                <span className="bakbak-one-regular bg-gradient-to-r from-primary to-blue-light bg-clip-text text-transparent">
                   IonosHub?
                 </span>
               </h2>

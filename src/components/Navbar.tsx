@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { ThemeToggle } from "./ThemeToggle";
-import logo from "@/assets/ionoshub-logo.png";
+import logo from "/imgs/icon/logo remove.png";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +36,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img src={logo} alt="IonosHub" className="h-10 md:h-12 w-auto" />
+            <img src={logo} alt="IonosHub" className="h-6 md:h-8 w-auto" />
           </div>
 
           {/* Desktop Navigation */}
