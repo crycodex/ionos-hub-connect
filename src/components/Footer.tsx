@@ -1,5 +1,4 @@
 import { MessageCircle, Mail, MapPin } from "lucide-react";
-import logo from "../../public/imgs/icon/logo remove.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,7 +9,7 @@ export function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            <img src={logo} alt="IonosHub" className="h-12 w-auto" />
+            <img src="../../public/imgs/icon/logo remove.png" alt="IonosHub" className="h-12 w-auto" />
             <p className="text-sm text-muted-foreground">
               De Datos a Resultados. Transformación digital con IA y Business Intelligence.
             </p>

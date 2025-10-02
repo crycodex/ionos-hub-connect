@@ -1,6 +1,5 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "./ui/button";
-import logo from "../../public/imgs/icon/logo remove.png";
 
 export function Hero() {
   const handleWhatsAppClick = () => {
@@ -19,7 +18,7 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           <div className="flex justify-center mb-8">
             <img 
-              src={logo} 
+              src="../../public/imgs/icon/logo remove.png" 
               alt="IonosHub - De Datos a Resultados" 
               className="h-30 md:h-42 w-auto animate-scale-in"
             />
