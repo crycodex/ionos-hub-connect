@@ -18,7 +18,7 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           <div className="flex justify-center mb-8">
             <img 
-              src="../../public/imgs/icon/logo remove.png" 
+              src="/imgs/logo remove.png" 
               alt="IonosHub - De Datos a Resultados" 
               className="h-30 md:h-42 w-auto animate-scale-in"
             />

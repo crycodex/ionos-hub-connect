@@ -35,7 +35,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img src="/imgs/icon/logo remove.png" alt="IonosHub" className="h-6 md:h-8 w-auto" />
+            <img src="/imgs/logo remove.png" alt="IonosHub" className="h-6 md:h-8 w-auto" />
           </div>
 
           {/* Desktop Navigation */}

@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            <img src="../../public/imgs/icon/logo remove.png" alt="IonosHub" className="h-12 w-auto" />
+            <img src="/imgs/logo remove.png" alt="IonosHub" className="h-12 w-auto" />
             <p className="text-sm text-muted-foreground">
               De Datos a Resultados. Transformación digital con IA y Business Intelligence.
             </p>
