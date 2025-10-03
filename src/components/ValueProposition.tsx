@@ -34,7 +34,7 @@ export function ValueProposition() {
               </h2>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Combinamos expertise tecnológico con tecnología global de vanguardia. 
+                Combinamos experiencia tecnológica con las mejores herramientas del mercado. 
                 Nuestras soluciones cubren toda la cadena: desde asesoría hasta implementación, 
                 con metodología ágil enfocada en resultados rápidos y escalables.
               </p>

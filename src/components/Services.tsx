@@ -4,8 +4,8 @@ import { Card } from "./ui/card";
 const services = [
   {
     icon: Bot,
-    title: "Call Center IA en WhatsApp",
-    description: "Bots inteligentes que atienden 24/7, automatizan respuestas y optimizan la experiencia del cliente.",
+    title: "Agentes Virtuales a tu medida",
+    description: "Asistentes virtuales inteligentes que atienden 24/7 con funciones como agendar citas, informar sobre servicios y atender consultas de clientes.",
     gradient: "from-primary to-blue-light"
   },
   {
@@ -17,7 +17,7 @@ const services = [
   {
     icon: Lightbulb,
     title: "Marketing Digital",
-    description: "Estrategias disruptivas con tecnologías emergentes para impulsar tu presencia digital.",
+    description: "Campañas de marketing efectivas, retailing digital y engagement estratégico. Contamos con personal capacitado y tecnologías emergentes para impulsar tu presencia digital.",
     gradient: "from-accent to-orange-500"
   },
   {
@@ -29,13 +29,13 @@ const services = [
   {
     icon: Rocket,
     title: "Transformación Digital",
-    description: "Automatización de procesos y modernización tecnológica sin detener tu operación.",
+    description: "Asesorías tecnológicas, capacitaciones especializadas y consultorías para automatización de procesos y modernización sin detener tu operación.",
     gradient: "from-accent to-orange-500"
   },
   {
     icon: Shield,
-    title: "Seguridad & Datos",
-    description: "Gobierno de datos, ciberseguridad y control con arquitectura adaptable a cualquier industria.",
+    title: "Ética y Tratamiento de Datos",
+    description: "Garantizamos que los datos son seguros y trabajamos bajo la Ley Orgánica de Protección de Datos con arquitectura adaptable a cualquier industria.",
     gradient: "from-blue-vivid to-primary"
   }
 ];
