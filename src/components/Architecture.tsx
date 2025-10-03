@@ -29,7 +29,7 @@ const solutions = [
   {
     icon: Shield,
     name: "Ionos Secure",
-    description: "CCTV & Ciberseguridad",
+    description: "Sistemas de seguridad empresarial y protección de datos personales",
     color: "from-secondary to-foreground"
   },
   {
@@ -46,8 +46,8 @@ const solutions = [
   },
   {
     icon: Users,
-    name: "Ionos Advisory",
-    description: "Consultoría tecnológica",
+    name: "Ionos Marketing",
+    description: "Campañas de marketing y engagement estratégico",
     color: "from-accent to-orange-500"
   }
 ];
