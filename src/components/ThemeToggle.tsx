@@ -7,8 +7,8 @@ export function ThemeToggle() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+    // Siempre usar modo claro por defecto, independientemente de las preferencias del sistema
+    const initialTheme = savedTheme || "light";
     
     setTheme(initialTheme);
     document.documentElement.classList.toggle("dark", initialTheme === "dark");

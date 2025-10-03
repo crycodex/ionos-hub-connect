@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/Navbar";
+import { SliderNavbar } from "@/components/SliderNavbar";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { ValueProposition } from "@/components/ValueProposition";
@@ -9,7 +9,7 @@ import { Footer } from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <SliderNavbar />
       <main>
         <Hero />
         <Services />

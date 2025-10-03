@@ -47,6 +47,12 @@ export function Navbar() {
               Servicios
             </button>
             <button 
+              onClick={() => scrollToSection('quienes-somos')}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Quienes Somos
+            </button>
+            <button 
               onClick={() => scrollToSection('contacto')}
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
