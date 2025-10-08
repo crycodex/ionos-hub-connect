@@ -89,19 +89,6 @@ export function Architecture() {
             </Card>
           ))}
         </div>
-
-        <div className="mt-16 max-w-4xl mx-auto">
-          <Card className="p-8 bg-gradient-to-br from-card to-muted/30 border-2 border-primary/10">
-            <div className="text-center space-y-4">
-              <h3 className="text-2xl font-bold">Arquitectura Adaptable y Escalable</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Cada solución se integra perfectamente con las demás, creando un ecosistema tecnológico 
-                que crece con tu negocio. Sin detener tu operación actual, implementamos mejoras 
-                iterativas con valor continuo y ROI probado.
-              </p>
-            </div>
-          </Card>
-        </div>
       </div>
     </section>
   );

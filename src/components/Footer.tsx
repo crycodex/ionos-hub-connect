@@ -4,11 +4,11 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-muted/30 border-t border-border">
+    <footer className="bg-muted/30 border-t border-border m-10">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-4 pl-10">
             <img src="/imgs/logo%20remove.png" alt="IonosHub" className="h-12 w-auto" />
             <p className="text-sm text-muted-foreground">
               De Datos a Resultados. Transformación digital con IA y Business Intelligence.
@@ -16,7 +16,7 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
+          <div className="space-y-4 pl-10">
             <h3 className="font-semibold text-foreground">Navegación</h3>
             <div className="space-y-2 text-sm">
               <button 
@@ -35,7 +35,7 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="space-y-4">
+          <div className="space-y-4 pl-10">
             <h3 className="font-semibold text-foreground">Contacto</h3>
             <div className="space-y-3 text-sm">
               <a 

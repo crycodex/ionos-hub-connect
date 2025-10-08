@@ -3,19 +3,19 @@ import { CheckCircle2 } from "lucide-react";
 const values = [
   {
     title: "Automatización Inteligente",
-    description: "Agentes IA personalizados para ventas, atención al cliente y gestión de solicitudes 24/7."
+    description: "Agentes IA que aprenden y se adaptan a tu negocio, gestionando consultas, ventas y soporte técnico de forma autónoma las 24 horas."
   },
   {
-    title: "Integración Total",
-    description: "Adaptabilidad a sistemas existentes: datos (BI), canales (voz/chat/web) y seguridad."
+    title: "Integración Total", 
+    description: "Conectamos perfectamente con tus sistemas actuales - desde bases de datos y CRMs hasta canales de comunicación, manteniendo altos estándares de seguridad."
   },
   {
     title: "Resultados Medibles",
-    description: "ROI comprobado, reducción de costos y aumento de eficiencia con métricas accionables."
+    description: "Reportes detallados del retorno de inversión, reducción de tiempos operativos y mejoras en satisfacción del cliente con KPIs específicos."
   },
   {
     title: "Expertise Local",
-    description: "Conocimiento profundo del mercado ecuatoriano con visión regional LATAM."
+    description: "Más de 5 años trabajando con empresas ecuatorianas nos dan el conocimiento único del mercado local y sus necesidades específicas."
   }
 ];
 
@@ -34,9 +34,9 @@ export function ValueProposition() {
               </h2>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Combinamos experiencia tecnológica con las mejores herramientas del mercado. 
-                Nuestras soluciones cubren toda la cadena: desde asesoría hasta implementación, 
-                con metodología ágil enfocada en resultados rápidos y escalables.
+                Somos expertos en transformación digital con más de 100 casos de éxito. 
+                Implementamos soluciones personalizadas usando tecnologías de última generación, 
+                garantizando resultados tangibles en tiempo récord sin interrumpir tu operación.
               </p>
 
               <div className="space-y-4 pt-4">
@@ -65,30 +65,30 @@ export function ValueProposition() {
                   <div className="text-center pb-6 border-b border-border">
                     <div className="text-4xl font-bold text-primary mb-2">Nuestra Visión</div>
                     <p className="text-muted-foreground">
-                      Ser el referente latinoamericano en integración de Data, CX y Seguridad
+                      Liderar la innovación tecnológica en Latinoamérica unificando datos, experiencia del cliente y ciberseguridad
                     </p>
                   </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="w-3 h-3 rounded-full bg-primary" />
-                      <span className="text-foreground">Seguridad por diseño</span>
+                      <span className="text-foreground">Protección de datos desde el diseño inicial</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-3 h-3 rounded-full bg-blue-light" />
-                      <span className="text-foreground">Claridad antes que complejidad</span>
+                      <span className="text-foreground">Soluciones simples para problemas complejos</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-3 h-3 rounded-full bg-accent" />
-                      <span className="text-foreground">Integración primero</span>
+                      <span className="text-foreground">Conectividad con sistemas existentes</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-3 h-3 rounded-full bg-primary" />
-                      <span className="text-foreground">Medición continua</span>
+                      <span className="text-foreground">Análisis constante de resultados</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-3 h-3 rounded-full bg-blue-light" />
-                      <span className="text-foreground">Ética de datos</span>
+                      <span className="text-foreground">Manejo responsable de información</span>
                     </div>
                   </div>
                 </div>

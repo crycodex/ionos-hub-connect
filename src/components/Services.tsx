@@ -52,7 +52,7 @@ export function Services() {
             </span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Soluciones integrales end-to-end desde investigación hasta implementación
+            Ofrecemos soluciones completas que abarcan desde el análisis inicial hasta la implementación final
           </p>
         </div>
 

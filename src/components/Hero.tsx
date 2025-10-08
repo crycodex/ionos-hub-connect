@@ -7,14 +7,25 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-background to-muted/30">
+    <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0 overflow-hidden">
+        <img 
+          src="/imgs/hero.webp" 
+          alt="Hero background" 
+          className="w-full h-full object-cover"
+        />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background/90" />
+      </div>
+      
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-primary/5 rounded-full blur-3xl animate-pulse" />
         <div className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-blue-light/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 py-12">
+      <div className="container mx-auto px-4 relative z-10 py-32">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           <div className="flex justify-center mb-8">
             <img 
@@ -32,9 +43,9 @@ export function Hero() {
           </h1> */}
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Transformamos tu negocio con <strong className="text-foreground">Business Intelligence</strong>, 
-            automatización de WhatsApp con IA y estrategias digitales que generan 
-            <strong className="text-foreground"> ROI medible</strong>.
+            Potenciamos el crecimiento de tu empresa con <strong className="text-foreground">Business Intelligence</strong>,
+            automatización inteligente de WhatsApp y estrategias digitales para lograr
+            <strong className="text-foreground"> resultados extraordinarios y medibles</strong>.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
@@ -69,7 +80,7 @@ export function Hero() {
             </div>
             <div className="space-y-2 animate-fade-in" style={{ animationDelay: "0.6s" }}>
               <div className="text-3xl md:text-4xl font-bold text-primary">ROI</div>
-              <div className="text-sm text-muted-foreground">Resultados Medibles</div>
+              <div className="text-sm text-muted-foreground"> Retorno de Inversión </div>
             </div>
           </div>
         </div>
