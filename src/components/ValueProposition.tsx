@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import MagnetLines from "./MagnetLines";
 
 const values = [
   {
@@ -21,8 +22,21 @@ const values = [
 
 export function ValueProposition() {
   return (
-    <section className="py-20 md:py-32">
-      <div className="container mx-auto px-4">
+    <section className="relative py-20 md:py-32 overflow-hidden">
+      {/* Background with MagnetLines */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+        <MagnetLines
+          rows={12}
+          columns={12}
+          containerSize="100%"
+          lineColor="hsl(204 100% 37%)"
+          lineWidth="2px"
+          lineHeight="40px"
+          baseAngle={0}
+        />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
