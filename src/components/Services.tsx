@@ -4,8 +4,8 @@ import { Card } from "./ui/card";
 const services = [
   {
     icon: Bot,
-    title: "Agentes Virtuales a tu medida",
-    description: "Asistentes virtuales inteligentes que atienden 24/7 con funciones como agendar citas, informar sobre servicios y atender consultas de clientes.",
+      title: "Agentes Virtuales a medida",
+      description: "Asistentes virtuales inteligentes que atienden 24/7 con funciones como agendar citas, brindar información y atención al cliente.",
     gradient: "from-primary to-blue-light"
   },
   {
@@ -23,7 +23,7 @@ const services = [
   {
     icon: Search,
     title: "Investigación de Mercados",
-    description: "Estudios especializados que identifican oportunidades y ventajas competitivas.",
+    description: "Estudios especializados que identifican oportunidades y ventajas competitivas para tu negocio.",
     gradient: "from-secondary to-muted-foreground"
   },
   {
@@ -35,7 +35,7 @@ const services = [
   {
     icon: Shield,
     title: "Ética y Tratamiento de Datos",
-    description: "Garantizamos que los datos son seguros y trabajamos bajo la Ley Orgánica de Protección de Datos con arquitectura adaptable a cualquier industria.",
+    description: "Garantizamos que los datos son seguros y trabajamos bajo la Ley Orgánica de Protección de Datos  (15/1999).",
     gradient: "from-blue-vivid to-primary"
   }
 ];
@@ -52,7 +52,7 @@ export function Services() {
             </span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Ofrecemos soluciones completas que abarcan desde el análisis inicial hasta la implementación final
+            Ofrecemos soluciones completas que abarcan desde el análisis inicial hasta el crecimiento proyectado
           </p>
         </div>
 

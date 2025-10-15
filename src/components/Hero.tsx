@@ -44,7 +44,7 @@ export function Hero() {
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Potenciamos el crecimiento de tu empresa con <strong className="text-foreground">Business Intelligence</strong>,
-            automatización inteligente de WhatsApp y estrategias digitales para lograr
+            automatizaciones, agentes virtuales y estudios de mercado para lograr
             <strong className="text-foreground"> resultados extraordinarios y medibles</strong>.
           </p>
 
@@ -71,12 +71,12 @@ export function Hero() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
             <div className="space-y-2 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <div className="text-3xl md:text-4xl font-bold text-primary">+100</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">+50</div>
               <div className="text-sm text-muted-foreground">Empresas Transformadas</div>
             </div>
             <div className="space-y-2 animate-fade-in" style={{ animationDelay: "0.4s" }}>
               <div className="text-3xl md:text-4xl font-bold text-primary">24/7</div>
-              <div className="text-sm text-muted-foreground">Automatización IA</div>
+              <div className="text-sm text-muted-foreground"> Agentes Virtuales</div>
             </div>
             <div className="space-y-2 animate-fade-in" style={{ animationDelay: "0.6s" }}>
               <div className="text-3xl md:text-4xl font-bold text-primary">ROI</div>

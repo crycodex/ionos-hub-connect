@@ -5,7 +5,7 @@ const solutions = [
   {
     icon: BarChart2,
     name: "Ionos Insight",
-    description: "Dashboards & BI",
+    description: "Dashboards y análisis de datos en tiempo real",
     color: "from-primary to-blue-light"
   },
   {
@@ -17,7 +17,7 @@ const solutions = [
   {
     icon: MessageSquare,
     name: "Ionos Chat",
-    description: "Chatbots IA en WhatsApp",
+    description: "Agentes IA que atienden 24/7",
     color: "from-accent to-orange-500"
   },
   {
@@ -29,25 +29,25 @@ const solutions = [
   {
     icon: Shield,
     name: "Ionos Secure",
-    description: "Sistemas de seguridad empresarial y protección de datos personales",
+    description: "Sistemas de seguridad empresarial, videovigilancia y detección de intrusos",
     color: "from-secondary to-foreground"
   },
   {
     icon: Globe,
     name: "Ionos Web",
-    description: "Desarrollo web y growth",
+    description: "Desarrollo web a medida y escalable para tu negocio",
     color: "from-blue-vivid to-primary"
   },
   {
     icon: Database,
     name: "Ionos DataCare",
-    description: "Gobierno de datos",
+    description: "Proteccion y tratamiento de datos",
     color: "from-primary to-blue-light"
   },
   {
     icon: Users,
     name: "Ionos Marketing",
-    description: "Campañas de marketing y engagement estratégico",
+    description: "Estudios de mercado y campañas de marketing.",
     color: "from-accent to-orange-500"
   }
 ];

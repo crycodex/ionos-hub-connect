@@ -8,16 +8,21 @@ export function CTA() {
   };
 
   return (
-    <section className="py-20 md:py-32">
-      <div className="container mx-auto px-4">
+    <section className="relative py-20 md:py-32 overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/imgs/cta.jpg')" }}
+      />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70" />
+      
+      <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
-          <Card className="relative overflow-hidden border-2 border-primary/20">
-            {/* Background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary via-blue-light to-primary opacity-10" />
-            
+          <Card className="relative overflow-hidden border-2 border-primary/20 bg-transparent backdrop-blur-md">
             <div className="relative p-8 md:p-12 text-center space-y-8">
               <div className="space-y-4 animate-fade-in-up">
-                <h2 className="text-3xl md:text-5xl font-bold">
+                <h2 className="text-3xl md:text-5xl font-bold text-white">
                   Transformamos Información en{" "}
                   <span className="bg-gradient-to-r from-primary to-blue-light bg-clip-text text-transparent">
                     Crecimiento Medible
@@ -34,7 +39,7 @@ export function CTA() {
                 <Button 
                   size="lg"
                   onClick={handleWhatsAppClick}
-                  className="group bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent text-white shadow-lg hover:shadow-xl transition-all duration-300 text-base px-8 py-6 rounded-xl animate-glow"
+                  className="group bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent text-white shadow-lg hover:shadow-md transition-all duration-500 text-base px-8 py-6 rounded-xl animate-glow"
                 >
                   <MessageCircle className="mr-2 h-5 w-5 group-hover:animate-bounce" />
                   Agenda una Consultoría Gratis
@@ -55,26 +60,6 @@ export function CTA() {
               </div>
             </div>
           </Card>
-
-          {/* Trust indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-            <div className="text-center space-y-2">
-              <div className="text-2xl font-bold text-primary">Seguro</div>
-              <div className="text-sm text-muted-foreground">Por diseño</div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-2xl font-bold text-primary">Ágil</div>
-              <div className="text-sm text-muted-foreground">Resultados rápidos</div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-2xl font-bold text-primary">Integrado</div>
-              <div className="text-sm text-muted-foreground">Sin fricción</div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-2xl font-bold text-primary">Medible</div>
-              <div className="text-sm text-muted-foreground">ROI probado</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
