@@ -94,16 +94,10 @@ html {
 @layer base {
   * {
     @apply border-border;
-    cursor: none !important;
   }
 
   body {
     @apply bg-background text-foreground;
-  }
-  
-  /* Ocultar cursor nativo en toda la aplicación */
-  a, button, input, textarea, select {
-    cursor: none !important;
   }
 }
 
