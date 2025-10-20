@@ -1,11 +1,125 @@
 import { 
   Target, Award, Globe, Heart, Lightbulb, Shield, Zap,
-  Building, TrendingUp, CheckCircle, Star, Clock, Users2
+  Building, TrendingUp, CheckCircle, Star, Clock, Users2,
+  ChevronLeft, ChevronRight
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 
 export function QuienesSomos() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  const teamMembers = [
+    {
+      name: "María González",
+      position: "Directora de Datos",
+      description: "+8 años experiencia en Business Intelligence",
+      image: "/imgs/no gringa.jpg"
+    },
+    {
+      name: "David Chen",
+      position: "Lead AI Engineer",
+      description: "Especialista en Machine Learning",
+      image: "/imgs/gringo loco.jpg"
+    },
+    {
+      name: "Ana Rodríguez",
+      position: "Marketing Digital Lead",
+      description: "Especialista en Growth Hacking",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
+    },
+    {
+      name: "Carlos Mendoza",
+      position: "Full Stack Developer",
+      description: "Especialista en React y Node.js",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+    },
+    {
+      name: "Laura Silva",
+      position: "UX/UI Designer",
+      description: "Especialista en Design Thinking",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+    },
+    {
+      name: "Roberto Vega",
+      position: "Data Scientist",
+      description: "Especialista en Python y R",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+    },
+    {
+      name: "Patricia López",
+      position: "Project Manager",
+      description: "Certificada PMP y Agile",
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face"
+    },
+    {
+      name: "Miguel Torres",
+      position: "DevOps Engineer",
+      description: "Especialista en AWS y Docker",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+    },
+    {
+      name: "Sofia Herrera",
+      position: "Business Analyst",
+      description: "Especialista en Procesos de Negocio",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face"
+    },
+    {
+      name: "Diego Morales",
+      position: "Cybersecurity Specialist",
+      description: "Certificado CISSP y Ethical Hacker",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face"
+    },
+    {
+      name: "Valentina Cruz",
+      position: "QA Engineer",
+      description: "Especialista en Testing Automatizado",
+      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face"
+    },
+    {
+      name: "Andrés Jiménez",
+      position: "Cloud Architect",
+      description: "Especialista en Azure y GCP",
+      image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face"
+    }
+  ];
+
+  const cardsPerSlide = 3;
+  const totalSlides = Math.ceil(teamMembers.length / cardsPerSlide);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    }, 10000); // 10 seconds
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, totalSlides]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    setIsAutoPlaying(false);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+    setIsAutoPlaying(false);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+    setIsAutoPlaying(false);
+  };
+
+  const getCurrentSlideMembers = () => {
+    const startIndex = currentSlide * cardsPerSlide;
+    return teamMembers.slice(startIndex, startIndex + cardsPerSlide);
+  };
   return (
     <section id="quienes-somos" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -80,32 +194,75 @@ export function QuienesSomos() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="p-6 text-center">
-              <div className="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-4 border-primary/20">
-                <img 
-                  src="/imgs/no gringa.jpg" 
-                  alt="Especialista en Datos" 
-                  className="w-full h-full object-cover"
-                />
+          {/* Carrusel Container */}
+          <div className="relative max-w-7xl mx-auto">
+            {/* Cards Container */}
+            <div className="overflow-hidden">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+                  <div key={slideIndex} className="w-full flex-shrink-0">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+                      {teamMembers
+                        .slice(slideIndex * cardsPerSlide, (slideIndex + 1) * cardsPerSlide)
+                        .map((member, index) => (
+                          <Card key={`${slideIndex}-${index}`} className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:scale-105">
+                            <div className="w-48 h-48 mx-auto mb-6 overflow-hidden rounded-full border-4 border-primary/20 shadow-lg">
+                              <img 
+                                src={member.image} 
+                                alt={member.name} 
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <h4 className="font-bold mb-3 text-xl">{member.name}</h4>
+                            <p className="text-primary font-semibold mb-2 text-lg">{member.position}</p>
+                            <p className="text-muted-foreground leading-relaxed">{member.description}</p>
+                          </Card>
+                        ))}
+                    </div>
+                  </div>
+                ))}
               </div>
-              <h4 className="font-semibold mb-2 text-lg">María González</h4>
-              <p className="text-primary font-medium mb-1">Directora de Datos</p>
-              <p className="text-sm text-muted-foreground">+8 años experiencia en Business Intelligence</p>
-            </Card>
-            
-            <Card className="p-6 text-center">
-              <div className="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-4 border-primary/20">
-                <img 
-                  src="/imgs/gringo loco.jpg" 
-                  alt="Especialista en IA" 
-                  className="w-full h-full object-cover"
-                />
+            </div>
+
+            {/* Navigation Buttons */}
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={prevSlide}
+                className="rounded-full h-12 w-12 hover:bg-primary hover:text-white transition-colors"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </Button>
+
+              {/* Dots Indicator */}
+              <div className="flex gap-2">
+                {Array.from({ length: totalSlides }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentSlide 
+                        ? 'bg-primary' 
+                        : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                    }`}
+                  />
+                ))}
               </div>
-              <h4 className="font-semibold mb-2 text-lg">David Chen</h4>
-              <p className="text-primary font-medium mb-1">Lead AI Engineer</p>
-              <p className="text-sm text-muted-foreground">Especialista en Machine Learning</p>
-            </Card>
+
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={nextSlide}
+                className="rounded-full h-12 w-12 hover:bg-primary hover:text-white transition-colors"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </Button>
+            </div>
+
           </div>
         </div>
 

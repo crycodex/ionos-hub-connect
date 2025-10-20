@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Home } from "lucide-react";
+import { Menu, X, Home, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
-import { ThemeToggle } from "./ThemeToggle";
 
 export function SliderNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +20,7 @@ export function SliderNavbar() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
+      setIsDropdownOpen(false);
     }
   };
 
@@ -35,7 +36,7 @@ export function SliderNavbar() {
       <div className="relative">
         {/* Desktop Slider Background */}
         <div className="hidden md:block bg-card/80 backdrop-blur-lg border border-border rounded-full px-4 lg:px-6 py-3 shadow-lg">
-          <div className="flex items-center gap-4 lg:gap-6">
+          <div className="flex items-center gap-3 lg:gap-4">
             {/* Home Icon */}
             <div 
               className="flex items-center cursor-pointer hover:scale-105 transition-transform duration-200" 
@@ -49,33 +50,74 @@ export function SliderNavbar() {
             {/* Separator */}
             <div className="w-px h-6 bg-border"></div>
 
-            {/* CTA Buttons */}
+            {/* Navigation Links */}
             <button 
               onClick={() => scrollToSection('servicios')}
-              className="text-foreground hover:text-primary transition-all duration-200 font-medium px-3 py-1 rounded-full hover:bg-primary/10 text-sm lg:text-base"
+              className="text-foreground hover:text-primary transition-all duration-200 font-medium px-3 py-1 rounded-full hover:bg-primary/10 text-sm whitespace-nowrap"
             >
               Servicios
             </button>
             
             <button 
               onClick={() => scrollToSection('quienes-somos')}
-              className="text-foreground hover:text-primary transition-all duration-200 font-medium px-3 py-1 rounded-full hover:bg-primary/10 text-sm lg:text-base"
+              className="text-foreground hover:text-primary transition-all duration-200 font-medium px-3 py-1 rounded-full hover:bg-primary/10 text-sm whitespace-nowrap"
             >
-              Quienes Somos
+              Nosotros
             </button>
+
+            {/* Dropdown Menu - "Más" */}
+            <div className="relative">
+              <button 
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                className="text-foreground hover:text-primary transition-all duration-200 font-medium px-3 py-1 rounded-full hover:bg-primary/10 text-sm whitespace-nowrap flex items-center gap-1"
+              >
+                Más
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Dropdown Content */}
+              {isDropdownOpen && (
+                <div 
+                  className="absolute top-full mt-2 right-0 w-56 bg-card/95 backdrop-blur-lg border border-border rounded-xl shadow-xl animate-fade-in"
+                  onMouseLeave={() => setIsDropdownOpen(false)}
+                >
+                  <div className="py-2 px-2 space-y-1">
+                    <button 
+                      onClick={() => scrollToSection('proceso')}
+                      className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg transition-colors font-medium"
+                    >
+                      Nuestro Proceso
+                    </button>
+                    <button 
+                      onClick={() => scrollToSection('certificaciones')}
+                      className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg transition-colors font-medium"
+                    >
+                      Certificaciones
+                    </button>
+                    <button 
+                      onClick={() => scrollToSection('testimonios')}
+                      className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg transition-colors font-medium"
+                    >
+                      Testimonios
+                    </button>
+                    <button 
+                      onClick={() => scrollToSection('blog')}
+                      className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg transition-colors font-medium"
+                    >
+                      Blog & Recursos
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
             
             <button 
               onClick={() => scrollToSection('contacto')}
-              className="text-foreground hover:text-primary transition-all duration-200 font-medium px-3 py-1 rounded-full hover:bg-primary/10 text-sm lg:text-base"
+              className="bg-gradient-to-r from-primary to-blue-light text-white hover:from-primary/90 hover:to-blue-light/90 transition-all duration-200 font-semibold px-4 py-1 rounded-full text-sm whitespace-nowrap shadow-md hover:shadow-lg"
             >
               Contacto
             </button>
-
-            {/* Separator */}
-            <div className="w-px h-6 bg-border"></div>
-
-            {/* Theme Toggle */}
-            <ThemeToggle />
           </div>
         </div>
 
@@ -94,7 +136,6 @@ export function SliderNavbar() {
 
             {/* Mobile Menu Button */}
             <div className="flex items-center gap-2">
-              <ThemeToggle />
               <Button
                 variant="ghost"
                 size="icon"
@@ -113,19 +154,51 @@ export function SliderNavbar() {
             <div className="py-3 px-4 space-y-2">
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="block w-full text-left px-3 py-2 text-foreground hover:bg-primary/10 rounded-full transition-colors text-sm font-medium"
+                className="block w-full text-left px-3 py-2 text-foreground hover:bg-primary/10 rounded-lg transition-colors text-sm font-medium"
               >
                 Servicios
               </button>
               <button 
                 onClick={() => scrollToSection('quienes-somos')}
-                className="block w-full text-left px-3 py-2 text-foreground hover:bg-primary/10 rounded-full transition-colors text-sm font-medium"
+                className="block w-full text-left px-3 py-2 text-foreground hover:bg-primary/10 rounded-lg transition-colors text-sm font-medium"
               >
-                Quienes Somos
+                Nosotros
+              </button>
+              
+              {/* Divider */}
+              <div className="border-t border-border my-2"></div>
+              
+              <button 
+                onClick={() => scrollToSection('proceso')}
+                className="block w-full text-left px-3 py-2 text-foreground/80 hover:bg-primary/10 rounded-lg transition-colors text-sm"
+              >
+                Nuestro Proceso
               </button>
               <button 
+                onClick={() => scrollToSection('certificaciones')}
+                className="block w-full text-left px-3 py-2 text-foreground/80 hover:bg-primary/10 rounded-lg transition-colors text-sm"
+              >
+                Certificaciones
+              </button>
+              <button 
+                onClick={() => scrollToSection('testimonios')}
+                className="block w-full text-left px-3 py-2 text-foreground/80 hover:bg-primary/10 rounded-lg transition-colors text-sm"
+              >
+                Testimonios
+              </button>
+              <button 
+                onClick={() => scrollToSection('blog')}
+                className="block w-full text-left px-3 py-2 text-foreground/80 hover:bg-primary/10 rounded-lg transition-colors text-sm"
+              >
+                Blog & Recursos
+              </button>
+              
+              {/* Divider */}
+              <div className="border-t border-border my-2"></div>
+              
+              <button 
                 onClick={() => scrollToSection('contacto')}
-                className="block w-full text-left px-3 py-2 text-foreground hover:bg-primary/10 rounded-full transition-colors text-sm font-medium"
+                className="block w-full text-center px-3 py-2 bg-gradient-to-r from-primary to-blue-light text-white rounded-lg transition-colors text-sm font-semibold shadow-md"
               >
                 Contacto
               </button>

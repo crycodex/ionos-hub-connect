@@ -7,18 +7,17 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import BlobCursor from "./components/BlobCursor";
 import ScrollToTop from "./components/ScrollToTop";
-import ROICalculator from "./pages/ROICalculator";
-
 // Importar páginas de servicios
-import AgentesVirtuales from "./pages/servicios/AgentesVirtuales";
-import BusinessIntelligence from "./pages/servicios/BusinessIntelligence";
-import BusinessIntelligenceDemo from "./pages/servicios/BusinessIntelligenceDemo";
-import MarketingDigital from "./pages/servicios/MarketingDigital";
+import AgentesVirtuales from "./pages/servicios/agentes-virtuales/AgentesVirtuales";
+import ROICalculator from "./pages/servicios/agentes-virtuales/ROICalculator";
+import BusinessIntelligence from "./pages/servicios/business-intelligence/BusinessIntelligence";
+import BusinessIntelligenceDemo from "./pages/servicios/business-intelligence/BusinessIntelligenceDemo";
+import MarketingDigital from "./pages/servicios/marketing-digital/MarketingDigital";
 import CasosDeExito from "./pages/servicios/marketing-digital/CasosDeExito";
 import Portfolio from "./pages/servicios/marketing-digital/Portfolio";
-import InvestigacionMercados from "./pages/servicios/InvestigacionMercados";
-import TransformacionDigital from "./pages/servicios/TransformacionDigital";
-import EticaTratamientoDatos from "./pages/servicios/EticaTratamientoDatos";
+import InvestigacionMercados from "./pages/servicios/investigacion-mercados/InvestigacionMercados";
+import TransformacionDigital from "./pages/servicios/transformacion-digital/TransformacionDigital";
+import EticaTratamientoDatos from "./pages/servicios/etica-tratamiento-datos/EticaTratamientoDatos";
 
 const queryClient = new QueryClient();
 

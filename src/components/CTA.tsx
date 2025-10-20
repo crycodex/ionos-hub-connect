@@ -51,7 +51,7 @@ export function CTA() {
               <div className="grid md:grid-cols-2 gap-6 pt-8 max-w-2xl mx-auto">
                 <div className="flex items-center justify-center gap-3 text-muted-foreground">
                   <Mail className="h-5 w-5 text-primary" />
-                  <span>contacto@ionoshub.ec</span>
+                  <span>info@ionoshub.net</span>
                 </div>
                 <div className="flex items-center justify-center gap-3 text-muted-foreground">
                   <MapPin className="h-5 w-5 text-primary" />
