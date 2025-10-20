@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home } from "lucide-react";
 import { Button } from "./ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -36,15 +36,13 @@ export function SliderNavbar() {
         {/* Desktop Slider Background */}
         <div className="hidden md:block bg-card/80 backdrop-blur-lg border border-border rounded-full px-4 lg:px-6 py-3 shadow-lg">
           <div className="flex items-center gap-4 lg:gap-6">
-            {/* Logo */}
+            {/* Home Icon */}
             <div 
               className="flex items-center cursor-pointer hover:scale-105 transition-transform duration-200" 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-              <img 
-                src="/imgs/logo%20remove.png" 
-                alt="IonosHub"  
-                className="h-5 lg:h-6 w-auto" 
+              <Home 
+                className="h-5 lg:h-6 w-5 lg:w-6 text-primary hover:text-primary/80 transition-colors" 
               />
             </div>
 
@@ -84,15 +82,13 @@ export function SliderNavbar() {
         {/* Mobile Slider Background */}
         <div className="md:hidden bg-card/80 backdrop-blur-lg border border-border rounded-full px-4 py-2 shadow-lg">
           <div className="flex items-center justify-between gap-3">
-            {/* Logo */}
+            {/* Home Icon */}
             <div 
               className="flex items-center cursor-pointer hover:scale-105 transition-transform duration-200" 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-              <img 
-                src="/imgs/logo%20remove.png" 
-                alt="IonosHub"  
-                className="h-5 w-auto" 
+              <Home 
+                className="h-5 w-5 text-primary hover:text-primary/80 transition-colors" 
               />
             </div>
 

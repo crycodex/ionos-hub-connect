@@ -1,6 +1,7 @@
 import { SliderNavbar } from "@/components/SliderNavbar";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
+import { QuienesSomos } from "@/components/QuienesSomos";
 import { ValueProposition } from "@/components/ValueProposition";
 import { Architecture } from "@/components/Architecture";
 import { CTA } from "@/components/CTA";
@@ -13,6 +14,7 @@ const Index = () => {
       <main>
         <Hero />
         <Services />
+        <QuienesSomos />
         <ValueProposition />
         <Architecture />
         <div id="contacto">

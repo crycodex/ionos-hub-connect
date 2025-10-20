@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback, useState } from 'react';
 import gsap from 'gsap';
 import './BlobCursor.css';
 
@@ -28,6 +28,33 @@ export default function BlobCursor({
 }) {
   const containerRef = useRef(null);
   const blobsRef = useRef([]);
+  const [isVisible, setIsVisible] = useState(true);
+
+  // Detectar cuando el usuario está interactuando con inputs
+  useEffect(() => {
+    const handleFocus = (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+        setIsVisible(false);
+      }
+    };
+
+    const handleBlur = (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+        // Solo mostrar el cursor después de un pequeño delay para evitar parpadeos
+        setTimeout(() => {
+          setIsVisible(true);
+        }, 100);
+      }
+    };
+
+    document.addEventListener('focusin', handleFocus);
+    document.addEventListener('focusout', handleBlur);
+
+    return () => {
+      document.removeEventListener('focusin', handleFocus);
+      document.removeEventListener('focusout', handleBlur);
+    };
+  }, []);
 
   const updateOffset = useCallback(() => {
     if (!containerRef.current) return { left: 0, top: 0 };
@@ -88,6 +115,8 @@ export default function BlobCursor({
       document.removeEventListener('touchmove', handleGlobalMove);
     };
   }, [fastDuration, slowDuration, fastEase, slowEase]);
+
+  if (!isVisible) return null;
 
   return (
     <div

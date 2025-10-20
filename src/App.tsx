@@ -6,6 +6,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import BlobCursor from "./components/BlobCursor";
+import ScrollToTop from "./components/ScrollToTop";
+import ROICalculator from "./pages/ROICalculator";
+
+// Importar páginas de servicios
+import AgentesVirtuales from "./pages/servicios/AgentesVirtuales";
+import BusinessIntelligence from "./pages/servicios/BusinessIntelligence";
+import BusinessIntelligenceDemo from "./pages/servicios/BusinessIntelligenceDemo";
+import MarketingDigital from "./pages/servicios/MarketingDigital";
+import CasosDeExito from "./pages/servicios/marketing-digital/CasosDeExito";
+import Portfolio from "./pages/servicios/marketing-digital/Portfolio";
+import InvestigacionMercados from "./pages/servicios/InvestigacionMercados";
+import TransformacionDigital from "./pages/servicios/TransformacionDigital";
+import EticaTratamientoDatos from "./pages/servicios/EticaTratamientoDatos";
 
 const queryClient = new QueryClient();
 
@@ -33,8 +46,19 @@ const App = () => (
         zIndex={100}
       />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/roi-calculator" element={<ROICalculator />} />
+          <Route path="/agentes-virtuales" element={<AgentesVirtuales />} />
+          <Route path="/business-intelligence" element={<BusinessIntelligence />} />
+          <Route path="/business-intelligence-demo" element={<BusinessIntelligenceDemo />} />
+          <Route path="/marketing-digital" element={<MarketingDigital />} />
+          <Route path="/marketing-digital/casos-de-exito" element={<CasosDeExito />} />
+          <Route path="/marketing-digital/portfolio" element={<Portfolio />} />
+          <Route path="/investigacion-de-mercados" element={<InvestigacionMercados />} />
+          <Route path="/transformacion-digital" element={<TransformacionDigital />} />
+          <Route path="/etica-y-tratamiento-de-datos" element={<EticaTratamientoDatos />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

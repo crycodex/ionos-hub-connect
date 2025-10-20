@@ -1,42 +1,49 @@
 import { BarChart3, Bot, Lightbulb, Rocket, Search, Shield } from "lucide-react";
 import { Card } from "./ui/card";
+import { Link } from "react-router-dom";
 
 const services = [
   {
     icon: Bot,
-      title: "Agentes Virtuales a medida",
-      description: "Asistentes virtuales inteligentes que atienden 24/7 con funciones como agendar citas, brindar información y atención al cliente.",
-    gradient: "from-primary to-blue-light"
+    title: "Agentes Virtuales a medida",
+    description: "Asistentes virtuales inteligentes que atienden 24/7 con funciones como agendar citas, brindar información y atención al cliente.",
+    gradient: "from-primary to-blue-light",
+    path: "/agentes-virtuales"
   },
   {
     icon: BarChart3,
     title: "Business Intelligence",
     description: "Dashboards ejecutivos, análisis avanzado y pronósticos que transforman datos en decisiones estratégicas.",
-    gradient: "from-blue-light to-primary"
+    gradient: "from-blue-light to-primary",
+    path: "/business-intelligence"
   },
   {
     icon: Lightbulb,
     title: "Marketing Digital",
     description: "Campañas de marketing efectivas, retailing digital y engagement estratégico. Contamos con personal capacitado y tecnologías emergentes para impulsar tu presencia digital.",
-    gradient: "from-accent to-orange-500"
+    gradient: "from-accent to-orange-500",
+    path: "/marketing-digital"
   },
   {
     icon: Search,
     title: "Investigación de Mercados",
     description: "Estudios especializados que identifican oportunidades y ventajas competitivas para tu negocio.",
-    gradient: "from-secondary to-muted-foreground"
+    gradient: "from-secondary to-muted-foreground",
+    path: "/investigacion-de-mercados"
   },
   {
     icon: Rocket,
     title: "Transformación Digital",
     description: "Asesorías tecnológicas, capacitaciones especializadas y consultorías para automatización de procesos y modernización sin detener tu operación.",
-    gradient: "from-accent to-orange-500"
+    gradient: "from-accent to-orange-500",
+    path: "/transformacion-digital"
   },
   {
     icon: Shield,
     title: "Ética y Tratamiento de Datos",
     description: "Garantizamos que los datos son seguros y trabajamos bajo la Ley Orgánica de Protección de Datos  (15/1999).",
-    gradient: "from-blue-vivid to-primary"
+    gradient: "from-blue-vivid to-primary",
+    path: "/etica-y-tratamiento-de-datos"
   }
 ];
 
@@ -58,23 +65,24 @@ export function Services() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {services.map((service, index) => (
-            <Card 
-              key={service.title}
-              className="group p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/20 bg-card animate-fade-in cursor-pointer"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <service.icon className="w-full h-full text-white" />
-              </div>
-              
-              <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              
-              <p className="text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
-            </Card>
+            <Link key={service.title} to={service.path}>
+              <Card 
+                className="group p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/20 bg-card animate-fade-in cursor-pointer"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <service.icon className="w-full h-full text-white" />
+                </div>
+                
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>

@@ -4,7 +4,7 @@ import { Card } from "./ui/card";
 
 export function CTA() {
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/593999999999?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20las%20soluciones%20de%20IonosHub", "_blank");
+    window.open("https://wa.me/593992249152?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20las%20soluciones%20de%20IonosHub", "_blank", "noopener,noreferrer");
   };
 
   return (

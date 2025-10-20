@@ -194,7 +194,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 ## 📞 Contacto
 
 **IonosHub**
-- WhatsApp: [+593 99 999 9999](https://wa.me/593999999999)
+- WhatsApp: [+593 99 224 9152](https://wa.me/593992249152)
 - Email: [contacto@ionoshub.com](mailto:contacto@ionoshub.com)
 - Website: [www.ionoshub.com](https://www.ionoshub.com)
 
