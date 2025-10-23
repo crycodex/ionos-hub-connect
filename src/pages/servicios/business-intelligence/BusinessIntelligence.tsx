@@ -111,7 +111,7 @@ const BusinessIntelligence = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gradient-to-r from-primary to-blue-light" onClick={handleWhatsAppDemo}>
                 <Eye className="mr-2 h-5 w-5" />
-                Ver Demo 
+                Ver Demo Personalizada
               </Button>
               <Button size="lg" variant="outline" onClick={handleWhatsAppConsultoria}>
                 <MessageCircle className="mr-2 h-5 w-5" />
