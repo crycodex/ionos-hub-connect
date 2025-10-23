@@ -1,4 +1,4 @@
-import { SliderNavbar } from "@/components/SliderNavbar";
+import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { ValueProposition } from "@/components/ValueProposition";
@@ -9,11 +9,26 @@ import { Architecture } from "@/components/Architecture";
 import { Testimonials } from "@/components/Testimonials";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
+import { useEffect } from "react";
 
 const Index = () => {
+  // Scroll automático a la sección si hay un hash en la URL
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const id = hash.replace('#', '');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen">
-      <SliderNavbar />
+      <Navbar />
       <main>
         {/* 1. Hero - Primera impresión: HOOK (captar atención) */}
         <Hero />

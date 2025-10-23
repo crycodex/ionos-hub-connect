@@ -183,14 +183,6 @@ const BusinessIntelligenceDemo = () => {
               Dashboard Principal
             </Button>
             <Button
-              variant={activeTab === "analytics" ? "default" : "ghost"}
-              onClick={() => setActiveTab("analytics")}
-              className="mx-1"
-            >
-              <TrendingUp className="h-4 w-4 mr-2" />
-              Análisis Predictivo
-            </Button>
-            <Button
               variant={activeTab === "reports" ? "default" : "ghost"}
               onClick={() => setActiveTab("reports")}
               className="mx-1"
@@ -565,132 +557,6 @@ const BusinessIntelligenceDemo = () => {
           </div>
         )}
 
-        {/* Analytics Tab */}
-        {activeTab === "analytics" && (
-          <div className="space-y-8">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-4">Análisis Predictivo con IA</h2>
-              <p className="text-xl text-muted-foreground">
-                Nuestros algoritmos analizan patrones históricos para predecir tendencias futuras
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-8">
-              <Card className="p-6">
-                <h3 className="text-xl font-semibold mb-6">Pronóstico de Ventas</h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Próximo mes</span>
-                    <span className="font-semibold text-green-500">+15%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Próximos 3 meses</span>
-                    <span className="font-semibold text-blue-500">+28%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Próximos 6 meses</span>
-                    <span className="font-semibold text-purple-500">+45%</span>
-                  </div>
-                </div>
-                <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
-                  <p className="text-sm text-blue-800 dark:text-blue-200">
-                    <strong>Insight:</strong> El algoritmo detecta un patrón estacional que sugiere 
-                    un aumento del 15% en ventas para el próximo mes basado en datos históricos.
-                  </p>
-                </div>
-              </Card>
-
-              <Card className="p-6">
-                <h3 className="text-xl font-semibold mb-6">Detección de Anomalías</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3 bg-green-50 dark:bg-green-950/20 rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-green-500 rounded-full" />
-                      <span className="text-sm">Tráfico web normal</span>
-                    </div>
-                    <Badge variant="secondary">Normal</Badge>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-yellow-50 dark:bg-yellow-950/20 rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full" />
-                      <span className="text-sm">Pico inusual en conversiones</span>
-                    </div>
-                    <Badge variant="outline" className="text-yellow-600">Alerta</Badge>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-red-50 dark:bg-red-950/20 rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-red-500 rounded-full" />
-                      <span className="text-sm">Caída en satisfacción del cliente</span>
-                    </div>
-                    <Badge variant="destructive">Crítico</Badge>
-                  </div>
-                </div>
-              </Card>
-            </div>
-
-            <Card className="p-6">
-              <h3 className="text-xl font-semibold mb-6">Recomendaciones de IA</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="p-4 border border-blue-200 dark:border-blue-800 rounded-lg">
-                    <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">
-                      Optimizar Inventario
-                    </h4>
-                    <p className="text-sm text-blue-800 dark:text-blue-200 mb-3">
-                      Reducir stock de productos con baja rotación en un 20% para liberar capital.
-                    </p>
-                    <div className="flex items-center gap-2 text-sm text-blue-600">
-                      <TrendingUp className="h-4 w-4" />
-                      Impacto estimado: +$15,000/mes
-                    </div>
-                  </div>
-                  
-                  <div className="p-4 border border-green-200 dark:border-green-800 rounded-lg">
-                    <h4 className="font-semibold text-green-900 dark:text-green-100 mb-2">
-                      Campaña de Retención
-                    </h4>
-                    <p className="text-sm text-green-800 dark:text-green-200 mb-3">
-                      Implementar programa de fidelización para clientes con riesgo de abandono.
-                    </p>
-                    <div className="flex items-center gap-2 text-sm text-green-600">
-                      <Users className="h-4 w-4" />
-                      Impacto estimado: +25% retención
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="p-4 border border-purple-200 dark:border-purple-800 rounded-lg">
-                    <h4 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">
-                      Horarios Pico
-                    </h4>
-                    <p className="text-sm text-purple-800 dark:text-purple-200 mb-3">
-                      Ajustar personal para cubrir horas de mayor demanda identificadas.
-                    </p>
-                    <div className="flex items-center gap-2 text-sm text-purple-600">
-                      <Clock className="h-4 w-4" />
-                      Impacto estimado: +18% eficiencia
-                    </div>
-                  </div>
-                  
-                  <div className="p-4 border border-orange-200 dark:border-orange-800 rounded-lg">
-                    <h4 className="font-semibold text-orange-900 dark:text-orange-100 mb-2">
-                      Precios Dinámicos
-                    </h4>
-                    <p className="text-sm text-orange-800 dark:text-orange-200 mb-3">
-                      Implementar estrategia de precios basada en demanda y competencia.
-                    </p>
-                    <div className="flex items-center gap-2 text-sm text-orange-600">
-                      <DollarSign className="h-4 w-4" />
-                      Impacto estimado: +12% margen
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-        )}
-
         {/* Reports Tab */}
         {activeTab === "reports" && (
           <div className="space-y-8">
@@ -715,12 +581,6 @@ const BusinessIntelligenceDemo = () => {
                 <p className="text-sm text-muted-foreground mb-4">
                   Resumen completo de KPIs, tendencias y recomendaciones estratégicas.
                 </p>
-                <div className="flex items-center justify-between">
-                  <Badge variant="secondary">PDF • Excel</Badge>
-                  <Button size="sm" variant="outline">
-                    <Download className="h-4 w-4" />
-                  </Button>
-                </div>
               </Card>
 
               <Card className="p-6 hover:shadow-lg transition-shadow cursor-pointer">
@@ -736,12 +596,6 @@ const BusinessIntelligenceDemo = () => {
                 <p className="text-sm text-muted-foreground mb-4">
                   Desglose detallado de ventas por producto, región y canal.
                 </p>
-                <div className="flex items-center justify-between">
-                  <Badge variant="secondary">PDF • PowerPoint</Badge>
-                  <Button size="sm" variant="outline">
-                    <Download className="h-4 w-4" />
-                  </Button>
-                </div>
               </Card>
 
               <Card className="p-6 hover:shadow-lg transition-shadow cursor-pointer">
@@ -757,120 +611,18 @@ const BusinessIntelligenceDemo = () => {
                 <p className="text-sm text-muted-foreground mb-4">
                   Análisis de feedback y métricas de experiencia del cliente.
                 </p>
-                <div className="flex items-center justify-between">
-                  <Badge variant="secondary">PDF • CSV</Badge>
-                  <Button size="sm" variant="outline">
-                    <Download className="h-4 w-4" />
-                  </Button>
-                </div>
               </Card>
             </div>
 
             <Card className="p-6">
-              <h3 className="text-xl font-semibold mb-6">Configuración de Alertas</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3 border rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-green-500 rounded-full" />
-                      <span className="text-sm">Ventas caen 10%</span>
-                    </div>
-                    <Badge variant="secondary">Activo</Badge>
-                  </div>
-                  <div className="flex items-center justify-between p-3 border rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-blue-500 rounded-full" />
-                      <span className="text-sm">Nuevo cliente importante</span>
-                    </div>
-                    <Badge variant="secondary">Activo</Badge>
-                  </div>
-                  <div className="flex items-center justify-between p-3 border rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full" />
-                      <span className="text-sm">Inventario bajo</span>
-                    </div>
-                    <Badge variant="secondary">Activo</Badge>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3 border rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-red-500 rounded-full" />
-                      <span className="text-sm">Satisfacción &lt; 4.0</span>
-                    </div>
-                    <Badge variant="secondary">Activo</Badge>
-                  </div>
-                  <div className="flex items-center justify-between p-3 border rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-purple-500 rounded-full" />
-                      <span className="text-sm">Anomalía detectada</span>
-                    </div>
-                    <Badge variant="secondary">Activo</Badge>
-                  </div>
-                  <div className="flex items-center justify-between p-3 border rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-gray-400 rounded-full" />
-                      <span className="text-sm">Reporte semanal listo</span>
-                    </div>
-                    <Badge variant="outline">Inactivo</Badge>
-                  </div>
-                </div>
-              </div>
+              <p>aqui vamos a poner un elemento tipo galeria/carrusel vamos a poner los dashboard del orli</p>
             </Card>
           </div>
         )}
 
-        {/* Device Compatibility */}
-        <Card className="p-6 mt-8">
-          <h3 className="text-xl font-semibold mb-6 text-center">Acceso Multi-Dispositivo</h3>
-          <div className="grid md:grid-cols-3 gap-6 text-center">
-            <div className="space-y-3">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto">
-                <Monitor className="h-8 w-8 text-white" />
-              </div>
-              <h4 className="font-semibold">Desktop</h4>
-              <p className="text-sm text-muted-foreground">
-                Experiencia completa con todas las funcionalidades
-              </p>
-            </div>
-            <div className="space-y-3">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto">
-                <Tablet className="h-8 w-8 text-white" />
-              </div>
-              <h4 className="font-semibold">Tablet</h4>
-              <p className="text-sm text-muted-foreground">
-                Interfaz optimizada para pantallas medianas
-              </p>
-            </div>
-            <div className="space-y-3">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto">
-                <Smartphone className="h-8 w-8 text-white" />
-              </div>
-              <h4 className="font-semibold">Móvil</h4>
-              <p className="text-sm text-muted-foreground">
-                App nativa con notificaciones push
-              </p>
-            </div>
-          </div>
-        </Card>
-
         {/* CTA */}
         <div className="text-center bg-gradient-to-r from-primary/10 to-blue-light/10 border border-primary/20 rounded-2xl p-12 mt-12">
-          <h2 className="text-3xl font-bold mb-4">¿Te gustó lo que viste?</h2>
-          <p className="text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
-            Esta es solo una muestra de lo que podemos crear para tu empresa. 
-            Cada dashboard se personaliza según tus necesidades específicas.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-blue-light" onClick={handleWhatsAppContact}>
-              <MessageCircle className="mr-2 h-5 w-5" />
-              Implementar en Mi Empresa
-            </Button>
-            <Button size="lg" variant="outline" onClick={handleVolver}>
-              <ArrowLeft className="mr-2 h-5 w-5" />
-              Volver a Business Intelligence
-            </Button>
-          </div>
+          <p>aqui va un cta</p>
         </div>
       </div>
       

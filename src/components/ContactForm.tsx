@@ -326,29 +326,6 @@ export function ContactForm() {
           </div>
         </div>
 
-        {/* Google Maps Section */}
-        <div className="mt-16">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-2">Nuestra Ubicación</h3>
-            <p className="text-muted-foreground">Encuéntranos en Ecuador y atendemos toda Latinoamérica</p>
-          </div>
-          
-          <Card className="overflow-hidden border-2">
-            <div className="relative w-full h-[450px]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.09395187716!2d-78.56445284999999!3d-0.22985369999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a4002427c9f%3A0x44f9ba827cc17f73!2sQuito%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1234567890123!5m2!1ses!2sec"
-                width="100%"
-                height="450"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación IonosHub en Ecuador"
-                className="w-full h-full"
-              />
-            </div>
-          </Card>
-        </div>
       </div>
     </section>
   );

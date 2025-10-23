@@ -24,7 +24,7 @@ const services = [
   {
     icon: Lightbulb,
     title: "Marketing Digital",
-    description: "Campañas de marketing efectivas, retailing digital y engagement estratégico. Contamos con personal capacitado y tecnologías emergentes para impulsar tu presencia digital.",
+    description: "Impulsa tu presencia online con campañas de alto impacto y estrategias personalizadas orientadas a resultados.",
     gradient: "from-accent to-orange-500",
     path: "/marketing-digital",
     features: ["Campañas ROI+", "Retargeting digital", "Casos de éxito", "Portfolio completo"],
@@ -42,7 +42,7 @@ const services = [
   {
     icon: Rocket,
     title: "Transformación Digital",
-    description: "Asesorías tecnológicas, capacitaciones especializadas y consultorías para automatización de procesos y modernización sin detener tu operación.",
+    description: "Automatización de procesos, adopción tecnológica y optimización digital para hacer tu empresa más eficiente.",
     gradient: "from-accent to-orange-500",
     path: "/transformacion-digital",
     features: ["Asesoría tecnológica", "Capacitación especializada", "RPA Automation", "Modernización sin parar"],

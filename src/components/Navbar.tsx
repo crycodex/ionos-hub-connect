@@ -1,98 +1,103 @@
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
-import { ThemeToggle } from "./ThemeToggle";
+import StaggeredMenu, { StaggeredMenuItem, StaggeredMenuSocialItem } from './StaggeredMenu';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const scrollToSection = (id: string) => {
+    // Si no estamos en la página principal, redirigir primero
+    if (window.location.pathname !== '/') {
+      window.location.href = `/#${id}`;
+      return;
+    }
+    
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
+  const handleHomeClick = () => {
+    if (window.location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.location.href = '/';
+    }
+  };
+
+  const menuItems: StaggeredMenuItem[] = [
+    {
+      label: 'Inicio',
+      ariaLabel: 'Ir al inicio',
+      link: '/',
+      onClick: handleHomeClick
+    },
+    {
+      label: 'Servicios',
+      ariaLabel: 'Ver nuestros servicios',
+      link: '/#servicios',
+      onClick: () => scrollToSection('servicios')
+    },
+    {
+      label: 'Certificaciones',
+      ariaLabel: 'Ver certificaciones',
+      link: '/#certificaciones',
+      onClick: () => scrollToSection('certificaciones')
+    },
+    {
+      label: 'Testimonios',
+      ariaLabel: 'Leer testimonios de clientes',
+      link: '/#testimonios',
+      onClick: () => scrollToSection('testimonios')
+    },
+    {
+      label: 'Blog',
+      ariaLabel: 'Ir al blog',
+      link: '/blog-recursos',
+      onClick: () => window.location.href = '/blog-recursos'
+    },
+    {
+      label: 'Contacto',
+      ariaLabel: 'Contactar con nosotros',
+      link: '/#contacto',
+      onClick: () => scrollToSection('contacto')
+    }
+  ];
+
+  const socialItems: StaggeredMenuSocialItem[] = [
+    {
+      label: 'LinkedIn',
+      link: 'https://linkedin.com/company/ionoshub'
+    },
+    {
+      label: 'Instagram',
+      link: 'https://www.instagram.com/ionoshub?igsh=aW1uYXhha21rM2Rx'
+    },
+    {
+      label: 'WhatsApp',
+      link: 'https://api.whatsapp.com/send/?phone=593992249152&text&type=phone_number&app_absent=0'
+    },
+    {
+      label: 'TikTok',
+      link: 'https://www.tiktok.com/@ionoshub?_t=ZM-90mGRMawTPP&_r=1'
+    }
+  ];
+
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-background/80 backdrop-blur-lg border-b border-border shadow-sm" 
-          : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img src="/imgs/logo%20remove.png" alt="IonosHub" className="h-6 md:h-8 w-auto" />
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            <button 
-              onClick={() => scrollToSection('servicios')}
-              className="text-foreground hover:text-primary transition-colors font-medium"
-            >
-              Servicios
-            </button>
-            <button 
-              onClick={() => scrollToSection('quienes-somos')}
-              className="text-foreground hover:text-primary transition-colors font-medium"
-            >
-              Quienes Somos
-            </button>
-            <button 
-              onClick={() => scrollToSection('contacto')}
-              className="text-foreground hover:text-primary transition-colors font-medium"
-            >
-              Contacto
-            </button>
-            <ThemeToggle />
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
-            <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="rounded-full"
-            >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-3 animate-fade-in">
-            <button 
-              onClick={() => scrollToSection('servicios')}
-              className="block w-full text-left px-4 py-2 text-foreground hover:bg-muted rounded-lg transition-colors"
-            >
-              Servicios
-            </button>
-            <button 
-              onClick={() => scrollToSection('contacto')}
-              className="block w-full text-left px-4 py-2 text-foreground hover:bg-muted rounded-lg transition-colors"
-            >
-              Contacto
-            </button>
-          </div>
-        )}
-      </div>
-    </nav>
+    <StaggeredMenu
+      position="right"
+      items={menuItems}
+      socialItems={socialItems}
+      displaySocials={true}
+      displayItemNumbering={true}
+      menuButtonColor="#000000"
+      openMenuButtonColor="#000000"
+      changeMenuColorOnOpen={false}
+      colors={['rgba(0, 168, 232, 0.1)', 'rgba(0, 168, 232, 0.05)']}
+      logoUrl="/imgs/logo%20remove.png"
+      accentColor="#00A8E8"
+      isFixed={true}
+      themeToggle={<ThemeToggle />}
+      onMenuOpen={() => console.log('Menu abierto')}
+      onMenuClose={() => console.log('Menu cerrado')}
+    />
   );
 }

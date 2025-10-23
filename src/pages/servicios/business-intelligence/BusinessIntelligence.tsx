@@ -20,6 +20,8 @@ import {
   Globe,
   Smartphone
 } from "lucide-react";
+import { SiTableau } from "react-icons/si";
+import { TbChartBar, TbChartLine, TbChartPie, TbWorldWww } from "react-icons/tb";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -104,13 +106,6 @@ const BusinessIntelligence = () => {
                 </div>
                 <p className="text-sm text-muted-foreground">Mejora en velocidad de decisiones</p>
               </div>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-semibold">+300%</span>
-                </div>
-                <p className="text-sm text-muted-foreground">ROI en análisis de datos</p>
-              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -120,30 +115,24 @@ const BusinessIntelligence = () => {
               </Button>
               <Button size="lg" variant="outline" onClick={handleWhatsAppConsultoria}>
                 <MessageCircle className="mr-2 h-5 w-5" />
-                Consultoría Estratégica
+                Contáctanos
               </Button>
             </div>
           </div>
 
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-blue-light/20 rounded-3xl blur-3xl" />
-            <div className="relative bg-card p-8 rounded-2xl border-2 border-primary/10">
-              <div className="space-y-6">
-                <div className="text-center">
-                  <div className="text-5xl font-bold text-primary mb-2">24/7</div>
-                  <p className="text-muted-foreground">Monitoreo Inteligente</p>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-muted/50 rounded-lg">
-                    <Database className="h-8 w-8 text-primary mx-auto mb-2" />
-                    <div className="font-semibold text-sm">Integración Total</div>
-                    <div className="text-xs text-muted-foreground">Todos tus sistemas</div>
-                  </div>
-                  <div className="text-center p-4 bg-muted/50 rounded-lg">
-                    <Target className="h-8 w-8 text-primary mx-auto mb-2" />
-                    <div className="font-semibold text-sm">KPIs Personalizados</div>
-                    <div className="text-xs text-muted-foreground">Para tu industria</div>
-                  </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-light/5 rounded-3xl blur-xl" />
+            <div className="relative bg-card rounded-2xl border border-border/50 overflow-hidden">
+              <div className="space-y-0">
+                {/* Imagen del Dashboard */}
+                <div className="relative w-full aspect-[4/3]">
+                  <img 
+                    src="/imgs/fotoDashboards.webp" 
+                    alt="Dashboard de Business Intelligence" 
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Brillo azul inferior */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-blue-500/30 via-blue-400/15 to-transparent pointer-events-none" />
                 </div>
               </div>
             </div>
@@ -198,7 +187,7 @@ const BusinessIntelligence = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-6x12 mx-auto">
           <Card className="p-6 hover:shadow-lg transition-shadow">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-light to-primary rounded-lg flex items-center justify-center mb-4">
               <BarChart3 className="h-6 w-6 text-white" />
@@ -299,55 +288,6 @@ const BusinessIntelligence = () => {
             </ul>
           </Card>
 
-          <Card className="p-6 hover:shadow-lg transition-shadow">
-            <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center mb-4">
-              <Shield className="h-6 w-6 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold mb-3">Seguridad Avanzada</h3>
-            <p className="text-muted-foreground mb-4">
-              Protección de nivel empresarial con encriptación end-to-end, 
-              control de acceso granular y cumplimiento de normativas internacionales.
-            </p>
-            <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Encriptación AES-256
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Auditoría completa
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Cumplimiento GDPR
-              </li>
-            </ul>
-          </Card>
-
-          <Card className="p-6 hover:shadow-lg transition-shadow">
-            <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
-              <Smartphone className="h-6 w-6 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold mb-3">Acceso Móvil</h3>
-            <p className="text-muted-foreground mb-4">
-              Accede a tus dashboards y reportes desde cualquier dispositivo, 
-              con aplicaciones nativas optimizadas para iOS y Android.
-            </p>
-            <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Apps nativas
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Sincronización offline
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Notificaciones push
-              </li>
-            </ul>
-          </Card>
         </div>
 
         {/* Technology Stack */}
@@ -363,7 +303,7 @@ const BusinessIntelligence = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center p-6 bg-background rounded-xl">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Database className="h-8 w-8 text-white" />
+                <TbChartBar className="h-8 w-8 text-white" />
               </div>
               <h3 className="font-semibold mb-2">Power BI</h3>
               <p className="text-sm text-muted-foreground">Visualización avanzada</p>
@@ -371,119 +311,31 @@ const BusinessIntelligence = () => {
             
             <div className="text-center p-6 bg-background rounded-xl">
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Brain className="h-8 w-8 text-white" />
+                <TbChartLine className="h-8 w-8 text-white" />
               </div>
-              <h3 className="font-semibold mb-2">Azure AI</h3>
-              <p className="text-sm text-muted-foreground">Machine Learning</p>
+              <h3 className="font-semibold mb-2">Looker Studio</h3>
+              <p className="text-sm text-muted-foreground">Gráficos Dinámicos</p>
             </div>
             
             <div className="text-center p-6 bg-background rounded-xl">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Settings className="h-8 w-8 text-white" />
+                <SiTableau className="h-8 w-8 text-white" />
               </div>
-              <h3 className="font-semibold mb-2">Azure Data Factory</h3>
-              <p className="text-sm text-muted-foreground">Integración de datos</p>
+              <h3 className="font-semibold mb-2">Tableau</h3>
+              <p className="text-sm text-muted-foreground">Personalización Total</p>
             </div>
             
             <div className="text-center p-6 bg-background rounded-xl">
               <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-white" />
+                <TbWorldWww className="h-8 w-8 text-white" />
               </div>
-              <h3 className="font-semibold mb-2">Azure Security</h3>
-              <p className="text-sm text-muted-foreground">Protección empresarial</p>
+              <h3 className="font-semibold mb-2">Web App</h3>
+              <p className="text-sm text-muted-foreground">Dashboard local</p>
             </div>
           </div>
         </div>
 
-        {/* Success Cases */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Casos de Éxito</h2>
-            <p className="text-xl text-muted-foreground">
-              Empresas que han transformado su toma de decisiones con nuestros dashboards
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                  <TrendingUp className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Retail Chain</h3>
-                  <p className="text-sm text-muted-foreground">15 sucursales</p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-sm">Aumento en ventas:</span>
-                  <span className="font-semibold text-green-500">+45%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm">Reducción de inventario:</span>
-                  <span className="font-semibold text-blue-500">-30%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm">ROI en 6 meses:</span>
-                  <span className="font-semibold text-purple-500">+280%</span>
-                </div>
-              </div>
-            </Card>
 
-            <Card className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
-                  <Users className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Clínica Médica</h3>
-                  <p className="text-sm text-muted-foreground">50+ doctores</p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-sm">Optimización de citas:</span>
-                  <span className="font-semibold text-green-500">+60%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm">Reducción de esperas:</span>
-                  <span className="font-semibold text-blue-500">-50%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm">Satisfacción pacientes:</span>
-                  <span className="font-semibold text-purple-500">+85%</span>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
-                  <PieChart className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Fintech</h3>
-                  <p className="text-sm text-muted-foreground">Startup</p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-sm">Detección de fraudes:</span>
-                  <span className="font-semibold text-green-500">+95%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm">Tiempo de análisis:</span>
-                  <span className="font-semibold text-blue-500">-80%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm">Crecimiento mensual:</span>
-                  <span className="font-semibold text-purple-500">+120%</span>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
 
         {/* Process */}
         <div className="bg-gradient-to-r from-primary/5 to-blue-light/5 rounded-2xl p-8 mb-16">
@@ -539,21 +391,7 @@ const BusinessIntelligence = () => {
 
         {/* CTA */}
         <div className="text-center bg-gradient-to-r from-primary/10 to-blue-light/10 border border-primary/20 rounded-2xl p-12">
-          <h2 className="text-3xl font-bold mb-4">¿Listo para transformar tus datos en ventaja competitiva?</h2>
-          <p className="text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
-            Agenda una consultoría gratuita y descubre cómo Business Intelligence puede 
-            revolucionar la toma de decisiones en tu empresa.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-blue-light" onClick={handleWhatsAppDemo}>
-              <Eye className="mr-2 h-5 w-5" />
-              Demo Personalizada Gratis
-            </Button>
-            <Button size="lg" variant="outline" onClick={handleWhatsAppConsultoria}>
-              <MessageCircle className="mr-2 h-5 w-5" />
-              Consultoría Estratégica
-            </Button>
-          </div>
+          <p>aqui va un cta</p>
         </div>
       </div>
       
