@@ -266,37 +266,6 @@ export function QuienesSomos() {
           </div>
         </div>
 
-        {/* Estadísticas */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4">Nuestros Logros</h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Números que respaldan nuestra experiencia y compromiso con la excelencia.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <Card className="p-6 text-center">
-              <div className="text-3xl font-bold text-primary mb-2">+50</div>
-              <div className="text-sm text-muted-foreground">Empresas Transformadas</div>
-            </Card>
-            
-            <Card className="p-6 text-center">
-              <div className="text-3xl font-bold text-primary mb-2">+5</div>
-              <div className="text-sm text-muted-foreground">Años de Experiencia</div>
-            </Card>
-            
-            <Card className="p-6 text-center">
-              <div className="text-3xl font-bold text-primary mb-2">+30</div>
-              <div className="text-sm text-muted-foreground">Industrias Atendidas</div>
-            </Card>
-            
-            <Card className="p-6 text-center">
-              <div className="text-3xl font-bold text-primary mb-2">98%</div>
-              <div className="text-sm text-muted-foreground">Satisfacción Cliente</div>
-            </Card>
-          </div>
-        </div>
 
         {/* Certificaciones */}
         <div className="mb-16">

@@ -7,7 +7,6 @@ import {
   MessageSquare, 
   Mail, 
   Phone,
-  Building,
   User,
   Send,
   CheckCircle,
@@ -21,7 +20,6 @@ export function ContactForm() {
     name: "",
     email: "",
     phone: "",
-    company: "",
     service: "",
     message: ""
   });
@@ -29,19 +27,20 @@ export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const services = [
-    "Agentes Virtuales",
-    "Business Intelligence",
-    "Marketing Digital",
-    "Investigación de Mercados",
-    "Transformación Digital",
-    "Ética y Tratamiento de Datos",
-    "Consultoría General"
+    "Business Intelligence y Análisis de Datos",
+    "Automatización de Procesos",
+    "Agentes Virtuales e IA Conversacional",
+    "Estudios de Mercado e Investigación",
+    "Transformación Digital Empresarial",
+    "Consultoría en Tecnología",
+    "Otro"
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
   };
 
@@ -57,7 +56,6 @@ export function ContactForm() {
       `*Nombre:* ${formData.name}\n` +
       `*Email:* ${formData.email}\n` +
       `*Teléfono:* ${formData.phone}\n` +
-      `*Empresa:* ${formData.company}\n` +
       `*Servicio de Interés:* ${formData.service}\n` +
       `*Mensaje:*\n${formData.message}`;
 
@@ -73,7 +71,6 @@ export function ContactForm() {
         name: "",
         email: "",
         phone: "",
-        company: "",
         service: "",
         message: ""
       });
@@ -165,26 +162,10 @@ export function ContactForm() {
                     />
                   </div>
 
-                  {/* Company */}
-                  <div>
-                    <label className="block text-sm font-semibold mb-2 flex items-center gap-2">
-                      <Building className="h-4 w-4 text-primary" />
-                      Empresa
-                    </label>
-                    <Input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      placeholder="Mi Empresa S.A."
-                      className="h-12"
-                    />
-                  </div>
-
                   {/* Service */}
                   <div>
                     <label className="block text-sm font-semibold mb-2">
-                      Servicio de Interés *
+                      ¿En qué podemos ayudarte? *
                     </label>
                     <select
                       name="service"
@@ -193,27 +174,11 @@ export function ContactForm() {
                       required
                       className="w-full h-12 px-3 rounded-md border border-input bg-background text-foreground"
                     >
-                      <option value="">Selecciona un servicio</option>
+                      <option value="">Selecciona una opción</option>
                       {services.map(service => (
                         <option key={service} value={service}>{service}</option>
                       ))}
                     </select>
-                  </div>
-
-                  {/* Message */}
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">
-                      Mensaje *
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Cuéntanos sobre tu proyecto o necesidad..."
-                      required
-                      rows={4}
-                      className="w-full px-3 py-2 rounded-md border border-input bg-background text-foreground resize-none"
-                    />
                   </div>
                 </div>
 
@@ -359,6 +324,30 @@ export function ContactForm() {
               </Button>
             </Card>
           </div>
+        </div>
+
+        {/* Google Maps Section */}
+        <div className="mt-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-2">Nuestra Ubicación</h3>
+            <p className="text-muted-foreground">Encuéntranos en Ecuador y atendemos toda Latinoamérica</p>
+          </div>
+          
+          <Card className="overflow-hidden border-2">
+            <div className="relative w-full h-[450px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.09395187716!2d-78.56445284999999!3d-0.22985369999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a4002427c9f%3A0x44f9ba827cc17f73!2sQuito%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1234567890123!5m2!1ses!2sec"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación IonosHub en Ecuador"
+                className="w-full h-full"
+              />
+            </div>
+          </Card>
         </div>
       </div>
     </section>

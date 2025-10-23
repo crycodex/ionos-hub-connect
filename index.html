@@ -30,8 +30,26 @@
     <meta property="og:image" content="/imgs/icon.png" />
   </head>
 
-  <body class="dark">
+  <body>
     <div id="root"></div>
+    
+    <!-- Script para inicializar el tema antes de que React se monte -->
+    <script>
+      // Evitar el flash de contenido con tema incorrecto (FOUC - Flash of Unstyled Content)
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const root = document.documentElement;
+        
+        // Si hay un tema guardado, aplicarlo inmediatamente
+        if (savedTheme === 'dark') {
+          root.classList.add('dark');
+        } else {
+          // Por defecto, modo claro (no se necesita clase)
+          root.classList.remove('dark');
+        }
+      })();
+    </script>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

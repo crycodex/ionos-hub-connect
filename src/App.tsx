@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import BlogRecursos from "./pages/BlogRecursos";
 import BlobCursor from "./components/BlobCursor";
 import ScrollToTop from "./components/ScrollToTop";
 // Importar páginas de servicios
@@ -48,6 +49,7 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/blog-recursos" element={<BlogRecursos />} />
           <Route path="/roi-calculator" element={<ROICalculator />} />
           <Route path="/agentes-virtuales" element={<AgentesVirtuales />} />
           <Route path="/business-intelligence" element={<BusinessIntelligence />} />

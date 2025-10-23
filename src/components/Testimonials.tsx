@@ -271,31 +271,6 @@ export function Testimonials() {
           </Card>
         </div>
 
-        {/* Bottom Stats */}
-        <div className="max-w-4xl mx-auto mt-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <TrendingUp className="h-8 w-8 text-primary mx-auto mb-3" />
-              <div className="text-2xl font-bold mb-1">98%</div>
-              <div className="text-sm text-muted-foreground">Satisfacción Cliente</div>
-            </Card>
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <Users className="h-8 w-8 text-primary mx-auto mb-3" />
-              <div className="text-2xl font-bold mb-1">+50</div>
-              <div className="text-sm text-muted-foreground">Empresas Atendidas</div>
-            </Card>
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <Clock className="h-8 w-8 text-primary mx-auto mb-3" />
-              <div className="text-2xl font-bold mb-1">5+ Años</div>
-              <div className="text-sm text-muted-foreground">Experiencia</div>
-            </Card>
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-              <Award className="h-8 w-8 text-primary mx-auto mb-3" />
-              <div className="text-2xl font-bold mb-1">100+</div>
-              <div className="text-sm text-muted-foreground">Proyectos Exitosos</div>
-            </Card>
-          </div>
-        </div>
       </div>
     </section>
   );

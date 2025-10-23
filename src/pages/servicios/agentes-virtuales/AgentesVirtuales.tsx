@@ -1,8 +1,72 @@
 import { ArrowLeft, Bot, Clock, MessageCircle, Users, CheckCircle, Zap, Shield, BarChart3, Phone, Calendar, Headphones, Globe, Brain } from "lucide-react";
+import { FaWhatsapp, FaMailchimp, FaSlack, FaGoogle, FaShopify, FaMicrosoft } from "react-icons/fa";
+import { SiZapier, SiHubspot, SiSalesforce } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Footer } from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
+
+// Componente placeholder para futuras implementaciones
+const MetricsChart = () => {
+  return (
+    <div className="w-full bg-white rounded-lg shadow-sm dark:bg-gray-800 p-6">
+      <div className="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center">
+          <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center me-3">
+            <Bot className="w-6 h-6 text-gray-500 dark:text-gray-400" />
+          </div>
+          <div>
+            <h5 className="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">95%</h5>
+            <p className="text-sm font-normal text-gray-500 dark:text-gray-400">Satisfacción del cliente</p>
+          </div>
+        </div>
+        <div>
+          <span className="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+            <svg className="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13V1m0 0L1 5m4-4 4 4" />
+            </svg>
+            +30%
+          </span>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 mb-4">
+        <dl className="flex items-center">
+          <dt className="text-gray-500 dark:text-gray-400 text-sm font-normal me-1">Tiempo respuesta:</dt>
+          <dd className="text-gray-900 text-sm dark:text-white font-semibold">2 seg</dd>
+        </dl>
+        <dl className="flex items-center justify-end">
+          <dt className="text-gray-500 dark:text-gray-400 text-sm font-normal me-1">Reducción costos:</dt>
+          <dd className="text-gray-900 text-sm dark:text-white font-semibold">70%</dd>
+        </dl>
+      </div>
+
+      {/* Espacio reservado para futuras implementaciones */}
+      <div className="h-64 w-full bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-4">
+        <div className="text-center">
+          <BarChart3 className="w-12 h-12 text-gray-400 dark:text-gray-500 mx-auto mb-2" />
+          <p className="text-sm text-gray-500 dark:text-gray-400">Espacio reservado para futuras métricas</p>
+        </div>
+      </div>
+
+      <div className="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+        <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
+          Últimos 6 meses
+        </div>
+        <div className="flex gap-4">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+            <span className="text-xs text-gray-500">Satisfacción</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            <span className="text-xs text-gray-500">Reducción Costos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const AgentesVirtuales = () => {
   const navigate = useNavigate();
@@ -62,10 +126,10 @@ const AgentesVirtuales = () => {
                 <p className="text-muted-foreground">Atención 24/7 automatizada</p>
               </div>
             </div>
-            
+
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Desarrollamos agentes virtuales inteligentes que transforman la experiencia del cliente con tecnología de vanguardia. 
-              Nuestros asistentes IA procesan lenguaje natural, aprenden de cada interacción y proporcionan respuestas precisas 
+              Desarrollamos agentes virtuales inteligentes que transforman la experiencia del cliente con tecnología de vanguardia.
+              Nuestros asistentes IA procesan lenguaje natural, aprenden de cada interacción y proporcionan respuestas precisas
               las 24 horas del día, reduciendo costos operativos hasta un 70% mientras mejoran la satisfacción del cliente.
             </p>
 
@@ -74,74 +138,57 @@ const AgentesVirtuales = () => {
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Solicitar Demo Gratuita
               </Button>
-              <Button size="lg" variant="outline" onClick={handleROICalculator}>
+              <Button size="lg" variant="outline" disabled className="opacity-50 cursor-not-allowed">
                 <BarChart3 className="mr-2 h-5 w-5" />
-                Ver ROI Calculator
+                ROI Calculator (En Desarrollo)
               </Button>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-blue-light/20 rounded-3xl blur-3xl" />
-            <div className="relative bg-card p-8 rounded-2xl border-2 border-primary/10">
-              <div className="space-y-6">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">-70%</div>
-                  <p className="text-muted-foreground">Reducción en costos operativos</p>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-muted/50 rounded-lg">
-                    <Clock className="h-8 w-8 text-primary mx-auto mb-2" />
-                    <div className="font-semibold text-sm">Respuesta 2 seg</div>
-                  </div>
-                  <div className="text-center p-4 bg-muted/50 rounded-lg">
-                    <Globe className="h-8 w-8 text-primary mx-auto mb-2" />
-                    <div className="font-semibold text-sm">15+ Idiomas</div>
-                  </div>
-                </div>
-                <div className="text-center pt-4 border-t border-border">
-                  <div className="text-2xl font-bold text-accent mb-1">95%</div>
-                  <p className="text-sm text-muted-foreground">Satisfacción del cliente</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <MetricsChart />
         </div>
 
         {/* Features */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
+            Nuestros Agentes Virtuales
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
           <Card className="p-6 group hover:shadow-lg transition-all duration-300">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-light p-3 mb-4 group-hover:scale-110 transition-transform duration-300">
-              <Calendar className="w-full h-full text-white" />
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-orange-500 p-3 group-hover:scale-110 transition-transform duration-300">
+                <Users className="w-full h-full text-white" />
+              </div>
+              <h3 className="text-xl font-semibold">Agentes de Ventas Personalizados</h3>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Agendamiento Inteligente</h3>
             <p className="text-muted-foreground mb-4">
-              Sistema automático de reservas que se integra con Google Calendar, Outlook y tu CRM. 
-              Maneja conflictos, envía recordatorios y reprograma citas automáticamente.
+              Agentes virtuales especializados en ventas entrenados con tu catálogo, precios y políticas comerciales. 
+              Califican leads, presentan productos y cierran ventas las 24 horas del día con técnicas de persuasión optimizadas.
             </p>
             <ul className="text-sm text-muted-foreground space-y-1">
               <li className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-primary" />
-                Sincronización en tiempo real
+                Calificación automática de leads
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-primary" />
-                Recordatorios automáticos
+                Presentación de productos personalizada
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-primary" />
-                Detección de conflictos
+                Técnicas de cierre de ventas
               </li>
             </ul>
           </Card>
-          
           <Card className="p-6 group hover:shadow-lg transition-all duration-300">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-light to-primary p-3 mb-4 group-hover:scale-110 transition-transform duration-300">
-              <Headphones className="w-full h-full text-white" />
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-light to-primary p-3 group-hover:scale-110 transition-transform duration-300">
+                <Headphones className="w-full h-full text-white" />
+              </div>
+              <h3 className="text-xl font-semibold">Soporte Técnico Avanzado</h3>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Soporte Técnico Avanzado</h3>
             <p className="text-muted-foreground mb-4">
-              Resolución automática del 80% de consultas técnicas. Escalamiento inteligente a especialistas 
+              Resolución automática de consultas técnicas. Escalamiento inteligente a especialistas
               humanos cuando es necesario, con contexto completo de la conversación.
             </p>
             <ul className="text-sm text-muted-foreground space-y-1">
@@ -159,179 +206,121 @@ const AgentesVirtuales = () => {
               </li>
             </ul>
           </Card>
-          
           <Card className="p-6 group hover:shadow-lg transition-all duration-300">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-orange-500 p-3 mb-4 group-hover:scale-110 transition-transform duration-300">
-              <BarChart3 className="w-full h-full text-white" />
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-light p-3 group-hover:scale-110 transition-transform duration-300">
+                <Calendar className="w-full h-full text-white" />
+              </div>
+              <h3 className="text-xl font-semibold">Agendamiento Inteligente</h3>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Análisis de Conversaciones</h3>
             <p className="text-muted-foreground mb-4">
-              Reportes detallados sobre interacciones, satisfacción del cliente y tendencias. 
-              Insights accionables para mejorar continuamente el servicio.
+              Sistema automático de reservas que se integra con Google Calendar y tu CRM.
+              Maneja conflictos, envía recordatorios y reprograma citas automáticamente.
             </p>
             <ul className="text-sm text-muted-foreground space-y-1">
               <li className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-primary" />
-                Métricas en tiempo real
+                Sincronización en tiempo real
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-primary" />
-                Análisis de sentimientos
+                Recordatorios automáticos
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-primary" />
-                Dashboards ejecutivos
+                Detección de conflictos
               </li>
             </ul>
           </Card>
-        </div>
-
-        {/* Tecnología y Capacidades */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Tecnología de <span className="bg-gradient-to-r from-primary to-blue-light bg-clip-text text-transparent">Vanguardia</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Nuestros agentes virtuales utilizan las últimas tecnologías en IA, procesamiento de lenguaje natural 
-              y machine learning para ofrecer experiencias conversacionales excepcionales.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="p-6 text-center group hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-blue-light p-4 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Brain className="w-full h-full text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">IA Conversacional</h3>
-              <p className="text-sm text-muted-foreground">
-                Procesamiento de lenguaje natural avanzado con comprensión contextual y aprendizaje continuo.
-              </p>
-            </Card>
-
-            <Card className="p-6 text-center group hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-light to-primary p-4 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Zap className="w-full h-full text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Respuesta Instantánea</h3>
-              <p className="text-sm text-muted-foreground">
-                Latencia menor a 2 segundos con escalabilidad automática para manejar picos de tráfico.
-              </p>
-            </Card>
-
-            <Card className="p-6 text-center group hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-orange-500 p-4 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Shield className="w-full h-full text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Seguridad Enterprise</h3>
-              <p className="text-sm text-muted-foreground">
-                Encriptación end-to-end, cumplimiento GDPR y auditorías de seguridad regulares.
-              </p>
-            </Card>
-
-            <Card className="p-6 text-center group hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-secondary to-muted-foreground p-4 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Phone className="w-full h-full text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Multi-Canal</h3>
-              <p className="text-sm text-muted-foreground">
-                WhatsApp, Telegram, web chat, voz y email. Experiencia unificada en todos los canales.
-              </p>
-            </Card>
           </div>
         </div>
 
-        {/* Casos de Uso */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Casos de <span className="bg-gradient-to-r from-primary to-blue-light bg-clip-text text-transparent">Éxito</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Empresas líderes ya confían en nuestros agentes virtuales para transformar su atención al cliente.
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-6 bg-gradient-to-br from-primary/5 to-blue-light/5 border-primary/20">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 p-3">
-                  <Users className="w-full h-full text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Clínica Médica</h3>
-                  <p className="text-sm text-muted-foreground">Sector Salud</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Agente virtual que maneja 500+ citas diarias, reduce tiempo de espera en 60% 
-                y mejora la satisfacción del paciente.
-              </p>
-              <div className="flex justify-between text-sm">
-                <span className="text-primary font-semibold">+60% eficiencia</span>
-                <span className="text-muted-foreground">ROI: 340%</span>
-              </div>
-            </Card>
 
-            <Card className="p-6 bg-gradient-to-br from-blue-light/5 to-primary/5 border-blue-light/20">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-blue-light/10 p-3">
-                  <MessageCircle className="w-full h-full text-blue-light" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">E-commerce</h3>
-                  <p className="text-sm text-muted-foreground">Retail Online</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Soporte 24/7 que resuelve 85% de consultas automáticamente, 
-                aumenta conversiones en 25% y reduce costos operativos.
-              </p>
-              <div className="flex justify-between text-sm">
-                <span className="text-blue-light font-semibold">+25% ventas</span>
-                <span className="text-muted-foreground">ROI: 280%</span>
-              </div>
-            </Card>
+        {/* CTA Final - Estilo Referencia */}
+        <div className="bg-background border border-border rounded-2xl p-12 mb-16 shadow-sm">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Contenido de texto */}
+              <div className="text-center lg:text-left">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                  Transforma tu negocio
+                  <br />
+                  <span className="text-primary">con IA</span>
+                </h2>
 
-            <Card className="p-6 bg-gradient-to-br from-accent/5 to-orange-500/5 border-accent/20">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 p-3">
-                  <Calendar className="w-full h-full text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Servicios Financieros</h3>
-                  <p className="text-sm text-muted-foreground">Banca</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Agente que procesa consultas bancarias complejas, cumple regulaciones 
-                financieras y mantiene 99.9% de disponibilidad.
-              </p>
-              <div className="flex justify-between text-sm">
-                <span className="text-accent font-semibold">99.9% uptime</span>
-                <span className="text-muted-foreground">ROI: 420%</span>
-              </div>
-            </Card>
-          </div>
-        </div>
+                <p className="text-lg text-muted-foreground mb-8">
+                  Agentes virtuales inteligentes que se integran perfectamente con tus herramientas actuales y más de 50 empresas ya confían en nosotros.
+                </p>
 
-        {/* CTA Final */}
-        <div className="text-center bg-gradient-to-r from-primary/10 via-blue-light/10 to-primary/10 rounded-3xl p-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            ¿Listo para Transformar tu <span className="bg-gradient-to-r from-primary to-blue-light bg-clip-text text-transparent">Atención al Cliente?</span>
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Únete a más de 50 empresas que ya optimizaron su atención al cliente con nuestros agentes virtuales inteligentes.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-blue-light text-lg px-8 py-6" onClick={handleWhatsAppDemo}>
-              <MessageCircle className="mr-2 h-6 w-6" />
-              Solicitar Demo Personalizada
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6" onClick={handleWhatsAppCall}>
-              <Phone className="mr-2 h-6 w-6" />
-              Llamar Ahora
-            </Button>
+                <div className="flex justify-center lg:justify-start">
+                  <Button
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-semibold"
+                    onClick={handleWhatsAppDemo}
+                  >
+                    Solicitar demo
+                  </Button>
+                </div>
+              </div>
+
+              {/* Tarjetas de integraciones */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {/* WhatsApp */}
+                <div className="bg-gradient-to-br from-green-500/10 to-green-600/10 p-4 rounded-xl">
+                  <div className="w-8 h-8 bg-green-500 rounded-lg mb-3 flex items-center justify-center">
+                    <FaWhatsapp className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="text-sm font-semibold text-foreground">WhatsApp</div>
+                  <div className="text-xs text-muted-foreground">Integración directa</div>
+                </div>
+
+                {/* Salesforce */}
+                <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 p-4 rounded-xl">
+                  <div className="w-8 h-8 bg-blue-500 rounded-lg mb-3 flex items-center justify-center">
+                    <SiSalesforce className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="text-sm font-semibold text-foreground">Salesforce</div>
+                  <div className="text-xs text-muted-foreground">CRM completo</div>
+                </div>
+
+                {/* Zapier */}
+                <div className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 p-4 rounded-xl">
+                  <div className="w-8 h-8 bg-orange-500 rounded-lg mb-3 flex items-center justify-center">
+                    <SiZapier className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="text-sm font-semibold text-foreground">Zapier</div>
+                  <div className="text-xs text-muted-foreground">Automatización</div>
+                </div>
+
+                {/* Mailchimp */}
+                <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/10 p-4 rounded-xl">
+                  <div className="w-8 h-8 bg-purple-500 rounded-lg mb-3 flex items-center justify-center">
+                    <FaMailchimp className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="text-sm font-semibold text-foreground">Mailchimp</div>
+                  <div className="text-xs text-muted-foreground">Email marketing</div>
+                </div>
+
+                {/* Google */}
+                <div className="bg-gradient-to-br from-red-500/10 to-red-600/10 p-4 rounded-xl">
+                  <div className="w-8 h-8 bg-red-500 rounded-lg mb-3 flex items-center justify-center">
+                    <FaGoogle className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="text-sm font-semibold text-foreground">Google</div>
+                  <div className="text-xs text-muted-foreground">Analytics & Ads</div>
+                </div>
+
+                {/* Slack */}
+                <div className="bg-gradient-to-br from-pink-500/10 to-pink-600/10 p-4 rounded-xl">
+                  <div className="w-8 h-8 bg-pink-500 rounded-lg mb-3 flex items-center justify-center">
+                    <FaSlack className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="text-sm font-semibold text-foreground">Slack</div>
+                  <div className="text-xs text-muted-foreground">Comunicación</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -4,15 +4,11 @@ import {
   Award, 
   Shield, 
   CheckCircle, 
-  Star,
-  Building,
   Cloud,
   Lock,
   FileCheck,
   Globe,
-  TrendingUp,
-  Users,
-  Zap
+  Building
 } from "lucide-react";
 
 export function Certifications() {
@@ -64,42 +60,6 @@ export function Certifications() {
       description: "Auditoría de controles de seguridad y privacidad",
       badge: "2024",
       color: "from-red-500 to-pink-500"
-    }
-  ];
-
-  const partnerships = [
-    { name: "Salesforce", role: "Implementation Partner" },
-    { name: "HubSpot", role: "Solutions Partner" },
-    { name: "MongoDB", role: "Technology Partner" },
-    { name: "OpenAI", role: "Developer Partner" },
-    { name: "Stripe", role: "Verified Partner" },
-    { name: "Twilio", role: "ISV Partner" }
-  ];
-
-  const achievements = [
-    {
-      icon: Star,
-      title: "Top 10 Tech Companies",
-      description: "Ecuador 2024",
-      color: "text-yellow-500"
-    },
-    {
-      icon: Award,
-      title: "Innovation Award",
-      description: "LATAM Tech Summit",
-      color: "text-purple-500"
-    },
-    {
-      icon: TrendingUp,
-      title: "Best Growth",
-      description: "Startup Awards 2023",
-      color: "text-green-500"
-    },
-    {
-      icon: Users,
-      title: "Client Satisfaction",
-      description: "98% NPS Score",
-      color: "text-blue-500"
     }
   ];
 
@@ -162,78 +122,6 @@ export function Certifications() {
               </div>
             </Card>
           ))}
-        </div>
-
-        {/* Technology Partnerships */}
-        <div className="mb-16">
-          <h3 className="text-2xl lg:text-3xl font-bold mb-8 text-center">
-            Partnerships <span className="text-primary">Tecnológicos</span>
-          </h3>
-          
-          <Card className="p-8 max-w-5xl mx-auto border-2">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {partnerships.map((partner, index) => (
-                <div 
-                  key={index}
-                  className="text-center space-y-2 p-4 rounded-lg hover:bg-muted/50 transition-colors"
-                >
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-blue-light/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <Building className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="font-semibold text-sm">{partner.name}</div>
-                  <div className="text-xs text-muted-foreground">{partner.role}</div>
-                </div>
-              ))}
-            </div>
-          </Card>
-        </div>
-
-        {/* Achievements */}
-        <div>
-          <h3 className="text-2xl lg:text-3xl font-bold mb-8 text-center">
-            Premios y <span className="text-primary">Logros</span>
-          </h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {achievements.map((achievement, index) => (
-              <Card 
-                key={index}
-                className="p-6 text-center hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                <achievement.icon className={`h-12 w-12 ${achievement.color} mx-auto mb-4`} />
-                <h4 className="font-bold text-lg mb-2">{achievement.title}</h4>
-                <p className="text-sm text-muted-foreground">{achievement.description}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="mt-16 max-w-5xl mx-auto">
-          <Card className="p-8 bg-gradient-to-r from-primary/10 to-blue-light/10 border-2 border-primary/20">
-            <div className="grid md:grid-cols-4 gap-6 text-center">
-              <div>
-                <Zap className="h-10 w-10 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold mb-1">100%</div>
-                <div className="text-sm text-muted-foreground">Proyectos Exitosos</div>
-              </div>
-              <div>
-                <Shield className="h-10 w-10 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold mb-1">0</div>
-                <div className="text-sm text-muted-foreground">Brechas de Seguridad</div>
-              </div>
-              <div>
-                <Award className="h-10 w-10 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold mb-1">15+</div>
-                <div className="text-sm text-muted-foreground">Certificaciones</div>
-              </div>
-              <div>
-                <Star className="h-10 w-10 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold mb-1">5+ Años</div>
-                <div className="text-sm text-muted-foreground">En el Mercado</div>
-              </div>
-            </div>
-          </Card>
         </div>
       </div>
     </section>
