@@ -1,0 +1,95 @@
+import { Database, MessageSquare, Link2, Shield, Globe, BarChart2, FileCode, Users } from "lucide-react";
+import { Card } from "./ui/card";
+
+const solutions = [
+  {
+    icon: BarChart2,
+    name: "Ionos Insight",
+    description: "Dashboards y análisis de datos en tiempo real",
+    color: "from-primary to-blue-light"
+  },
+  {
+    icon: MessageSquare,
+    name: "Ionos Voice",
+    description: "IVR y agentes virtuales",
+    color: "from-blue-light to-primary"
+  },
+  {
+    icon: MessageSquare,
+    name: "Ionos Chat",
+    description: "Agentes IA que atienden 24/7",
+    color: "from-accent to-orange-500"
+  },
+  {
+    icon: Link2,
+    name: "Ionos Link",
+    description: "Integraciones/API & RPA",
+    color: "from-accent to-orange-500"
+  },
+  {
+    icon: Shield,
+    name: "Ionos Secure",
+    description: "Sistemas de seguridad empresarial, videovigilancia y detección de intrusos",
+    color: "from-secondary to-foreground"
+  },
+  {
+    icon: Globe,
+    name: "Ionos Web",
+    description: "Desarrollo web a medida y escalable para tu negocio",
+    color: "from-blue-vivid to-primary"
+  },
+  {
+    icon: Database,
+    name: "Ionos DataCare",
+    description: "Proteccion y tratamiento de datos",
+    color: "from-primary to-blue-light"
+  },
+  {
+    icon: Users,
+    name: "Ionos Marketing",
+    description: "Estudios de mercado y campañas de marketing.",
+    color: "from-accent to-orange-500"
+  }
+];
+
+export function Architecture() {
+  return (
+    <section className="py-20 md:py-32 bg-muted/30">
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            Arquitectura de{" "}
+            <span className="bg-gradient-to-r from-primary to-blue-light bg-clip-text text-transparent">
+              Soluciones
+            </span>
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            Suite completa de servicios diseñada para adaptarse a cualquier industria
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
+          {solutions.map((solution, index) => (
+            <Card
+              key={solution.name}
+              className="group p-6 hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/20 bg-card animate-fade-in text-center cursor-pointer"
+              style={{ animationDelay: `${index * 0.05}s` }}
+            >
+              <div className={`w-14 h-14 mx-auto rounded-xl bg-gradient-to-br ${solution.color} p-3 mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <solution.icon className="w-full h-full text-white" />
+              </div>
+              
+              <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
+                {solution.name}
+              </h3>
+              
+              <p className="text-sm text-muted-foreground">
+                {solution.description}
+              </p>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
