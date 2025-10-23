@@ -1,4 +1,4 @@
-import { BarChart3, Bot, Lightbulb, Rocket, Search, Shield, ArrowRight, CheckCircle } from "lucide-react";
+import { BarChart3, Bot, Lightbulb, Rocket, Search, Code, ArrowRight, CheckCircle } from "lucide-react";
 import { Card } from "./ui/card";
 import { Link } from "react-router-dom";
 
@@ -49,14 +49,14 @@ const services = [
     stats: "Sin Interrupciones"
   },
   {
-    icon: Shield,
-    title: "Ética y Tratamiento de Datos",
-    description: "Garantizamos que los datos son seguros y trabajamos bajo la Ley Orgánica de Protección de Datos  (15/1999).",
-    gradient: "from-blue-vivid to-primary",
-    path: "/etica-y-tratamiento-de-datos",
-    features: ["Cumplimiento LOPD", "Auditorías de seguridad", "Capacitación GDPR", "Monitoreo 24/7"],
-    stats: "Totalmente Seguro"
-  }
+    icon: Code,
+    title: "Desarrollo Web - Móvil",
+    description: "Sitios web profesionales, aplicaciones móviles y plataformas digitales personalizadas con las últimas tecnologías.",
+    gradient: "from-purple-500 to-pink-500",
+    path: "/desarrollo-web-movil",
+    features: ["Sitios web responsivos", "Apps móviles nativas", "E-commerce personalizado", "Integración de sistemas"],
+    stats: "Multiplataforma"
+  },
 ];
 
 export function Services() {

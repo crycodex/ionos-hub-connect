@@ -2,8 +2,10 @@ import {
   ArrowLeft, Users, BarChart, Target, PieChart, Layers, Calendar,
   FileText, CheckCircle, MessageCircle, Map, ClipboardCheck, Brain,
   Building, ShoppingCart, Smartphone, Laptop, Monitor, Headphones,
-  Briefcase, GraduationCap, Heart, Car, Home, Coffee, Camera, Music, Gamepad2, Shield
+  Briefcase, GraduationCap, Heart, Car, Home, Coffee, Camera, Music, Gamepad2, Shield,
+  TrendingUp, Award, Zap, Star, ArrowRight
 } from "lucide-react";
+import { motion } from "framer-motion";
 import { SiPython, SiMysql, SiTableau, SiTensorflow, SiPytorch, SiScikitlearn, SiR, SiJupyter, SiPandas, SiNumpy, SiScipy, SiPostgresql, SiMongodb } from "react-icons/si";
 import { FaDatabase, FaGlobe, FaBolt, FaMicrosoft } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
@@ -11,6 +13,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Footer } from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
+import ResearchIntegrations from "@/components/ResearchIntegrations";
 
 const InvestigacionMercados = () => {
   const navigate = useNavigate();
@@ -38,31 +41,47 @@ const InvestigacionMercados = () => {
     { icon: FaBolt, name: "Automatización", color: "text-yellow-600", url: "https://zapier.com/" }
   ];
 
-  // Datos de servicios especializados
+  // Datos de servicios especializados con iconos y colores sutiles
   const serviciosEspecializados = [
     { 
       name: "Análisis de Salud de Marca", 
       description: "Evaluación integral de percepción, reputación y posicionamiento de marca en el mercado",
       metrics: "Brand Health Score",
-      benefits: ["Percepción de marca", "Reputación online", "Posicionamiento competitivo", "Lealtad del cliente"]
+      benefits: ["Percepción de marca", "Reputación online", "Posicionamiento competitivo", "Lealtad del cliente"],
+      icon: Award,
+      color: "from-primary to-blue-light",
+      bgColor: "bg-muted/30",
+      borderColor: "border-border"
     },
     { 
       name: "Medición de Impacto Promocional", 
       description: "Análisis de efectividad y ROI de campañas promocionales y estrategias de pricing",
       metrics: "Promotional Lift",
-      benefits: ["ROI de promociones", "Efectividad de descuentos", "Impacto en ventas", "Optimización de pricing"]
+      benefits: ["ROI de promociones", "Efectividad de descuentos", "Impacto en ventas", "Optimización de pricing"],
+      icon: TrendingUp,
+      color: "from-primary to-blue-light",
+      bgColor: "bg-muted/30",
+      borderColor: "border-border"
     },
     { 
       name: "Evaluación de Experiencia del Cliente", 
       description: "Medición de satisfacción, lealtad y experiencia del cliente en todos los touchpoints",
       metrics: "NPS & CSAT",
-      benefits: ["Satisfacción del cliente", "Net Promoter Score", "Customer Journey", "Retención y lealtad"]
+      benefits: ["Satisfacción del cliente", "Net Promoter Score", "Customer Journey", "Retención y lealtad"],
+      icon: Star,
+      color: "from-primary to-blue-light",
+      bgColor: "bg-muted/30",
+      borderColor: "border-border"
     },
     { 
       name: "Validación de Viabilidad Comercial", 
       description: "Estudios de mercado para validar potencial comercial y viabilidad de nuevos productos/servicios",
       metrics: "Market Potential",
-      benefits: ["Tamaño de mercado", "Disposición de pago", "Competencia", "Oportunidades de crecimiento"]
+      benefits: ["Tamaño de mercado", "Disposición de pago", "Competencia", "Oportunidades de crecimiento"],
+      icon: Zap,
+      color: "from-primary to-blue-light",
+      bgColor: "bg-muted/30",
+      borderColor: "border-border"
     }
   ];
 
@@ -199,49 +218,111 @@ const InvestigacionMercados = () => {
 
         {/* Servicios Especializados */}
         <div className="mb-16">
-          <div className="text-center mb-10">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             <Badge variant="secondary" className="mb-4">Servicios Especializados</Badge>
             <h3 className="text-3xl font-bold mb-3">Estudios Específicos para Decisiones Clave</h3>
             <p className="text-muted-foreground max-w-3xl mx-auto">
               Investigaciones especializadas diseñadas para resolver desafíos específicos del negocio con metodologías probadas.
             </p>
-          </div>
+          </motion.div>
+          
           <div className="space-y-8">
             {serviciosEspecializados.map((servicio, index) => {
+              const IconComponent = servicio.icon;
               return (
-                <Card key={index} className="p-8 hover:shadow-lg transition-all duration-300 group cursor-pointer border-2 hover:border-primary/20">
-                  <div className="flex flex-col lg:flex-row lg:items-center gap-8">
-                    {/* Contenido principal */}
-                    <div className="flex-1 space-y-4">
-                      <div className="space-y-3">
-                        <h4 className="text-2xl font-bold group-hover:text-primary transition-colors">
-                          {servicio.name}
-                        </h4>
-                        <p className="text-muted-foreground text-base leading-relaxed">
-                          {servicio.description}
-                        </p>
-                        <Badge variant="outline" className="text-sm w-fit">
-                          {servicio.metrics}
-                        </Badge>
-                      </div>
-                    </div>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                  className="group"
+                >
+                  <Card className={`p-8 hover:shadow-xl transition-all duration-500 cursor-pointer border-2 ${servicio.borderColor} ${servicio.bgColor} hover:border-primary/30 relative overflow-hidden`}>
+                    {/* Fondo animado */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${servicio.color} opacity-0 group-hover:opacity-3 transition-opacity duration-500`} />
                     
-                    {/* Panel de beneficios */}
-                    <div className="lg:w-80">
-                      <div className="bg-muted/50 rounded-xl p-6 border border-border/50">
-                        <h5 className="text-sm font-semibold text-foreground mb-4">Beneficios Clave:</h5>
-                        <div className="space-y-3">
-                          {servicio.benefits.map((benefit, benefitIndex) => (
-                            <div key={benefitIndex} className="flex items-start gap-3 text-sm text-muted-foreground">
-                              <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
-                              <span>{benefit}</span>
+                    <div className="relative z-10">
+                      <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+                        {/* Contenido principal */}
+                        <div className="flex-1 space-y-4">
+                          {/* Header con icono */}
+                          <div className="flex items-start gap-4">
+                            <motion.div 
+                              className={`w-16 h-16 bg-gradient-to-br ${servicio.color} rounded-xl flex items-center justify-center shadow-lg`}
+                              whileHover={{ scale: 1.1, rotate: 5 }}
+                              transition={{ type: "spring", stiffness: 300 }}
+                            >
+                              <IconComponent className="h-8 w-8 text-white" />
+                            </motion.div>
+                            <div className="flex-1">
+                              <h4 className="text-2xl font-bold group-hover:text-primary transition-colors mb-2">
+                                {servicio.name}
+                              </h4>
+                              <Badge variant="outline" className="text-sm">
+                                {servicio.metrics}
+                              </Badge>
                             </div>
-                          ))}
+                          </div>
+
+                          {/* Descripción */}
+                          <p className="text-muted-foreground text-base leading-relaxed">
+                            {servicio.description}
+                          </p>
+                        </div>
+                        
+                        {/* Panel de beneficios */}
+                        <div className="lg:w-80">
+                          <div className="bg-muted/50 rounded-xl p-6 border border-border/50">
+                            <h5 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500" />
+                              Beneficios Clave:
+                            </h5>
+                            <div className="space-y-3">
+                              {servicio.benefits.map((benefit, benefitIndex) => (
+                                <motion.div 
+                                  key={benefitIndex} 
+                                  className="flex items-start gap-3 text-sm text-muted-foreground"
+                                  initial={{ opacity: 0, x: -10 }}
+                                  whileInView={{ opacity: 1, x: 0 }}
+                                  transition={{ duration: 0.4, delay: (index * 0.1) + (benefitIndex * 0.05) }}
+                                  viewport={{ once: true }}
+                                >
+                                  <div className="w-1.5 h-1.5 bg-gradient-to-r from-primary to-blue-light rounded-full flex-shrink-0 mt-2" />
+                                  <span>{benefit}</span>
+                                </motion.div>
+                              ))}
+                            </div>
+                          </div>
                         </div>
                       </div>
+
+                      {/* Botón de acción */}
+                      <motion.div
+                        className="mt-6 flex justify-end"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="text-xs px-3 py-1 h-8 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300"
+                          onClick={handleWhatsAppConsultoria}
+                        >
+                          Consultoría
+                          <ArrowRight className="ml-1 h-3 w-3" />
+                        </Button>
+                      </motion.div>
                     </div>
-                  </div>
-                </Card>
+                  </Card>
+                </motion.div>
               );
             })}
           </div>
@@ -394,8 +475,8 @@ const InvestigacionMercados = () => {
         </div>
 
         {/* CTA Final */}
-        <div className="text-center bg-gradient-to-r from-primary/10 to-blue-light/10 border border-primary/20 rounded-2xl p-12">
-          <p>aqui va el cta</p>
+        <div className="mb-16">
+          <ResearchIntegrations />
         </div>
       </div>
       <Footer />

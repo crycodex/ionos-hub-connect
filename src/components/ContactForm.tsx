@@ -203,6 +203,26 @@ export function ContactForm() {
                 <p className="text-xs text-muted-foreground text-center">
                   Al enviar este formulario, aceptas nuestra política de privacidad y tratamiento de datos.
                 </p>
+
+                {/* Google Maps */}
+                <div className="mt-6">
+                  <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-primary" />
+                    Nuestra Ubicación
+                  </h4>
+                  <div className="rounded-lg overflow-hidden border border-border">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8!2d-78.123!3d0.348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2a3b8c8c8c8c8c%3A0x8e2a3b8c8c8c8c8c!2sIbarra%2C%20Imbabura%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1234567890123!5m2!1ses!2sec"
+                      width="100%"
+                      height="200"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Ubicación de IonosHub - Ibarra, Imbabura, Ecuador"
+                    />
+                  </div>
+                </div>
               </form>
             ) : (
               <div className="text-center py-12">
@@ -268,14 +288,6 @@ export function ContactForm() {
                   </div>
                 </div>
               </div>
-
-              <Button
-                onClick={handleWhatsAppDirect}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white"
-              >
-                <MessageSquare className="h-5 w-5 mr-2" />
-                Chat Directo por WhatsApp
-              </Button>
             </Card>
 
             {/* Business Hours */}
@@ -304,24 +316,6 @@ export function ContactForm() {
                   </Badge>
                 </div>
               </div>
-            </Card>
-
-            {/* Schedule Meeting */}
-            <Card className="p-6 bg-gradient-to-br from-accent/10 to-primary/10">
-              <h4 className="font-bold mb-3 flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-primary" />
-                Agenda una Reunión
-              </h4>
-              <p className="text-sm text-muted-foreground mb-4">
-                Reserva 30 minutos con un especialista para una consulta gratuita
-              </p>
-              <Button 
-                variant="outline" 
-                className="w-full"
-                onClick={() => window.open("https://wa.me/593992249152?text=Hola,%20quiero%20agendar%20una%20reunión", "_blank", "noopener,noreferrer")}
-              >
-                Agendar Ahora
-              </Button>
             </Card>
           </div>
         </div>

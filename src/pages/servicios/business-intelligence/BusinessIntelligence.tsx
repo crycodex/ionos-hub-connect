@@ -27,6 +27,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Footer } from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
+import BusinessIntelligenceIntegrations from "@/components/BusinessIntelligenceIntegrations";
 
 const BusinessIntelligence = () => {
   const navigate = useNavigate();
@@ -389,9 +390,9 @@ const BusinessIntelligence = () => {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center bg-gradient-to-r from-primary/10 to-blue-light/10 border border-primary/20 rounded-2xl p-12">
-          <p>aqui va un cta</p>
+        {/* CTA - Integraciones */}
+        <div className="mb-16">
+          <BusinessIntelligenceIntegrations />
         </div>
       </div>
       
