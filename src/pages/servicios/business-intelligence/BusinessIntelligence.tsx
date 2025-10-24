@@ -110,11 +110,7 @@ const BusinessIntelligence = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-primary to-blue-light" onClick={handleWhatsAppDemo}>
-                <Eye className="mr-2 h-5 w-5" />
-                Ver Demo Personalizada
-              </Button>
-              <Button size="lg" variant="outline" onClick={handleWhatsAppConsultoria}>
+              <Button size="lg" className="bg-gradient-to-r from-primary to-blue-light" onClick={handleWhatsAppConsultoria}>
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Contáctanos
               </Button>
@@ -189,101 +185,113 @@ const BusinessIntelligence = () => {
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-6x12 mx-auto">
-          <Card className="p-6 hover:shadow-lg transition-shadow">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-light to-primary rounded-lg flex items-center justify-center mb-4">
-              <BarChart3 className="h-6 w-6 text-white" />
+          <Card className="group p-6 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-blue-50/30 dark:from-gray-900 dark:to-blue-950/20 relative overflow-hidden">
+            {/* Efecto de brillo animado */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+            
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-light to-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <BarChart3 className="h-6 w-6 text-white group-hover:rotate-12 transition-transform duration-300" />
             </div>
-            <h3 className="text-xl font-semibold mb-3">Dashboards Ejecutivos</h3>
-            <p className="text-muted-foreground mb-4">
+            <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">Dashboards Ejecutivos</h3>
+            <p className="text-muted-foreground mb-4 group-hover:text-foreground/80 transition-colors duration-300">
               Visualización en tiempo real de KPIs críticos con alertas inteligentes y 
               métricas personalizadas para cada nivel de tu organización.
             </p>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+              <li className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                <CheckCircle className="h-4 w-4 text-green-500 animate-pulse" />
                 Métricas en tiempo real
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+              <li className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                <CheckCircle className="h-4 w-4 text-green-500 animate-pulse" />
                 Alertas automáticas
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+              <li className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
+                <CheckCircle className="h-4 w-4 text-green-500 animate-pulse" />
                 Personalización total
               </li>
             </ul>
           </Card>
           
-          <Card className="p-6 hover:shadow-lg transition-shadow">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
-              <Brain className="h-6 w-6 text-white" />
+          <Card className="group p-6 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-purple-50/30 dark:from-gray-900 dark:to-purple-950/20 relative overflow-hidden">
+            {/* Efecto de brillo animado */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+            
+            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <Brain className="h-6 w-6 text-white group-hover:rotate-12 transition-transform duration-300" />
             </div>
-            <h3 className="text-xl font-semibold mb-3">Análisis Predictivo</h3>
-            <p className="text-muted-foreground mb-4">
+            <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">Análisis Predictivo</h3>
+            <p className="text-muted-foreground mb-4 group-hover:text-foreground/80 transition-colors duration-300">
               IA avanzada que analiza patrones históricos para predecir tendencias, 
               identificar oportunidades y prevenir riesgos antes de que impacten tu negocio.
             </p>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+              <li className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                <CheckCircle className="h-4 w-4 text-green-500 animate-pulse" />
                 Pronósticos de demanda
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+              <li className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                <CheckCircle className="h-4 w-4 text-green-500 animate-pulse" />
                 Detección de anomalías
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+              <li className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
+                <CheckCircle className="h-4 w-4 text-green-500 animate-pulse" />
                 Optimización automática
               </li>
             </ul>
           </Card>
           
-          <Card className="p-6 hover:shadow-lg transition-shadow">
-            <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4">
-              <Database className="h-6 w-6 text-white" />
+          <Card className="group p-6 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-green-50/30 dark:from-gray-900 dark:to-green-950/20 relative overflow-hidden">
+            {/* Efecto de brillo animado */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+            
+            <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <Database className="h-6 w-6 text-white group-hover:rotate-12 transition-transform duration-300" />
             </div>
-            <h3 className="text-xl font-semibold mb-3">Integración Total</h3>
-            <p className="text-muted-foreground mb-4">
+            <h3 className="text-xl font-semibold mb-3 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">Integración Total</h3>
+            <p className="text-muted-foreground mb-4 group-hover:text-foreground/80 transition-colors duration-300">
               Conectamos todos tus sistemas (CRM, ERP, redes sociales, e-commerce) 
               en una plataforma unificada para una visión 360° de tu empresa.
             </p>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+              <li className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                <CheckCircle className="h-4 w-4 text-green-500 animate-pulse" />
                 APIs nativas
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+              <li className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                <CheckCircle className="h-4 w-4 text-green-500 animate-pulse" />
                 Sincronización automática
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+              <li className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
+                <CheckCircle className="h-4 w-4 text-green-500 animate-pulse" />
                 Data warehouse
               </li>
             </ul>
           </Card>
 
-          <Card className="p-6 hover:shadow-lg transition-shadow">
-            <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-4">
-              <Activity className="h-6 w-6 text-white" />
+          <Card className="group p-6 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-orange-50/30 dark:from-gray-900 dark:to-orange-950/20 relative overflow-hidden">
+            {/* Efecto de brillo animado */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+            
+            <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <Activity className="h-6 w-6 text-white group-hover:rotate-12 transition-transform duration-300" />
             </div>
-            <h3 className="text-xl font-semibold mb-3">Reportes Automatizados</h3>
-            <p className="text-muted-foreground mb-4">
+            <h3 className="text-xl font-semibold mb-3 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-300">Reportes Automatizados</h3>
+            <p className="text-muted-foreground mb-4 group-hover:text-foreground/80 transition-colors duration-300">
               Generación automática de informes ejecutivos, alertas inteligentes 
               y análisis comparativos que llegan directamente a tu bandeja de entrada.
             </p>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+              <li className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                <CheckCircle className="h-4 w-4 text-green-500 animate-pulse" />
                 Programación flexible
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+              <li className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                <CheckCircle className="h-4 w-4 text-green-500 animate-pulse" />
                 Múltiples formatos
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+              <li className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
+                <CheckCircle className="h-4 w-4 text-green-500 animate-pulse" />
                 Distribución automática
               </li>
             </ul>
@@ -291,52 +299,153 @@ const BusinessIntelligence = () => {
 
         </div>
 
-        {/* Technology Stack */}
-        <div className="bg-muted/50 rounded-2xl p-8 mb-16">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold mb-4">Tecnología de Vanguardia</h2>
-            <p className="text-xl text-muted-foreground">
-              Utilizamos las herramientas más avanzadas del mercado para garantizar 
-              el mejor rendimiento y escalabilidad
+        {/* Dashboards Interactivos */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+              Dashboards Interactivos en Vivo
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Explora nuestros dashboards de Business Intelligence en tiempo real. 
+              Haz clic en cualquier imagen para acceder al reporte completo de Power BI.
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center p-6 bg-background rounded-xl">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <TbChartBar className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="font-semibold mb-2">Power BI</h3>
-              <p className="text-sm text-muted-foreground">Visualización avanzada</p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Reporte de Incidencias */}
+            <div className="group cursor-pointer" onClick={() => window.open('https://app.powerbi.com/view?r=eyJrIjoiNmFhNjhiZDMtZmIzZS00MTQ1LWFkZjgtYTVjMjg3ZWVkOTk2IiwidCI6IjhkYmUxNDY5LWM3OWMtNGUyMS05ZDQzLWNhNjVkOWU5YzQ3NSIsImMiOjR9', '_blank', 'noopener,noreferrer')}>
+              <Card className="overflow-hidden hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-red-50/30 dark:from-gray-900 dark:to-red-950/20 relative">
+                <div className="relative">
+                  <img 
+                    src="/imgs/dashboards/reporteIncidencias/image.png" 
+                    alt="Dashboard de Reporte de Incidencias" 
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center">
+                        <Activity className="h-4 w-4 text-white" />
+                      </div>
+                      <span className="text-white font-semibold">Reporte de Incidencias</span>
+                    </div>
+                    <p className="text-white/90 text-sm">Análisis en tiempo real de incidencias y métricas operativas</p>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl font-semibold group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300">
+                      Dashboard de Incidencias
+                    </h3>
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground group-hover:text-red-500 transition-colors duration-300">
+                      <span>Power BI</span>
+                      <BarChart3 className="h-4 w-4" />
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 group-hover:text-foreground/80 transition-colors duration-300">
+                    Monitoreo en tiempo real de incidencias, tiempos de respuesta y métricas de rendimiento operativo.
+                  </p>
+                  <div className="flex items-center gap-2 text-sm text-red-600 dark:text-red-400 font-medium">
+                    <span>Haz clic para explorar</span>
+                    <ArrowLeft className="h-4 w-4 rotate-180" />
+                  </div>
+                </div>
+              </Card>
             </div>
-            
-            <div className="text-center p-6 bg-background rounded-xl">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <TbChartLine className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="font-semibold mb-2">Looker Studio</h3>
-              <p className="text-sm text-muted-foreground">Gráficos Dinámicos</p>
+
+            {/* Reporte de Recursos */}
+            <div className="group cursor-pointer" onClick={() => window.open('https://app.powerbi.com/view?r=eyJrIjoiNWE3OGY0YzEtNTJlNC00NzBlLTkwNzctZTIyMTcyMWM3MTMzIiwidCI6IjhkYmUxNDY5LWM3OWMtNGUyMS05ZDQzLWNhNjVkOWU5YzQ3NSIsImMiOjR9', '_blank', 'noopener,noreferrer')}>
+              <Card className="overflow-hidden hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-green-50/30 dark:from-gray-900 dark:to-green-950/20 relative">
+                <div className="relative">
+                  <img 
+                    src="/imgs/dashboards/reporteRecursos/image.png" 
+                    alt="Dashboard de Reporte de Recursos" 
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
+                        <Database className="h-4 w-4 text-white" />
+                      </div>
+                      <span className="text-white font-semibold">Reporte de Recursos</span>
+                    </div>
+                    <p className="text-white/90 text-sm">Gestión y análisis de recursos empresariales</p>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl font-semibold group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">
+                      Dashboard de Recursos
+                    </h3>
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground group-hover:text-green-500 transition-colors duration-300">
+                      <span>Power BI</span>
+                      <BarChart3 className="h-4 w-4" />
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 group-hover:text-foreground/80 transition-colors duration-300">
+                    Análisis completo de recursos humanos, materiales y financieros con métricas de eficiencia.
+                  </p>
+                  <div className="flex items-center gap-2 text-sm text-green-600 dark:text-green-400 font-medium">
+                    <span>Haz clic para explorar</span>
+                    <ArrowLeft className="h-4 w-4 rotate-180" />
+                  </div>
+                </div>
+              </Card>
             </div>
-            
-            <div className="text-center p-6 bg-background rounded-xl">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <SiTableau className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="font-semibold mb-2">Tableau</h3>
-              <p className="text-sm text-muted-foreground">Personalización Total</p>
-            </div>
-            
-            <div className="text-center p-6 bg-background rounded-xl">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <TbWorldWww className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="font-semibold mb-2">Web App</h3>
-              <p className="text-sm text-muted-foreground">Dashboard local</p>
+
+            {/* Reporte de Ventas */}
+            <div className="group cursor-pointer" onClick={() => window.open('https://app.powerbi.com/view?r=eyJrIjoiYmJlNDNkNGUtMWI3Ny00MjMyLWI1ZmUtOWQ1NWJkZjYzNGRlIiwidCI6IjhkYmUxNDY5LWM3OWMtNGUyMS05ZDQzLWNhNjVkOWU5YzQ3NSIsImMiOjR9', '_blank', 'noopener,noreferrer')}>
+              <Card className="overflow-hidden hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-blue-50/30 dark:from-gray-900 dark:to-blue-950/20 relative">
+                <div className="relative">
+                  <img 
+                    src="/imgs/dashboards/reporteventas/image.png" 
+                    alt="Dashboard de Reporte de Ventas" 
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                        <TrendingUp className="h-4 w-4 text-white" />
+                      </div>
+                      <span className="text-white font-semibold">Reporte de Ventas</span>
+                    </div>
+                    <p className="text-white/90 text-sm">Análisis de rendimiento comercial y métricas de ventas</p>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      Dashboard de Ventas
+                    </h3>
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground group-hover:text-blue-500 transition-colors duration-300">
+                      <span>Power BI</span>
+                      <BarChart3 className="h-4 w-4" />
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 group-hover:text-foreground/80 transition-colors duration-300">
+                    Visualización de KPIs de ventas, análisis de tendencias y pronósticos de rendimiento comercial.
+                  </p>
+                  <div className="flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 font-medium">
+                    <span>Haz clic para explorar</span>
+                    <ArrowLeft className="h-4 w-4 rotate-180" />
+                  </div>
+                </div>
+              </Card>
             </div>
           </div>
+
+          <div className="text-center mt-8">
+            <p className="text-muted-foreground mb-4">
+              Estos dashboards están conectados en tiempo real con datos empresariales reales
+            </p>
+            <Button size="lg" variant="outline" onClick={handleWhatsAppDemo}>
+              <MessageCircle className="mr-2 h-5 w-5" />
+              Solicitar Dashboard Personalizado
+            </Button>
+          </div>
         </div>
-
-
 
         {/* Process */}
         <div className="bg-gradient-to-r from-primary/5 to-blue-light/5 rounded-2xl p-8 mb-16">

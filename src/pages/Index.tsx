@@ -4,6 +4,7 @@ import { Services } from "@/components/Services";
 import { ValueProposition } from "@/components/ValueProposition";
 import { QuienesSomos } from "@/components/QuienesSomos";
 import { Process } from "@/components/Process";
+import NuestroEquipo from "../components/NuestroEquipo";
 import { Certifications } from "@/components/Certifications";
 import { Architecture } from "@/components/Architecture";
 import { Testimonials } from "@/components/Testimonials";
@@ -38,6 +39,9 @@ const Index = () => {
         
         {/* 3. Value Proposition - POR QUÉ elegirnos: DIFERENCIACIÓN */}
         <ValueProposition />
+        
+        {/* 4. Nuestro Equipo - EQUIPO: CONFIANZA (humaniza la empresa) */}
+        <NuestroEquipo />
         
         {/* 6. Certifications - CREDENCIALES: AUTORIDAD (refuerza confianza) */}
         <Certifications />

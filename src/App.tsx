@@ -12,7 +12,6 @@ import ScrollToTop from "./components/ScrollToTop";
 import AgentesVirtuales from "./pages/servicios/agentes-virtuales/AgentesVirtuales";
 import ROICalculator from "./pages/servicios/agentes-virtuales/ROICalculator";
 import BusinessIntelligence from "./pages/servicios/business-intelligence/BusinessIntelligence";
-import BusinessIntelligenceDemo from "./pages/servicios/business-intelligence/BusinessIntelligenceDemo";
 import MarketingDigital from "./pages/servicios/marketing-digital/MarketingDigital";
 import InvestigacionMercados from "./pages/servicios/investigacion-mercados/InvestigacionMercados";
 import TransformacionDigital from "./pages/servicios/transformacion-digital/TransformacionDigital";
@@ -51,7 +50,6 @@ const App = () => (
           <Route path="/roi-calculator" element={<ROICalculator />} />
           <Route path="/agentes-virtuales" element={<AgentesVirtuales />} />
           <Route path="/business-intelligence" element={<BusinessIntelligence />} />
-          <Route path="/business-intelligence-demo" element={<BusinessIntelligenceDemo />} />
           <Route path="/marketing-digital" element={<MarketingDigital />} />
           <Route path="/investigacion-de-mercados" element={<InvestigacionMercados />} />
           <Route path="/transformacion-digital" element={<TransformacionDigital />} />

@@ -337,47 +337,70 @@ const InvestigacionMercados = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <PieChart className="h-6 w-6 text-primary" />
-                <h4 className="text-xl font-semibold">Cuantitativo</h4>
+            <Card className="group p-6 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-blue-50/30 dark:from-gray-900 dark:to-blue-950/20 relative overflow-hidden">
+              {/* Efecto de brillo animado */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <PieChart className="h-6 w-6 text-white group-hover:rotate-12 transition-transform duration-300" />
+                  </div>
+                  <h4 className="text-xl font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">Cuantitativo</h4>
+                </div>
+                <ul className="text-sm text-muted-foreground space-y-2 mb-4 group-hover:text-foreground/80 transition-colors duration-300">
+                  <li className="transition-all duration-300 group-hover:translate-x-2">• Encuestas online (N representativo)</li>
+                  <li className="transition-all duration-300 delay-100 group-hover:translate-x-2">• Conjoint / MaxDiff / A/B</li>
+                  <li className="transition-all duration-300 delay-200 group-hover:translate-x-2">• Modelos de predicción (ARIMA, XGBoost)</li>
+                  <li className="transition-all duration-300 delay-300 group-hover:translate-x-2">• Análisis de cohortes</li>
+                  <li className="transition-all duration-300 delay-400 group-hover:translate-x-2">• Segmentación estadística</li>
+                </ul>
+                <div className="text-xs text-blue-600 dark:text-blue-400 font-medium group-hover:animate-pulse transition-colors duration-300">Precisión: 95%+</div>
               </div>
-              <ul className="text-sm text-muted-foreground space-y-2 mb-4">
-                <li>• Encuestas online (N representativo)</li>
-                <li>• Conjoint / MaxDiff / A/B</li>
-                <li>• Modelos de predicción (ARIMA, XGBoost)</li>
-                <li>• Análisis de cohortes</li>
-                <li>• Segmentación estadística</li>
-              </ul>
-              <div className="text-xs text-primary font-medium">Precisión: 95%+</div>
             </Card>
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Layers className="h-6 w-6 text-primary" />
-                <h4 className="text-xl font-semibold">Cualitativo</h4>
+            
+            <Card className="group p-6 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-purple-50/30 dark:from-gray-900 dark:to-purple-950/20 relative overflow-hidden">
+              {/* Efecto de brillo animado */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Layers className="h-6 w-6 text-white group-hover:rotate-12 transition-transform duration-300" />
+                  </div>
+                  <h4 className="text-xl font-semibold group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">Cualitativo</h4>
+                </div>
+                <ul className="text-sm text-muted-foreground space-y-2 mb-4 group-hover:text-foreground/80 transition-colors duration-300">
+                  <li className="transition-all duration-300 group-hover:translate-x-2">• Entrevistas en profundidad</li>
+                  <li className="transition-all duration-300 delay-100 group-hover:translate-x-2">• Focus groups y etnografías</li>
+                  <li className="transition-all duration-300 delay-200 group-hover:translate-x-2">• Social listening, reviews y foros</li>
+                  <li className="transition-all duration-300 delay-300 group-hover:translate-x-2">• Journey mapping</li>
+                  <li className="transition-all duration-300 delay-400 group-hover:translate-x-2">• Jobs-to-be-done</li>
+                </ul>
+                <div className="text-xs text-purple-600 dark:text-purple-400 font-medium group-hover:animate-pulse transition-colors duration-300">Insights profundos</div>
               </div>
-              <ul className="text-sm text-muted-foreground space-y-2 mb-4">
-                <li>• Entrevistas en profundidad</li>
-                <li>• Focus groups y etnografías</li>
-                <li>• Social listening, reviews y foros</li>
-                <li>• Journey mapping</li>
-                <li>• Jobs-to-be-done</li>
-              </ul>
-              <div className="text-xs text-primary font-medium">Insights profundos</div>
             </Card>
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Target className="h-6 w-6 text-primary" />
-                <h4 className="text-xl font-semibold">Competencia</h4>
+            
+            <Card className="group p-6 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-green-50/30 dark:from-gray-900 dark:to-green-950/20 relative overflow-hidden">
+              {/* Efecto de brillo animado */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Target className="h-6 w-6 text-white group-hover:rotate-12 transition-transform duration-300" />
+                  </div>
+                  <h4 className="text-xl font-semibold group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">Competencia</h4>
+                </div>
+                <ul className="text-sm text-muted-foreground space-y-2 mb-4 group-hover:text-foreground/80 transition-colors duration-300">
+                  <li className="transition-all duration-300 group-hover:translate-x-2">• Benchmarking de oferta y precios</li>
+                  <li className="transition-all duration-300 delay-100 group-hover:translate-x-2">• Share of Voice / Share of Market</li>
+                  <li className="transition-all duration-300 delay-200 group-hover:translate-x-2">• Mapeo de posicionamiento</li>
+                  <li className="transition-all duration-300 delay-300 group-hover:translate-x-2">• Análisis de gaps</li>
+                  <li className="transition-all duration-300 delay-400 group-hover:translate-x-2">• Monitoreo continuo</li>
+                </ul>
+                <div className="text-xs text-green-600 dark:text-green-400 font-medium group-hover:animate-pulse transition-colors duration-300">Ventaja competitiva</div>
               </div>
-              <ul className="text-sm text-muted-foreground space-y-2 mb-4">
-                <li>• Benchmarking de oferta y precios</li>
-                <li>• Share of Voice / Share of Market</li>
-                <li>• Mapeo de posicionamiento</li>
-                <li>• Análisis de gaps</li>
-                <li>• Monitoreo continuo</li>
-              </ul>
-              <div className="text-xs text-primary font-medium">Ventaja competitiva</div>
             </Card>
           </div>
         </div>
@@ -391,53 +414,76 @@ const InvestigacionMercados = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-4 gap-6">
-            <Card className="p-6 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Calendar className="h-8 w-8 text-white" />
+            <Card className="group p-6 text-center hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-blue-50/30 dark:from-gray-900 dark:to-blue-950/20 relative overflow-hidden">
+              {/* Efecto de brillo animado */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Calendar className="h-8 w-8 text-white group-hover:rotate-12 transition-transform duration-300" />
+                </div>
+                <h4 className="text-lg font-semibold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">Semana 1-2</h4>
+                <h5 className="font-medium mb-2 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300">Definición y Diseño</h5>
+                <ul className="text-sm text-muted-foreground space-y-1 group-hover:text-foreground/80 transition-colors duration-300">
+                  <li className="transition-all duration-300 group-hover:translate-x-1">• Brief y objetivos</li>
+                  <li className="transition-all duration-300 delay-100 group-hover:translate-x-1">• Diseño metodológico</li>
+                  <li className="transition-all duration-300 delay-200 group-hover:translate-x-1">• Cronograma detallado</li>
+                </ul>
               </div>
-              <h4 className="text-lg font-semibold mb-2">Semana 1-2</h4>
-              <h5 className="font-medium mb-2">Definición y Diseño</h5>
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Brief y objetivos</li>
-                <li>• Diseño metodológico</li>
-                <li>• Cronograma detallado</li>
-              </ul>
             </Card>
-            <Card className="p-6 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-white" />
+            
+            <Card className="group p-6 text-center hover:shadow-xl hover:shadow-green-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-green-50/30 dark:from-gray-900 dark:to-green-950/20 relative overflow-hidden">
+              {/* Efecto de brillo animado */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Users className="h-8 w-8 text-white group-hover:rotate-12 transition-transform duration-300" />
+                </div>
+                <h4 className="text-lg font-semibold mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">Semana 3-6</h4>
+                <h5 className="font-medium mb-2 group-hover:text-green-700 dark:group-hover:text-green-300 transition-colors duration-300">Recolección</h5>
+                <ul className="text-sm text-muted-foreground space-y-1 group-hover:text-foreground/80 transition-colors duration-300">
+                  <li className="transition-all duration-300 group-hover:translate-x-1">• Encuestas y entrevistas</li>
+                  <li className="transition-all duration-300 delay-100 group-hover:translate-x-1">• Focus groups</li>
+                  <li className="transition-all duration-300 delay-200 group-hover:translate-x-1">• Análisis de competencia</li>
+                </ul>
               </div>
-              <h4 className="text-lg font-semibold mb-2">Semana 3-6</h4>
-              <h5 className="font-medium mb-2">Recolección</h5>
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Encuestas y entrevistas</li>
-                <li>• Focus groups</li>
-                <li>• Análisis de competencia</li>
-              </ul>
             </Card>
-            <Card className="p-6 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Brain className="h-8 w-8 text-white" />
+            
+            <Card className="group p-6 text-center hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-purple-50/30 dark:from-gray-900 dark:to-purple-950/20 relative overflow-hidden">
+              {/* Efecto de brillo animado */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Brain className="h-8 w-8 text-white group-hover:rotate-12 transition-transform duration-300" />
+                </div>
+                <h4 className="text-lg font-semibold mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">Semana 7-10</h4>
+                <h5 className="font-medium mb-2 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors duration-300">Análisis</h5>
+                <ul className="text-sm text-muted-foreground space-y-1 group-hover:text-foreground/80 transition-colors duration-300">
+                  <li className="transition-all duration-300 group-hover:translate-x-1">• Procesamiento de datos</li>
+                  <li className="transition-all duration-300 delay-100 group-hover:translate-x-1">• Modelos predictivos</li>
+                  <li className="transition-all duration-300 delay-200 group-hover:translate-x-1">• Insights y hallazgos</li>
+                </ul>
               </div>
-              <h4 className="text-lg font-semibold mb-2">Semana 7-10</h4>
-              <h5 className="font-medium mb-2">Análisis</h5>
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Procesamiento de datos</li>
-                <li>• Modelos predictivos</li>
-                <li>• Insights y hallazgos</li>
-              </ul>
             </Card>
-            <Card className="p-6 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <FileText className="h-8 w-8 text-white" />
+            
+            <Card className="group p-6 text-center hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-500 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-orange-50/30 dark:from-gray-900 dark:to-orange-950/20 relative overflow-hidden">
+              {/* Efecto de brillo animado */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <FileText className="h-8 w-8 text-white group-hover:rotate-12 transition-transform duration-300" />
+                </div>
+                <h4 className="text-lg font-semibold mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-300">Semana 11-12</h4>
+                <h5 className="font-medium mb-2 group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors duration-300">Entrega</h5>
+                <ul className="text-sm text-muted-foreground space-y-1 group-hover:text-foreground/80 transition-colors duration-300">
+                  <li className="transition-all duration-300 group-hover:translate-x-1">• Reportes ejecutivos</li>
+                  <li className="transition-all duration-300 delay-100 group-hover:translate-x-1">• Dashboard interactivo</li>
+                  <li className="transition-all duration-300 delay-200 group-hover:translate-x-1">• Presentación final</li>
+                </ul>
               </div>
-              <h4 className="text-lg font-semibold mb-2">Semana 11-12</h4>
-              <h5 className="font-medium mb-2">Entrega</h5>
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Reportes ejecutivos</li>
-                <li>• Dashboard interactivo</li>
-                <li>• Presentación final</li>
-              </ul>
             </Card>
           </div>
         </div>

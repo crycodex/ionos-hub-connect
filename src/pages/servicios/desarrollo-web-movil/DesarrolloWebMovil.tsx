@@ -235,108 +235,123 @@ const DesarrolloWebMovil = () => {
         {/* Proyectos */}
         <div className="mb-16">
           {/* Proyectos Web */}
-          <div className="mb-12">
+          <div className="mb-16">
             <motion.div 
-              className="text-center mb-8"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Globe className="h-8 w-8 text-primary" />
-                <h3 className="text-2xl font-bold">Proyectos Web</h3>
+                <h3 className="text-3xl font-bold">Proyectos Web</h3>
               </div>
-              <p className="text-muted-foreground">
-                Plataformas web modernas y escalables que impulsan el crecimiento digital
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Soluciones web modernas y escalables que impulsan el crecimiento digital
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-8">
+              {/* Proyecto Web 1 */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-500">
-                  <div className="relative overflow-hidden">
+                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                  <div className="relative h-72 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-4">
                     <img 
                       src="/imgs/imgsWeb/appWeb1.png" 
                       alt="Proyecto Web 1" 
-                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 rounded-lg"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Badge className="bg-primary text-primary-foreground">E-commerce</Badge>
-                    </div>
+                    <div className="absolute inset-4 bg-gradient-to-t from-black/10 to-transparent rounded-lg" />
                   </div>
+                  
                   <div className="p-6">
-                    <h4 className="text-xl font-semibold mb-2">Plataforma E-commerce Avanzada</h4>
-                    <p className="text-muted-foreground mb-4">
-                      Sistema completo de comercio electrónico con panel administrativo, 
-                      gestión de inventario y procesamiento de pagos integrado.
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <Badge variant="outline">React</Badge>
-                      <Badge variant="outline">Node.js</Badge>
-                      <Badge variant="outline">MongoDB</Badge>
-                      <Badge variant="outline">Stripe</Badge>
+                    <div className="flex items-center justify-between mb-4">
+                      <h4 className="text-xl font-semibold">Cielo Verde</h4>
+                      <Badge variant="outline" className="text-xs">Web</Badge>
                     </div>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      onClick={handleWhatsAppPortfolio}
-                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                    >
-                      Ver Detalles
-                    </Button>
+                    
+                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                      Cielo Verde, una empresa joven apasionada por mostrar la belleza de Ecuador 
+                      a través de experiencias de viaje únicas. Fundada en 2023, tenemos guías 
+                      experimentados que comparten un profundo amor por nuestro país y una gran 
+                      riqueza de conocimiento sobre destinos turísticos locales.
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <Badge variant="secondary" className="text-xs">React</Badge>
+                      <Badge variant="secondary" className="text-xs">Node.js</Badge>
+                      <Badge variant="secondary" className="text-xs">MongoDB</Badge>
+                      <Badge variant="secondary" className="text-xs">Stripe</Badge>
+                    </div>
+                    
+                    <div className="flex gap-2">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => window.open('https://www.cieloverdespanishschool.com/about', '_blank', 'noopener,noreferrer')}
+                        className="flex-1 group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                      >
+                        Ver Proyecto
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </motion.div>
 
+              {/* Proyecto Web 2 */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-500">
-                  <div className="relative overflow-hidden">
+                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                  <div className="relative h-72 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-4">
                     <img 
                       src="/imgs/imgsWeb/appWeb2.png" 
                       alt="Proyecto Web 2" 
-                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 rounded-lg"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Badge className="bg-primary text-primary-foreground">Dashboard</Badge>
-                    </div>
+                    <div className="absolute inset-4 bg-gradient-to-t from-black/10 to-transparent rounded-lg" />
                   </div>
+                  
                   <div className="p-6">
-                    <h4 className="text-xl font-semibold mb-2">Dashboard Empresarial</h4>
-                    <p className="text-muted-foreground mb-4">
-                      Panel de control intuitivo con visualización de datos en tiempo real, 
-                      reportes automatizados y gestión de usuarios avanzada.
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <Badge variant="outline">Vue.js</Badge>
-                      <Badge variant="outline">Python</Badge>
-                      <Badge variant="outline">PostgreSQL</Badge>
-                      <Badge variant="outline">Chart.js</Badge>
+                    <div className="flex items-center justify-between mb-4">
+                      <h4 className="text-xl font-semibold">Dashboard Empresarial</h4>
+                      <Badge variant="outline" className="text-xs">Web</Badge>
                     </div>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      onClick={handleWhatsAppPortfolio}
-                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                    >
-                      Ver Detalles
-                    </Button>
+                    
+                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                      Panel de control intuitivo con visualización de datos en tiempo real, 
+                      reportes automatizados y gestión de usuarios avanzada. Incluye 
+                      integración con múltiples fuentes de datos y exportación de reportes.
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <Badge variant="secondary" className="text-xs">Vue.js</Badge>
+                      <Badge variant="secondary" className="text-xs">Python</Badge>
+                      <Badge variant="secondary" className="text-xs">PostgreSQL</Badge>
+                      <Badge variant="secondary" className="text-xs">Chart.js</Badge>
+                    </div>
+                    
+                    <div className="flex gap-2">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={handleWhatsAppPortfolio}
+                        className="flex-1 group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                      >
+                        Ver Proyecto
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </motion.div>
@@ -344,143 +359,173 @@ const DesarrolloWebMovil = () => {
           </div>
 
           {/* Proyectos Móviles */}
-          <div className="mb-12">
+          <div className="mb-16">
             <motion.div 
-              className="text-center mb-8"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Smartphone className="h-8 w-8 text-primary" />
-                <h3 className="text-2xl font-bold">Aplicaciones Móviles</h3>
+                <h3 className="text-3xl font-bold">Aplicaciones Móviles</h3>
               </div>
-              <p className="text-muted-foreground">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Apps nativas e híbridas que conectan tu negocio con tus clientes
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-6">
+              {/* App Móvil 1 */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-500">
-                  <div className="relative overflow-hidden">
+                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                  <div className="relative h-56 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-3">
                     <img 
                       src="/imgs/imgsMovil/appMovil1.png" 
                       alt="App Móvil 1" 
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 rounded-lg"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Badge className="bg-green-500 text-white">iOS</Badge>
-                    </div>
+                    <div className="absolute inset-3 bg-gradient-to-t from-black/10 to-transparent rounded-lg" />
                   </div>
+                  
                   <div className="p-4">
-                    <h4 className="text-lg font-semibold mb-2">App de Delivery</h4>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Aplicación completa de entrega a domicilio con geolocalización y pagos integrados.
-                    </p>
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      <Badge variant="outline" className="text-xs">React Native</Badge>
-                      <Badge variant="outline" className="text-xs">Firebase</Badge>
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-lg font-semibold">SwapMe</h4>
+                      <Badge variant="outline" className="text-xs">Android</Badge>
                     </div>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      onClick={handleWhatsAppPortfolio}
-                      className="w-full text-xs group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                    >
-                      Ver Detalles
-                    </Button>
+                    
+                    <p className="text-muted-foreground text-xs mb-3 leading-relaxed">
+                      SwapMe es una aplicación que transforma la forma en que consumes moda. 
+                      Intercambia y vende ropa de segunda mano de manera sencilla, segura y 
+                      sostenible. Dale una segunda vida a tus prendas, ahorra dinero y 
+                      contribuye a reducir el impacto ambiental de la industria textil.
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-1 mb-3">
+                      <Badge variant="secondary" className="text-xs">React Native</Badge>
+                      <Badge variant="secondary" className="text-xs">Firebase</Badge>
+                      <Badge variant="secondary" className="text-xs">Maps API</Badge>
+                    </div>
+                    
+                    <div className="flex gap-2">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => window.open('https://play.google.com/store/apps/details?id=com.swapapp.me', '_blank', 'noopener,noreferrer')}
+                        className="flex-1 text-xs group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                      >
+                        Ver Proyecto
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </motion.div>
 
+              {/* App Móvil 2 */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-500">
-                  <div className="relative overflow-hidden">
+                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                  <div className="relative h-56 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-3">
                     <img 
                       src="/imgs/imgsMovil/appMovil2.png" 
                       alt="App Móvil 2" 
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 rounded-lg"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Badge className="bg-blue-500 text-white">Android</Badge>
-                    </div>
+                    <div className="absolute inset-3 bg-gradient-to-t from-black/10 to-transparent rounded-lg" />
                   </div>
+                  
                   <div className="p-4">
-                    <h4 className="text-lg font-semibold mb-2">App Financiera</h4>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Plataforma bancaria móvil con transacciones seguras y gestión de cuentas.
-                    </p>
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      <Badge variant="outline" className="text-xs">Flutter</Badge>
-                      <Badge variant="outline" className="text-xs">AWS</Badge>
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-lg font-semibold">Chat Simulator</h4>
+                      <Badge variant="outline" className="text-xs">Android</Badge>
                     </div>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      onClick={handleWhatsAppPortfolio}
-                      className="w-full text-xs group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                    >
-                      Ver Detalles
-                    </Button>
+                    
+                    <p className="text-muted-foreground text-xs mb-3 leading-relaxed">
+                      Chat Simulator es una aplicación simple, rápida y divertida que te permite 
+                      simular conversaciones realistas entre dos usuarios, todo sin necesidad de 
+                      conexión a internet ni cuentas de usuario. Diseñada con una interfaz moderna 
+                      inspirada en apps de mensajería populares.
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-1 mb-3">
+                      <Badge variant="secondary" className="text-xs">Flutter</Badge>
+                      <Badge variant="secondary" className="text-xs">AWS</Badge>
+                      <Badge variant="secondary" className="text-xs">Offline</Badge>
+                    </div>
+                    
+                    <div className="flex gap-2">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => window.open('https://play.google.com/store/apps/details?id=com.cristhianrecalde.app_chat', '_blank', 'noopener,noreferrer')}
+                        className="flex-1 text-xs group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                      >
+                        Ver Proyecto
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </motion.div>
 
+              {/* App Móvil 3 */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
                 className="group"
               >
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-500">
-                  <div className="relative overflow-hidden">
+                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                  <div className="relative h-56 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-3">
                     <img 
                       src="/imgs/imgsMovil/appMovil3.png" 
                       alt="App Móvil 3" 
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 rounded-lg"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Badge className="bg-purple-500 text-white">Cross-Platform</Badge>
-                    </div>
+                    <div className="absolute inset-3 bg-gradient-to-t from-black/10 to-transparent rounded-lg" />
                   </div>
+                  
                   <div className="p-4">
-                    <h4 className="text-lg font-semibold mb-2">App de Fitness</h4>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Aplicación de entrenamiento personalizado con seguimiento de progreso y comunidad.
-                    </p>
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      <Badge variant="outline" className="text-xs">React Native</Badge>
-                      <Badge variant="outline" className="text-xs">MongoDB</Badge>
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-lg font-semibold">Chulla Cash</h4>
+                      <Badge variant="outline" className="text-xs">Android</Badge>
                     </div>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      onClick={handleWhatsAppPortfolio}
-                      className="w-full text-xs group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                    >
-                      Ver Detalles
-                    </Button>
+                    
+                    <p className="text-muted-foreground text-xs mb-3 leading-relaxed">
+                      Chulla Cash es una aplicación innovadora de gestión financiera personal 
+                      diseñada para transformar la manera en que las personas manejan su dinero. 
+                      Combinando tecnología avanzada con una experiencia de usuario intuitiva, 
+                      hace que el control de gastos y el ahorro sean procesos simples y efectivos.
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-1 mb-3">
+                      <Badge variant="secondary" className="text-xs">React Native</Badge>
+                      <Badge variant="secondary" className="text-xs">MongoDB</Badge>
+                      <Badge variant="secondary" className="text-xs">Fintech</Badge>
+                    </div>
+                    
+                    <div className="flex gap-2">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => window.open('https://play.google.com/store/apps/details?id=com.chullacash.app', '_blank', 'noopener,noreferrer')}
+                        className="flex-1 text-xs group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                      >
+                        Ver Proyecto
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </motion.div>

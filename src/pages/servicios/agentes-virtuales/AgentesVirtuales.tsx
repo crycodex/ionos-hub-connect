@@ -185,7 +185,98 @@ const AgentesVirtuales = () => {
           </div>
         </div>
 
+        {/* Mejoras Operativas */}
+        <div className="mb-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                  Transforma tu Atención al Cliente
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Los Agentes Virtuales a Medida revolucionan la experiencia del cliente, 
+                  proporcionando atención instantánea y personalizada las 24 horas del día.
+                </p>
+              </div>
 
+              <div className="grid gap-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 p-3 flex-shrink-0">
+                    <Clock className="w-full h-full text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Disponibilidad 24/7</h3>
+                    <p className="text-muted-foreground">
+                      Atención ininterrumpida sin días festivos ni horarios limitados. 
+                      Tus clientes reciben respuestas inmediatas en cualquier momento.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 p-3 flex-shrink-0">
+                    <Zap className="w-full h-full text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Respuesta Instantánea</h3>
+                    <p className="text-muted-foreground">
+                      Elimina tiempos de espera y mejora la satisfacción del cliente 
+                      con respuestas en menos de 2 segundos.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 p-3 flex-shrink-0">
+                    <Shield className="w-full h-full text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Consistencia Garantizada</h3>
+                    <p className="text-muted-foreground">
+                      Respuestas uniformes y precisas basadas en tu base de conocimiento, 
+                      eliminando errores humanos y mejorando la calidad del servicio.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 p-3 flex-shrink-0">
+                    <BarChart3 className="w-full h-full text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Reducción de Costos</h3>
+                    <p className="text-muted-foreground">
+                      Reduce hasta un 70% los costos operativos de atención al cliente 
+                      mientras mantienes o mejoras la calidad del servicio.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="/imgs/cajeraRestaurante.png" 
+                  alt="Atención al cliente mejorada con Agentes Virtuales" 
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg border border-gray-200 dark:border-gray-700">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-blue-light p-2">
+                    <Bot className="w-full h-full text-white" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">Agente Virtual Activo</p>
+                    <p className="text-xs text-muted-foreground">Atención 24/7</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Nuestro Proceso */}
         <div className="mb-16">
