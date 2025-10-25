@@ -16,6 +16,7 @@ import MarketingDigital from "./pages/servicios/marketing-digital/MarketingDigit
 import InvestigacionMercados from "./pages/servicios/investigacion-mercados/InvestigacionMercados";
 import TransformacionDigital from "./pages/servicios/transformacion-digital/TransformacionDigital";
 import DesarrolloWebMovil from "./pages/servicios/desarrollo-web-movil/DesarrolloWebMovil";
+import TerminosCondiciones from "./pages/TerminosCondiciones";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/investigacion-de-mercados" element={<InvestigacionMercados />} />
           <Route path="/transformacion-digital" element={<TransformacionDigital />} />
           <Route path="/desarrollo-web-movil" element={<DesarrolloWebMovil />} />
+          <Route path="/terminos-y-condiciones" element={<TerminosCondiciones />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

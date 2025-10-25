@@ -1,8 +1,10 @@
 import { MessageCircle, Mail, MapPin } from "lucide-react";
 import { FaLinkedin, FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -161,6 +163,12 @@ export function Footer() {
               >
                 → Contacto
               </button>
+              <button 
+                onClick={() => navigate('/terminos-y-condiciones')}
+                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
+              >
+                → Términos y Condiciones
+              </button>
             </div>
           </div>
 
@@ -206,17 +214,17 @@ export function Footer() {
             <p>© {currentYear} IonosHub. Todos los derechos reservados.</p>
             <div className="flex items-center gap-4">
               <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="hover:text-primary transition-colors"
+                onClick={() => navigate('/terminos-y-condiciones')}
+                className="hover:text-primary transition-colors hover:underline"
               >
                 Política de Privacidad
               </button>
               <span className="text-muted-foreground/50">•</span>
               <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="hover:text-primary transition-colors"
+                onClick={() => navigate('/terminos-y-condiciones')}
+                className="hover:text-primary transition-colors hover:underline"
               >
-                Términos de Servicio
+                Términos y Condiciones
               </button>
             </div>
           </div>

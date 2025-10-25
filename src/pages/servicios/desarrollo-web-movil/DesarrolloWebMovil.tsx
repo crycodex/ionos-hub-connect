@@ -95,10 +95,6 @@ const DesarrolloWebMovil = () => {
                 <div className="text-2xl font-bold text-primary mb-1">100%</div>
                 <div className="text-xs text-muted-foreground">Responsive</div>
               </Card>
-              <Card className="p-4 text-center">
-                <div className="text-2xl font-bold text-primary mb-1">98%</div>
-                <div className="text-xs text-muted-foreground">Satisfacción</div>
-              </Card>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gradient-to-r from-primary to-blue-light" onClick={handleWhatsAppConsultoria}>
@@ -109,10 +105,19 @@ const DesarrolloWebMovil = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-blue-light/15 rounded-3xl blur-3xl" />
-            <div className="relative bg-card p-8 rounded-2xl border-2 border-primary/10">
-              <div className="space-y-6">
-                <p>aqui va foto</p>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-light/5 rounded-3xl blur-xl" />
+            <div className="relative bg-card rounded-2xl border border-border/50 overflow-hidden">
+              <div className="space-y-0">
+                {/* Imagen de Desarrollo Web y Móvil */}
+                <div className="relative w-full aspect-[4/3]">
+                  <img 
+                    src="/imgs/pixelart3d.png" 
+                    alt="Desarrollo Web y Móvil - Pixel Art 3D" 
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Brillo azul inferior */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-blue-500/30 via-blue-400/15 to-transparent pointer-events-none" />
+                </div>
               </div>
             </div>
           </div>

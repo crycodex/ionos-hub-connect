@@ -7,7 +7,7 @@ import { Process } from "@/components/Process";
 import NuestroEquipo from "../components/NuestroEquipo";
 import { Certifications } from "@/components/Certifications";
 import { Architecture } from "@/components/Architecture";
-import { Testimonials } from "@/components/Testimonials";
+// import { Testimonials } from "@/components/Testimonials";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { useEffect } from "react";
@@ -47,7 +47,7 @@ const Index = () => {
         <Certifications />
         
         {/* 8. Testimonials - PRUEBA SOCIAL: VALIDACIÓN (cuando ya están interesados) */}
-        <Testimonials />
+        {/* <Testimonials /> */}
         
         {/* 10. Contact Form - CONVERSIÓN: CAPTURA DE LEADS (momento de acción) */}
         <div id="contacto">

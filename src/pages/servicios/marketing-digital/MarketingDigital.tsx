@@ -74,44 +74,77 @@ const MarketingDigital = () => {
         </div>
 
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-6">
-            <Megaphone className="h-3 w-3 mr-1" />
-            Marketing Digital Estratégico
-          </Badge>
-          <h1 className="text-5xl font-bold mb-6">
-            Campañas que <span className="text-primary">Transforman</span> tu Negocio
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
-            Desarrollamos campañas de marketing efectivas con personal capacitado y tecnologías emergentes 
-            para impulsar tu presencia digital, aumentar el engagement y maximizar el ROI de tu inversión.
-          </p>
-          
-          {/* Acerca de nuestro enfoque */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">Estrategia Digital</div>
-              <p className="text-sm text-muted-foreground">Nos fundamentamos en buenas prácticas y tendencias actuales de Marketing Digital</p>
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <Badge variant="secondary" className="w-fit">
+                <Megaphone className="h-3 w-3 mr-1" />
+                Marketing Digital Estratégico
+              </Badge>
+              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
+                Campañas que <span className="text-primary">transforman</span> tu presencia digital
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                Desarrollamos campañas de marketing efectivas con personal capacitado y tecnologías emergentes 
+                para impulsar tu presencia digital, aumentar el engagement y maximizar el ROI de tu inversión.
+              </p>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">Enfoque personalizado</div>
-              <p className="text-sm text-muted-foreground">Diseñamos propuestas adaptadas a los objetivos y necesidades de cada cliente</p>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  <span className="font-semibold">+320%</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Aumento promedio en ROI</p>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  <span className="font-semibold">+150%</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Crecimiento en engagement</p>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  <span className="font-semibold">+200%</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Mejora en conversión</p>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  <span className="font-semibold">24/7</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Monitoreo continuo</p>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">Automatización</div>
-              <p className="text-sm text-muted-foreground">Optimizamos procesos con herramientas digitales para facilitar el crecimiento</p>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">Estrategia Omnicanal</div>
-              <p className="text-sm text-muted-foreground">Aplicamos acciones en canales digitales como SEO, SEM, Email y Social Media</p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="bg-gradient-to-r from-primary to-blue-light" onClick={handleWhatsAppConsultoria}>
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Contáctanos
+              </Button>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-blue-light" onClick={handleWhatsAppConsultoria}>
-              <Megaphone className="mr-2 h-5 w-5" />
-              Consultoría Gratuita
-            </Button>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-light/5 rounded-3xl blur-xl" />
+            <div className="relative bg-card rounded-2xl border border-border/50 overflow-hidden">
+              <div className="space-y-0">
+                {/* Imagen de Marketing Digital */}
+                <div className="relative w-full aspect-[4/3]">
+                  <img 
+                    src="/imgs/Brandbook Ionos 2025.png" 
+                    alt="Brandbook IonosHub - Marketing Digital" 
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Brillo azul inferior */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-blue-500/30 via-blue-400/15 to-transparent pointer-events-none" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

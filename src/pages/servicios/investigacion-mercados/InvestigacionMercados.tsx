@@ -203,13 +203,18 @@ const InvestigacionMercados = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-blue-light/15 rounded-3xl blur-3xl" />
-            <div className="relative bg-card p-8 rounded-2xl border-2 border-primary/10">
-              <div className="space-y-6">
-                <div className="text-center">
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <p className="text-center">ortito riko</p>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-light/5 rounded-3xl blur-xl" />
+            <div className="relative bg-card rounded-2xl border border-border/50 overflow-hidden">
+              <div className="space-y-0">
+                {/* Imagen de Investigación de Mercados */}
+                <div className="relative w-full aspect-[4/3]">
+                  <img 
+                    src="/imgs/inv.png" 
+                    alt="Investigación de Mercados - IonosHub" 
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Brillo azul inferior */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-blue-500/30 via-blue-400/15 to-transparent pointer-events-none" />
                 </div>
               </div>
             </div>

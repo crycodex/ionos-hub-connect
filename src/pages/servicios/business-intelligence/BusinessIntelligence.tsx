@@ -435,23 +435,13 @@ const BusinessIntelligence = () => {
               </Card>
             </div>
           </div>
-
-          <div className="text-center mt-8">
-            <p className="text-muted-foreground mb-4">
-              Estos dashboards están conectados en tiempo real con datos empresariales reales
-            </p>
-            <Button size="lg" variant="outline" onClick={handleWhatsAppDemo}>
-              <MessageCircle className="mr-2 h-5 w-5" />
-              Solicitar Dashboard Personalizado
-            </Button>
-          </div>
         </div>
 
         {/* Process */}
         <div className="bg-gradient-to-r from-primary/5 to-blue-light/5 rounded-2xl p-8 mb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Nuestro Proceso</h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground mb-12">
               Metodología probada para implementar Business Intelligence exitosamente
             </p>
           </div>
@@ -461,7 +451,7 @@ const BusinessIntelligence = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-primary to-blue-light rounded-xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">1</span>
               </div>
-              <h3 className="font-semibold mb-2">Análisis Inicial</h3>
+              <h3 className="font-semibold mb-4">Análisis Inicial</h3>
               <p className="text-sm text-muted-foreground">
                 Evaluamos tus sistemas actuales, datos disponibles y objetivos estratégicos
               </p>
@@ -471,7 +461,7 @@ const BusinessIntelligence = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">2</span>
               </div>
-              <h3 className="font-semibold mb-2">Diseño Personalizado</h3>
+              <h3 className="font-semibold mb-4">Diseño Personalizado</h3>
               <p className="text-sm text-muted-foreground">
                 Creamos dashboards y KPIs específicos para tu industria y necesidades
               </p>
@@ -481,7 +471,7 @@ const BusinessIntelligence = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">3</span>
               </div>
-              <h3 className="font-semibold mb-2">Implementación</h3>
+              <h3 className="font-semibold mb-4">Implementación</h3>
               <p className="text-sm text-muted-foreground">
                 Integramos todos tus sistemas y configuramos la plataforma de BI
               </p>
@@ -491,7 +481,7 @@ const BusinessIntelligence = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">4</span>
               </div>
-              <h3 className="font-semibold mb-2">Capacitación</h3>
+              <h3 className="font-semibold mb-4">Capacitación</h3>
               <p className="text-sm text-muted-foreground">
                 Entrenamos a tu equipo y proporcionamos soporte continuo
               </p>

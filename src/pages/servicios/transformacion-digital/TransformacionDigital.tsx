@@ -122,11 +122,18 @@ const TransformacionDigital = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-blue-light/15 rounded-3xl blur-3xl" />
-            <div className="relative bg-card p-8 rounded-2xl border-2 border-primary/10">
-              <div className="space-y-6">
-                <p>aqui va foto</p>
+          <div className="relative max-w-xl mx-auto w-full">
+            {/* Elimina el espacio superior antiestético adaptando el diseño de la imagen */}
+            <div className="relative rounded-2xl border border-border/50 overflow-hidden shadow-xl bg-card p-0">
+              <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
+                <img 
+                  src="/imgs/adanRobot.png" 
+                  alt="Robot Adán - Transformación Digital" 
+                  className="w-full h-full object-cover"
+                  style={{ borderRadius: '1rem' }}
+                />
+                {/* Brillo azul inferior mínimo, no invadir arriba */}
+                <div className="absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-blue-500/30 via-blue-400/15 to-transparent pointer-events-none" />
               </div>
             </div>
           </div>

@@ -87,10 +87,11 @@ export function SliderNavbar() {
                     >
                       Certificaciones
                     </button>
+    
                     <button 
                       onClick={() => scrollToSection('testimonios')}
                       className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg transition-colors font-medium"
-                    >
+                    >/
                       Testimonios
                     </button>
                     <button 

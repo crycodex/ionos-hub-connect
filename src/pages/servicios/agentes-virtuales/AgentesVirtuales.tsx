@@ -7,12 +7,24 @@ import { Footer } from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
 import ResearchIntegrations from "@/components/ResearchIntegrations";
 
-// Componente placeholder para futuras implementaciones
+// Imagen del Agente Virtual
 const MetricsChart = () => {
   return (
-    <div className="w-full bg-white rounded-lg shadow-sm dark:bg-gray-800 p-6">
-      <div className="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
-        <p>aqui va foto</p>
+    <div className="relative">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-light/5 rounded-3xl blur-xl" />
+      <div className="relative bg-card rounded-2xl border border-border/50 overflow-hidden">
+        <div className="space-y-0">
+          {/* Imagen de Agente Virtual */}
+          <div className="relative w-full aspect-[4/3]">
+            <img 
+              src="/imgs/agenteVirtual.png" 
+              alt="Agente Virtual Inteligente - IonosHub" 
+              className="w-full h-full object-cover"
+            />
+            {/* Brillo azul inferior */}
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-blue-500/30 via-blue-400/15 to-transparent pointer-events-none" />
+          </div>
+        </div>
       </div>
     </div>
   );
