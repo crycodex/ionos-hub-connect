@@ -43,18 +43,6 @@ export function Navbar() {
       onClick: () => scrollToSection('certificaciones')
     },
     {
-      label: 'Testimonios',
-      ariaLabel: 'Leer testimonios de clientes',
-      link: '/#testimonios',
-      onClick: () => scrollToSection('testimonios')
-    },
-    {
-      label: 'Blog',
-      ariaLabel: 'Ir al blog',
-      link: '/blog-recursos',
-      onClick: () => window.location.href = '/blog-recursos'
-    },
-    {
       label: 'Contacto',
       ariaLabel: 'Contactar con nosotros',
       link: '/#contacto',
