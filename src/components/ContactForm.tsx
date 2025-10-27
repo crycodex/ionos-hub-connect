@@ -48,34 +48,42 @@ export function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    // Format WhatsApp message
-    const message = `*Nueva Solicitud de Contacto*\n\n` +
-      `*Nombre:* ${formData.name}\n` +
-      `*Email:* ${formData.email}\n` +
-      `*Teléfono:* ${formData.phone}\n` +
-      `*Servicio de Interés:* ${formData.service}\n` +
-      `*Mensaje:*\n${formData.message}`;
-
-    const whatsappUrl = `https://wa.me/593992249152?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: ""
+    try {
+      // Send email using API route
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      setIsSubmitted(false);
-    }, 3000);
+
+      if (!response.ok) {
+        throw new Error('Error al enviar el correo');
+      }
+
+      const result = await response.json();
+      console.log('Email sent successfully:', result);
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: ""
+        });
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setIsSubmitting(false);
+      alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+    }
   };
 
   const handleWhatsAppDirect = () => {
@@ -168,6 +176,7 @@ export function ContactForm() {
                       ¿En qué podemos ayudarte? *
                     </label>
                     <select
+                    title="Servicio de Interés"
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
@@ -179,6 +188,23 @@ export function ContactForm() {
                         <option key={service} value={service}>{service}</option>
                       ))}
                     </select>
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className="block text-sm font-semibold mb-2 flex items-center gap-2">
+                      <MessageSquare className="h-4 w-4 text-primary" />
+                      Mensaje *
+                    </label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Cuéntanos más sobre tu proyecto o consulta..."
+                      required
+                      rows={4}
+                      className="w-full px-3 py-2 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    />
                   </div>
                 </div>
 
