@@ -1,5 +1,4 @@
-import { Users, Award, Brain, Zap } from "lucide-react";
-import SpotlightCard from "./SpotlightCard";
+import { Users, Award, Brain, Zap, Instagram, Linkedin } from "lucide-react";
 
 const NuestroEquipo = () => {
   return (
@@ -20,14 +19,9 @@ const NuestroEquipo = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Orlidan Montesdeoca - CEO & CTO */}
           <div className="text-center space-y-6">
-            <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
-              <div className="flex items-center justify-center">
-                {/* Espacio para imagen */}
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                  <Users className="h-16 w-16 text-white" />
-                </div>
-              </div>
-            </SpotlightCard>
+            <div className="flex items-center justify-center">
+              <img src="/imgs/equipo/orli.jpeg" alt="Orlidan Montesdeoca" className="w-48 h-48 rounded-full shadow-lg object-cover" />
+            </div>
 
             <div className="space-y-3">
               <h3 className="text-xl font-bold text-foreground">Orlidan Montesdeoca</h3>
@@ -35,19 +29,22 @@ const NuestroEquipo = () => {
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Especialista en Business Analyst y DevOps.
               </p>
+              <div className="flex justify-center space-x-4 pt-2">
+                <a href="https://www.instagram.com/its.orlo" className="text-pink-500 hover:text-pink-600 transition-colors" aria-label="Instagram de Orlidan Montesdeoca">
+                  <Instagram size={20} />
+                </a>
+                <a href="https://www.linkedin.com/in/orlidan-montesdeoc" className="text-blue-600 hover:text-blue-700 transition-colors" aria-label="LinkedIn de Orlidan Montesdeoca">
+                  <Linkedin size={20} />
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Cristhian Recalde - COO & Head of Growth */}
           <div className="text-center space-y-6">
-            <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(34, 197, 94, 0.2)">
-              <div className="flex items-center justify-center">
-                {/* Espacio para imagen */}
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-                  <Brain className="h-16 w-16 text-white" />
-                </div>
-              </div>
-            </SpotlightCard>
+            <div className="flex items-center justify-center">
+              <img src="/imgs/equipo/gris.jpeg" alt="Cristhian Recalde" className="w-48 h-48 rounded-full shadow-lg object-cover" />
+            </div>
 
             <div className="space-y-3">
               <h3 className="text-xl font-bold text-foreground">Cristhian Recalde</h3>
@@ -55,19 +52,22 @@ const NuestroEquipo = () => {
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Tech lead Flutter and Web Developer.
               </p>
+              <div className="flex justify-center space-x-4 pt-2">
+                <a href="https://www.instagram.com/cry.code/" className="text-pink-500 hover:text-pink-600 transition-colors" aria-label="Instagram de Cristhian Recalde">
+                  <Instagram size={20} />
+                </a>
+                <a href="https://www.linkedin.com/in/isnotcristhianr/" className="text-blue-600 hover:text-blue-700 transition-colors" aria-label="LinkedIn de Cristhian Recalde">
+                  <Linkedin size={20} />
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Juan Pablo Vasquez - Solutions Architect & Development Lead */}
           <div className="text-center space-y-6">
-            <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(168, 85, 247, 0.2)">
-              <div className="flex items-center justify-center">
-                {/* Espacio para imagen */}
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
-                  <Zap className="h-16 w-16 text-white" />
-                </div>
-              </div>
-            </SpotlightCard>
+            <div className="flex items-center justify-center">
+              <img src="/imgs/equipo/jp.jpeg" alt="Juan Pablo Vasquez" className="w-48 h-48 rounded-full shadow-lg object-cover" />
+            </div>
 
             <div className="space-y-3">
               <h3 className="text-xl font-bold text-foreground">Juan Pablo Vasquez</h3>
@@ -75,6 +75,14 @@ const NuestroEquipo = () => {
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Experto en Tecnologías de Vanguardia.
               </p>
+              <div className="flex justify-center space-x-4 pt-2">
+                <a href="#" className="text-pink-500 hover:text-pink-600 transition-colors" aria-label="Instagram de Juan Pablo Vasquez">
+                  <Instagram size={20} />
+                </a>
+                <a href="#" className="text-blue-600 hover:text-blue-700 transition-colors" aria-label="LinkedIn de Juan Pablo Vasquez">
+                  <Linkedin size={20} />
+                </a>
+              </div>
             </div>
           </div>
         </div>

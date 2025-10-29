@@ -311,7 +311,7 @@ export function ContactForm() {
                   </div>
                   <div>
                     <div className="font-semibold">Ubicación</div>
-                    <div className="text-sm text-muted-foreground">Ecuador • LATAM</div>
+                    <div className="text-sm text-muted-foreground">Ecuador • Ibarra</div>
                   </div>
                 </div>
               </div>

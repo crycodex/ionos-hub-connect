@@ -305,7 +305,7 @@ const TerminosCondiciones = () => {
               <p className="text-muted-foreground mb-2"><strong className="text-foreground">Razón Social:</strong> IonosHub</p>
               <p className="text-muted-foreground mb-2"><strong className="text-foreground">Email:</strong> info@ionoshub.net</p>
               <p className="text-muted-foreground mb-2"><strong className="text-foreground">WhatsApp:</strong> +593 99 224 9152</p>
-              <p className="text-muted-foreground mb-2"><strong className="text-foreground">Ubicación:</strong> Ecuador - LATAM</p>
+              <p className="text-muted-foreground mb-2"><strong className="text-foreground">Ubicación:</strong> Ecuador - Ibarra</p>
               <p className="text-muted-foreground"><strong className="text-foreground">Horario de atención:</strong> Lunes a Viernes, 9:00 - 18:00 (GMT-5)</p>
             </div>
           </div>

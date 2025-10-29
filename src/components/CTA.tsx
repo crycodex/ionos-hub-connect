@@ -55,7 +55,7 @@ export function CTA() {
                 </div>
                 <div className="flex items-center justify-center gap-3 text-muted-foreground">
                   <MapPin className="h-5 w-5 text-primary" />
-                  <span>Ecuador • LATAM</span>
+                  <span>Ecuador • Ibarra</span>
                 </div>
               </div>
             </div>
