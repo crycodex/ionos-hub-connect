@@ -33,7 +33,7 @@ const NuestroEquipo = () => {
                 <a href="https://www.instagram.com/its.orlo" className="text-pink-500 hover:text-pink-600 transition-colors" aria-label="Instagram de Orlidan Montesdeoca">
                   <Instagram size={20} />
                 </a>
-                <a href="https://www.linkedin.com/in/orlidan-montesdeoc" className="text-blue-600 hover:text-blue-700 transition-colors" aria-label="LinkedIn de Orlidan Montesdeoca">
+                <a href="https://www.linkedin.com/in/orlidan-montesdeoca" className="text-blue-600 hover:text-blue-700 transition-colors" aria-label="LinkedIn de Orlidan Montesdeoca">
                   <Linkedin size={20} />
                 </a>
               </div>
