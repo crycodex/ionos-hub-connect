@@ -1,5 +1,6 @@
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { useScrollGlass } from '../hooks/use-scroll-glass';
 
 export interface StaggeredMenuItem {
   label: string;
@@ -30,6 +31,7 @@ export interface StaggeredMenuProps {
   onMenuOpen?: () => void;
   onMenuClose?: () => void;
   themeToggle?: React.ReactNode;
+  glassEffect?: boolean;
 }
 
 export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
@@ -48,10 +50,12 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   isFixed = true,
   onMenuOpen,
   onMenuClose,
-  themeToggle
+  themeToggle,
+  glassEffect = false
 }: StaggeredMenuProps) => {
   const [open, setOpen] = useState(false);
   const openRef = useRef(false);
+  const isScrolled = useScrollGlass({ enabled: glassEffect });
 
   const panelRef = useRef<HTMLDivElement | null>(null);
   const preLayersRef = useRef<HTMLDivElement | null>(null);
@@ -129,7 +133,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     const panelStart = Number(gsap.getProperty(panel, 'xPercent'));
 
     if (itemEls.length) gsap.set(itemEls, { yPercent: 140, rotate: 10 });
-    if (numberEls.length) gsap.set(numberEls, { ['--sm-num-opacity' as any]: 0 });
+    if (numberEls.length) gsap.set(numberEls, { ['--sm-num-opacity' as unknown as string]: 0 });
     if (socialTitle) gsap.set(socialTitle, { opacity: 0 });
     if (socialLinks.length) gsap.set(socialLinks, { y: 25, opacity: 0 });
 
@@ -163,7 +167,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       if (numberEls.length) {
         tl.to(
           numberEls,
-          { duration: 0.6, ease: 'power2.out', ['--sm-num-opacity' as any]: 1, stagger: { each: 0.08, from: 'start' } },
+          { duration: 0.6, ease: 'power2.out', ['--sm-num-opacity' as unknown as string]: 1, stagger: { each: 0.08, from: 'start' } },
           itemsStart + 0.1
         );
       }
@@ -235,7 +239,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         const numberEls = Array.from(
           panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item')
         ) as HTMLElement[];
-        if (numberEls.length) gsap.set(numberEls, { ['--sm-num-opacity' as any]: 0 });
+        if (numberEls.length) gsap.set(numberEls, { ['--sm-num-opacity' as unknown as string]: 0 });
 
         const socialTitle = panel.querySelector('.sm-socials-title') as HTMLElement | null;
         const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link')) as HTMLElement[];
@@ -341,7 +345,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     >
       <div
         className={(className ? className + ' ' : '') + 'staggered-menu-wrapper relative w-full h-full z-50'}
-        style={accentColor ? ({ ['--sm-accent' as any]: accentColor } as React.CSSProperties) : undefined}
+        style={accentColor ? ({ ['--sm-accent' as unknown as string]: accentColor } as React.CSSProperties) : undefined}
         data-position={position}
         data-open={open || undefined}
       >
@@ -352,7 +356,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         >
           {(() => {
             const raw = colors && colors.length ? colors.slice(0, 4) : ['#1e1e22', '#35353c'];
-            let arr = [...raw];
+            const arr = [...raw];
             if (arr.length >= 3) {
               const mid = Math.floor(arr.length / 2);
               arr.splice(mid, 1);
@@ -368,7 +372,11 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         </div>
 
         <header
-          className="staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-between p-[2em] bg-transparent pointer-events-none z-20"
+          className={`staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-between px-[2em] py-[1em] pointer-events-none z-20 transition-all duration-300 ${
+            glassEffect && isScrolled 
+              ? 'bg-background/80 backdrop-blur-md border-b border-border/10 shadow-lg' 
+              : 'bg-transparent'
+          }`}
           aria-label="Main navigation header"
         >
           <div 
@@ -379,7 +387,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             <img
               src={logoUrl}
               alt="IONOS HUB Logo"
-              className="sm-logo-img block h-10 w-auto object-contain"
+              className="sm-logo-img block h-8 w-auto object-contain"
               draggable={false}
             />
           </div>
@@ -391,7 +399,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
               ref={toggleBtnRef}
               className="sm-toggle relative inline-flex items-center gap-[0.3rem] bg-transparent border-0 cursor-pointer font-medium leading-none overflow-visible text-foreground"
               aria-label={open ? 'Close menu' : 'Open menu'}
-              aria-expanded={open}
+              aria-expanded={open.toString()}
               aria-controls="staggered-menu-panel"
               onClick={toggleMenu}
               type="button"
@@ -432,7 +440,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
           id="staggered-menu-panel"
           ref={panelRef}
           className="staggered-menu-panel absolute top-0 right-0 h-full bg-background/95 backdrop-blur-xl flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 border-l border-border pointer-events-auto"
-          aria-hidden={!open}
+          aria-hidden={!open ? 'true' : 'false'}
         >
           <div className="sm-panel-inner flex-1 flex flex-col gap-8">
             <ul
@@ -491,10 +499,10 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
       <style>{`
 .sm-scope .staggered-menu-wrapper { position: relative; width: 100%; height: 100%; z-index: 50; }
-.sm-scope .staggered-menu-header { position: absolute; top: 0; left: 0; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 2em; background: transparent; pointer-events: none; z-index: 20; }
+.sm-scope .staggered-menu-header { position: absolute; top: 0; left: 0; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 1em 2em; background: transparent; pointer-events: none; z-index: 20; }
 .sm-scope .staggered-menu-header > * { pointer-events: auto; }
 .sm-scope .sm-logo { display: flex; align-items: center; user-select: none; }
-.sm-scope .sm-logo-img { display: block; height: 40px; width: auto; object-fit: contain; }
+.sm-scope .sm-logo-img { display: block; height: 32px; width: auto; object-fit: contain; }
 .sm-scope .sm-toggle { position: relative; display: inline-flex; align-items: center; gap: 0.3rem; background: transparent; border: none; cursor: pointer; font-weight: 500; line-height: 1; overflow: visible; }
 .sm-scope .sm-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 4px; }
 .sm-scope .sm-toggle-textWrap { position: relative; margin-right: 0.5em; display: inline-block; height: 1em; overflow: hidden; white-space: nowrap; width: var(--sm-toggle-width, auto); min-width: var(--sm-toggle-width, auto); }
@@ -535,7 +543,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; padding: 5em 2em 2em 2em; }
   .sm-scope .sm-prelayers { width: 100%; left: 0; right: 0; }
   .sm-scope .sm-panel-item { font-size: 1.75rem; }
-  .sm-scope .sm-logo-img { height: 32px; }
+  .sm-scope .sm-logo-img { height: 28px; }
 }
       `}</style>
     </div>

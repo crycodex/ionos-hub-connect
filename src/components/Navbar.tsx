@@ -83,6 +83,7 @@ export function Navbar() {
       logoUrl="/imgs/logo%20remove.png"
       accentColor="#00A8E8"
       isFixed={true}
+      glassEffect={true}
       themeToggle={<ThemeToggle />}
       onMenuOpen={() => console.log('Menu abierto')}
       onMenuClose={() => console.log('Menu cerrado')}
