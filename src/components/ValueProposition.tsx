@@ -48,7 +48,7 @@ export function ValueProposition() {
               </h2>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Somos expertos en transformación digital con más de 100 casos de éxito. 
+                Somos expertos en transformación digital con casos de éxito. 
                 Implementamos soluciones personalizadas usando tecnologías de última generación, 
                 garantizando resultados tangibles en tiempo récord sin interrumpir tu operación.
               </p>
@@ -79,7 +79,7 @@ export function ValueProposition() {
                   <div className="text-center pb-6 border-b border-border">
                     <div className="text-4xl font-bold text-primary mb-2">Nuestra Visión</div>
                     <p className="text-muted-foreground">
-                      Liderar la innovación tecnológica en Latinoamérica unificando datos, experiencia del cliente y ciberseguridad
+                      Liderar la innovación tecnológica en Latinoamérica unificando datos, experiencia del cliente con tecnologías de vanguardia.
                     </p>
                   </div>
                   

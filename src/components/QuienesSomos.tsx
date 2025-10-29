@@ -242,6 +242,7 @@ export function QuienesSomos() {
               <div className="flex gap-2">
                 {Array.from({ length: totalSlides }).map((_, index) => (
                   <button
+                    title={`Ir al slide ${index + 1}`}
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-3 h-3 rounded-full transition-colors ${

@@ -70,7 +70,6 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full"></div>
               <img src="/imgs/logo%20remove.png" alt="IonosHub" className="h-10 w-auto" />
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">

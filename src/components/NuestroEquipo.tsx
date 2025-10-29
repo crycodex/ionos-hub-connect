@@ -31,7 +31,7 @@ const NuestroEquipo = () => {
 
             <div className="space-y-3">
               <h3 className="text-xl font-bold text-foreground">Orlidan Montesdeoca</h3>
-              <p className="text-blue-600 dark:text-blue-400 font-medium">CEO & CTO</p>
+              <p className="text-blue-600 dark:text-blue-400 font-medium">CEO</p>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Especialista en Business Analyst y DevOps.
               </p>
@@ -51,7 +51,7 @@ const NuestroEquipo = () => {
 
             <div className="space-y-3">
               <h3 className="text-xl font-bold text-foreground">Cristhian Recalde</h3>
-              <p className="text-green-600 dark:text-green-400 font-medium">COO & Head of Growth</p>
+              <p className="text-green-600 dark:text-green-400 font-medium">COO</p>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Tech lead Flutter and Web Developer.
               </p>
@@ -71,7 +71,7 @@ const NuestroEquipo = () => {
 
             <div className="space-y-3">
               <h3 className="text-xl font-bold text-foreground">Juan Pablo Vasquez</h3>
-              <p className="text-purple-600 dark:text-purple-400 font-medium">Solutions Architect & Development Lead</p>
+              <p className="text-purple-600 dark:text-purple-400 font-medium">Solutions Architect</p>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Experto en Tecnologías de Vanguardia.
               </p>

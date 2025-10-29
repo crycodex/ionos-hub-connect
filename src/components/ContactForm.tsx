@@ -33,6 +33,7 @@ export function ContactForm() {
     "Estudios de Mercado e Investigación",
     "Transformación Digital Empresarial",
     "Consultoría en Tecnología",
+    "Desarrollo Web / Móvil",
     "Otro"
   ];
 
@@ -121,7 +122,7 @@ export function ContactForm() {
                 <div className="space-y-4">
                   {/* Name */}
                   <div>
-                    <label className="block text-sm font-semibold mb-2 flex items-center gap-2">
+                    <label className="block text-sm font-semibold mb-2 items-center gap-2">
                       <User className="h-4 w-4 text-primary" />
                       Nombre Completo *
                     </label>
@@ -138,7 +139,7 @@ export function ContactForm() {
 
                   {/* Email */}
                   <div>
-                    <label className="block text-sm font-semibold mb-2 flex items-center gap-2">
+                    <label className="block text-sm font-semibold mb-2 items-center gap-2">
                       <Mail className="h-4 w-4 text-primary" />
                       Correo Electrónico *
                     </label>
@@ -155,7 +156,7 @@ export function ContactForm() {
 
                   {/* Phone */}
                   <div>
-                    <label className="block text-sm font-semibold mb-2 flex items-center gap-2">
+                    <label className="block text-sm font-semibold mb-2 items-center gap-2">
                       <Phone className="h-4 w-4 text-primary" />
                       Teléfono *
                     </label>
@@ -192,7 +193,7 @@ export function ContactForm() {
 
                   {/* Message */}
                   <div>
-                    <label className="block text-sm font-semibold mb-2 flex items-center gap-2">
+                    <label className="block text-sm font-semibold mb-2 items-center gap-2">
                       <MessageSquare className="h-4 w-4 text-primary" />
                       Mensaje *
                     </label>
@@ -326,14 +327,6 @@ export function ContactForm() {
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Lunes - Viernes</span>
                   <span className="font-semibold">8:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Sábado</span>
-                  <span className="font-semibold">9:00 AM - 1:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Domingo</span>
-                  <span className="font-semibold">Cerrado</span>
                 </div>
                 <div className="pt-3 mt-3 border-t border-border">
                   <Badge variant="secondary" className="w-full justify-center">
