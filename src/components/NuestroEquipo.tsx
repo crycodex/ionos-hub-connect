@@ -66,7 +66,7 @@ const NuestroEquipo = () => {
           {/* Juan Pablo Vasquez - Solutions Architect & Development Lead */}
           <div className="text-center space-y-6">
             <div className="flex items-center justify-center">
-              <img src="/imgs/equipo/jp.jpeg" alt="Juan Pablo Vasquez" className="w-48 h-48 rounded-full shadow-lg object-cover" />
+              <img src="/imgs/equipo/jp.jpg" alt="Juan Pablo Vasquez" className="w-48 h-48 rounded-full shadow-lg object-cover" />
             </div>
 
             <div className="space-y-3">
