@@ -1,6 +1,8 @@
-import { Users, Award, Brain, Zap, Instagram, Linkedin } from "lucide-react";
+import { useState } from "react";
+import { Users, Award, Brain, Zap, Instagram, Linkedin, ChevronDown } from "lucide-react";
 
 const NuestroEquipo = () => {
+  const [showDani, setShowDani] = useState(false);
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -82,6 +84,54 @@ const NuestroEquipo = () => {
                 <a href="#" className="text-blue-600 hover:text-blue-700 transition-colors" aria-label="LinkedIn de Juan Pablo Vasquez">
                   <Linkedin size={20} />
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Botón Ver Más */}
+        <div className="mt-12 text-center">
+          <button
+            onClick={() => setShowDani(!showDani)}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold rounded-lg hover:from-orange-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            {showDani ? "Ver menos" : "Ver más del equipo"}
+            <ChevronDown
+              size={20}
+              className={`transition-transform duration-300 ${showDani ? "rotate-180" : ""}`}
+            />
+          </button>
+        </div>
+
+        {/* Sección de Dani - Desplegable */}
+        <div
+          className={`overflow-hidden transition-all duration-500 ease-in-out ${showDani ? "max-h-[600px] opacity-100 mt-12" : "max-h-0 opacity-0"
+            }`}
+        >
+          <div className="flex justify-center">
+            <div className="text-center space-y-6 max-w-sm">
+              <div className="flex items-center justify-center">
+                <img
+                  src="/imgs/equipo/dani.jpg"
+                  alt="Daniela - Marketing Digital"
+                  className="w-48 h-48 rounded-full shadow-lg object-cover ring-4 ring-orange-500/20"
+                />
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xl font-bold text-foreground">Daniela Ortega</h3>
+                <p className="text-orange-600 dark:text-orange-400 font-medium">Marketing Digital</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Especialista en estrategias digitales y gestión de redes sociales.
+                </p>
+                <div className="flex justify-center space-x-4 pt-2">
+                  <a href="#" className="text-pink-500 hover:text-pink-600 transition-colors" aria-label="Instagram de Daniela">
+                    <Instagram size={20} />
+                  </a>
+                  <a href="#" className="text-blue-600 hover:text-blue-700 transition-colors" aria-label="LinkedIn de Daniela">
+                    <Linkedin size={20} />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
