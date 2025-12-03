@@ -384,12 +384,14 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             aria-label="Logo"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
+            <a href="/">
             <img
               src={logoUrl}
               alt="IONOS HUB Logo"
               className="sm-logo-img block h-8 w-auto object-contain"
               draggable={false}
             />
+            </a>
           </div>
 
           <div className="flex items-center gap-4 pointer-events-auto">
