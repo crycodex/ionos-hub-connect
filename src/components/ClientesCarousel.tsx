@@ -1,6 +1,28 @@
+import { useEffect, useState } from 'react';
 import LogoLoop, { LogoItem } from './LogoLoop';
 
 const ClientesCarousel = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Detectar el tema actual
+  useEffect(() => {
+    // Verificar el tema inicial
+    const checkTheme = () => {
+      setIsDarkMode(document.documentElement.classList.contains('dark'));
+    };
+
+    checkTheme();
+
+    // Observar cambios en el tema
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const clientes: LogoItem[] = [
     {
       src: '/imgs/clientes/chipotle.png',
@@ -23,12 +45,12 @@ const ClientesCarousel = () => {
       height: 80,
     },
     {
-      src: '/imgs/clientes/mafercano.png',
+      src: isDarkMode ? '/imgs/clientes/mafercano_dark.png' : '/imgs/clientes/mafercano.png',
       alt: 'Mafercano',
       height: 80,
     },
     {
-      src: '/imgs/clientes/zonagamers.png',
+      src: isDarkMode ? '/imgs/clientes/zonagamers_dark.png' : '/imgs/clientes/zonagamers.png',
       alt: 'Zona Gamers',
       height: 80,
     },
