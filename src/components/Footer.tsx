@@ -14,7 +14,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-muted/30 border-t border-border m-10 theme-instant">
+    <footer className="bg-muted/30 border-t border-border m-10 theme-instant rounded-lg">
       {/* Social Media Section */}
       <div className="bg-muted/50 border-b border-border">
         <div className="container mx-auto px-4 py-6">
