@@ -141,7 +141,7 @@ const devsTeam: TeamMember[] = [
   },
   {
     name: "David Villarreal",
-    title: "Ing. Eléctrico & Developer",
+    title: "Ing. Mecatrónico & Developer",
     handle: "davidvillarreal",
     status: "Developing",
     avatarUrl: "/imgs/equipo/deivid.png",
