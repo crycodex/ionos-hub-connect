@@ -168,6 +168,12 @@ export function Footer() {
               >
                 → Términos y Condiciones
               </button>
+              <button 
+                onClick={() => navigate('/politica-de-privacidad')}
+                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
+              >
+                → Política de Privacidad
+              </button>
             </div>
           </div>
 
@@ -213,7 +219,7 @@ export function Footer() {
             <p>© {currentYear} IonosHub. Todos los derechos reservados.</p>
             <div className="flex items-center gap-4">
               <button 
-                onClick={() => navigate('/terminos-y-condiciones')}
+                onClick={() => navigate('/politica-de-privacidad')}
                 className="hover:text-primary transition-colors hover:underline"
               >
                 Política de Privacidad

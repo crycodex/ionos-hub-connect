@@ -11,6 +11,7 @@ import BlogRecursos from "./pages/BlogRecursos";
 import ScrollToTop from "./components/ScrollToTop";
 import TerminosCondiciones from "./pages/TerminosCondiciones";
 import Team from "./pages/Team";
+import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 
 // Code-splitting dinámico para páginas de servicios (las más pesadas)
 const AgentesVirtuales = lazy(() => import("./pages/servicios/agentes-virtuales/AgentesVirtuales"));
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/blog-recursos" element={<BlogRecursos />} />
           <Route path="/equipo" element={<Team />} />
           <Route path="/terminos-y-condiciones" element={<TerminosCondiciones />} />
+          <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
           
           {/* Rutas con code-splitting dinámico */}
           <Route 
