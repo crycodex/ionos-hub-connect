@@ -1,5 +1,6 @@
 import ProfileCard from "./ProfileCard";
 import { Instagram, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface TeamMember {
   name: string;
@@ -30,22 +31,51 @@ const TeamSection: React.FC<TeamSectionProps> = ({
     4: "md:grid-cols-2 lg:grid-cols-4",
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring" as const, stiffness: 50 },
+    },
+  };
+
   return (
     <div className="mb-20">
-      <div className="text-center mb-12">
+      <motion.div 
+        className="text-center mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
         <h3 className="text-3xl font-bold text-foreground mb-3">{title}</h3>
         <div
           className={`w-24 h-1 bg-gradient-to-r ${gradientClass} mx-auto rounded-full`}
         />
-      </div>
+      </motion.div>
 
-      <div
+      <motion.div
         className={`grid ${gridCols[columns as keyof typeof gridCols]} gap-8 justify-items-center max-w-6xl mx-auto`}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
       >
         {members.map((member, index) => (
-          <div
+          <motion.div
             key={index}
             className="flex flex-col items-center gap-6 w-full max-w-sm"
+            variants={itemVariants}
           >
             <ProfileCard
               name={member.name}
@@ -79,9 +109,9 @@ const TeamSection: React.FC<TeamSectionProps> = ({
                 <Linkedin size={24} />
               </a>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
@@ -152,17 +182,28 @@ const devsTeam: TeamMember[] = [
 
 const NuestroEquipo = () => {
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Nuestro Equipo
+    <section className="py-24 bg-background relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[20%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          className="text-center mb-20"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-foreground tracking-tight">
+            Nuestro <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Equipo</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Profesionales especializados en tecnología e innovación, trabajando
             juntos para transformar ideas en soluciones digitales de vanguardia.
           </p>
-        </div>
+        </motion.div>
 
         <TeamSection
           title="Equipo Principal"
