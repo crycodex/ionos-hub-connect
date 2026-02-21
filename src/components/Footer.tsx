@@ -14,20 +14,24 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-muted/30 border-t border-border m-10 theme-instant rounded-lg">
-      {/* Social Media Section */}
-      <div className="bg-muted/50 border-b border-border">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-muted-foreground font-medium">
-              Conéctate con nosotros en redes sociales:
+    <footer className="bg-background border border-border mt-20 theme-instant m-12 rounded-2xl">
+      <div className="container mx-auto px-6 md:px-12 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+          {/* Brand & Social */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-2 mb-4">
+              <img src="/imgs/logo%20remove.png" alt="IonosHub" className="h-9 w-auto opacity-90" />
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              De Datos a Resultados. Transformación digital con IA y Business Intelligence. 
+              Especialistas en automatización y análisis de datos.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-5 pt-2">
               <a 
                 href="https://linkedin.com/company/ionoshub" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform duration-200"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin className="h-5 w-5" />
@@ -36,7 +40,7 @@ export function Footer() {
                 href="https://www.instagram.com/ionoshub?igsh=aW1uYXhha21rM2Rx" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform duration-200"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Instagram"
               >
                 <FaInstagram className="h-5 w-5" />
@@ -45,7 +49,7 @@ export function Footer() {
                 href="https://api.whatsapp.com/send/?phone=593992249152&text&type=phone_number&app_absent=0" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform duration-200"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="WhatsApp"
               >
                 <FaWhatsapp className="h-5 w-5" />
@@ -54,184 +58,120 @@ export function Footer() {
                 href="https://www.tiktok.com/@ionoshub?_t=ZM-90mGRMawTPP&_r=1" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform duration-200"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="TikTok"
               >
                 <FaTiktok className="h-5 w-5" />
               </a>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Main Footer Content */}
-      <div className="container mx-auto px-2 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-          {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <img src="/imgs/logo%20remove.png" alt="IonosHub" className="h-10 w-auto" />
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              De Datos a Resultados. Transformación digital con IA y Business Intelligence. 
-              Especialistas en automatización, análisis de datos y estrategias digitales que generan ROI medible.
-            </p>
-          </div>
-
-          {/* Navegación Principal */}
-          <div className="space-y-3">
-            <h3 className="font-semibold text-foreground text-base">Navegación</h3>
-            <div className="space-y-1 text-sm">
+          {/* Navegación */}
+          <div className="space-y-6">
+            <h3 className="font-medium text-foreground text-sm tracking-widest uppercase">Navegación</h3>
+            <div className="flex flex-col space-y-4 text-sm">
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
+                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
-                → Servicios
+                Servicios
               </button>
               <button 
                 onClick={() => scrollToSection('quienes-somos')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
+                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
-                → Quienes Somos
+                Quienes Somos
               </button>
               <button 
                 onClick={() => scrollToSection('proceso')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
+                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
-                → Nuestro Proceso
+                Nuestro Proceso
               </button>
               <button 
                 onClick={() => scrollToSection('certificaciones')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
+                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
-                → Certificaciones
+                Certificaciones
               </button>
             </div>
           </div>
 
           {/* Servicios */}
-          <div className="space-y-3">
-            <h3 className="font-semibold text-foreground text-base">Servicios</h3>
-            <div className="space-y-1 text-sm">
+          <div className="space-y-6">
+            <h3 className="font-medium text-foreground text-sm tracking-widest uppercase">Servicios</h3>
+            <div className="flex flex-col space-y-4 text-sm">
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
+                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
-                → Agentes Virtuales
-              </button>
-              <button 
-                onClick={() => scrollToSection('servicios')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
-              >
-                → Business Intelligence
+                Agentes Virtuales
               </button>
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
+                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
-                → Marketing Digital
+                Business Intelligence
               </button>
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
+                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
-                → Transformación Digital
-              </button>
-            </div>
-          </div>
-
-          {/* Recursos */}
-          <div className="space-y-3">
-            <h3 className="font-semibold text-foreground text-base">Recursos</h3>
-            <div className="space-y-1 text-sm">
-              <button 
-                onClick={() => scrollToSection('testimonios')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
-              >
-                → Testimonios
+                Marketing Digital
               </button>
               <button 
-                onClick={() => scrollToSection('blog')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
+                onClick={() => scrollToSection('servicios')}
+                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
-                → Blog & Recursos
-              </button>
-              <button 
-                onClick={() => scrollToSection('contacto')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
-              >
-                → Contacto
-              </button>
-              <button 
-                onClick={() => navigate('/terminos-y-condiciones')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
-              >
-                → Términos y Condiciones
-              </button>
-              <button 
-                onClick={() => navigate('/politica-de-privacidad')}
-                className="block text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
-              >
-                → Política de Privacidad
+                Transformación Digital
               </button>
             </div>
           </div>
 
           {/* Contacto */}
-          <div className="space-y-3">
-            <h3 className="font-semibold text-foreground text-base">Contacto</h3>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <MapPin className="h-4 w-4" />
+          <div className="space-y-6">
+            <h3 className="font-medium text-foreground text-sm tracking-widest uppercase">Contacto</h3>
+            <div className="flex flex-col space-y-5 text-sm">
+              <div className="flex items-start gap-3 text-muted-foreground">
+                <MapPin className="h-4 w-4 mt-0.5" />
                 <span>Ecuador • Ibarra</span>
               </div>
               <a 
                 href="mailto:info@ionoshub.net"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+                className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Mail className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                <Mail className="h-4 w-4" />
                 <span>info@ionoshub.net</span>
               </a>
               <a 
                 href="https://wa.me/593992249152" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+                className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
               >
-                <MessageCircle className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                <MessageCircle className="h-4 w-4" />
                 <span>+593 99 224 9152</span>
               </a>
             </div>
-
-            {/* CTA Button */}
-            <button
-              onClick={() => scrollToSection('contacto')}
-              className="w-full mt-3 px-3 py-2 bg-gradient-to-r from-primary to-blue-light text-white rounded text-sm font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
-            >
-              Agendar Consulta Gratis
-            </button>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <p>© {currentYear} IonosHub. Todos los derechos reservados.</p>
-            <div className="flex items-center gap-4">
-              <button 
-                onClick={() => navigate('/politica-de-privacidad')}
-                className="hover:text-primary transition-colors hover:underline"
-              >
-                Política de Privacidad
-              </button>
-              <span className="text-muted-foreground/50">•</span>
-              <button 
-                onClick={() => navigate('/terminos-y-condiciones')}
-                className="hover:text-primary transition-colors hover:underline"
-              >
-                Términos y Condiciones
-              </button>
-            </div>
+        <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+          <p>© {currentYear} IonosHub. Todos los derechos reservados.</p>
+          <div className="flex items-center gap-6">
+            <button 
+              onClick={() => navigate('/politica-de-privacidad')}
+              className="hover:text-foreground transition-colors"
+            >
+              Política de Privacidad
+            </button>
+            <button 
+              onClick={() => navigate('/terminos-y-condiciones')}
+              className="hover:text-foreground transition-colors"
+            >
+              Términos y Condiciones
+            </button>
           </div>
         </div>
       </div>
