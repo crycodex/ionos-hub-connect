@@ -135,6 +135,15 @@ const mainTeam: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/isnotcristhianr/",
     instagram: "https://www.instagram.com/cry.code/",
   },
+  {
+    name: "Giuseppe Tubon Chamorro",
+    title: "CMO & MBA Marketing Digital",
+    handle: "giuschamorro",
+    status: "Marketing",
+    avatarUrl: "/imgs/equipo/gius.png",
+    linkedin: "https://www.linkedin.com/in/giuseppechamorro/",
+    instagram: "https://www.instagram.com/giuschamorro/",
+  },
 ];
 
 const marketingTeam: TeamMember[] = [
@@ -143,40 +152,41 @@ const marketingTeam: TeamMember[] = [
     title: "Ing. Biotecnología & Content Creator",
     handle: "domealvarezp",
     status: "Creative",
-    avatarUrl: "/imgs/equipo/user.png",
+    avatarUrl: "/imgs/equipo/dome.png",
     linkedin: "https://www.linkedin.com/in/dom%C3%A9nica/",
     instagram: "https://www.instagram.com/domealvarezp/",
   },
   {
-    name: "Giuseppe Chamorro",
-    title: "CMO & MBA Marketing Digital",
-    handle: "giuschamorro",
-    status: "Marketing",
-    avatarUrl: "/imgs/equipo/user.png",
-    linkedin: "https://www.linkedin.com/in/giuseppechamorro/",
-    instagram: "https://www.instagram.com/giuschamorro/",
+    name: "Cristian Morales",
+    title: "Filmaker && editor",
+    handle: "cristianmorales",
+    status: "Editing",
+    avatarUrl: "/imgs/equipo/cris.png",
+    linkedin: "https://www.linkedin.com/in/cristian-morales/",
+    instagram: "https://www.instagram.com/crismoralesri/",
   },
+  
 ];
 
 const devsTeam: TeamMember[] = [
-  {
-    name: "Juan Pablo Vasquez",
-    title: "Solutions Architect",
-    handle: "juanpablo",
-    status: "Architecting",
-    avatarUrl: "/imgs/equipo/jp.png",
-    linkedin:
-      "https://www.linkedin.com/in/juan-pablo-vasquez-5b2116257",
-    instagram: "https://www.instagram.com/jupa_dev/",
-  },
+
   {
     name: "David Villarreal",
-    title: "Ing. Mecatrónico & Developer",
+    title: "Ing. Mecatrónico & Developer Automatizaciones",
     handle: "davidvillarreal",
     status: "Developing",
     avatarUrl: "/imgs/equipo/deivid.png",
     linkedin: "https://www.linkedin.com/in/david-villarreal-c",
     instagram: "https://www.instagram.com/davidvillarreal.31/",
+  },
+    {
+    name: "Alan Rodriguez",
+    title: "Ing. TI & Product Manager",
+    handle: "alanrodriguez",
+    status: "Developing",
+    avatarUrl: "/imgs/equipo/user.png",
+    linkedin: "https://www.linkedin.com/in/alan-rodriguez-c",
+    instagram: "https://www.instagram.com/alanrodriguez.31/",
   },
 ];
 
