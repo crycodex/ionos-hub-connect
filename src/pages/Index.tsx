@@ -2,12 +2,9 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { ValueProposition } from "@/components/ValueProposition";
-import { QuienesSomos } from "@/components/QuienesSomos";
-import { Process } from "@/components/Process";
 
 import ClientesCarousel from "../components/ClientesCarousel";
 import { Certifications } from "@/components/Certifications";
-import { Architecture } from "@/components/Architecture";
 // import { Testimonials } from "@/components/Testimonials";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";

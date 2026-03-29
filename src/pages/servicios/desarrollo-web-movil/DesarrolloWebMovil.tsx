@@ -3,11 +3,10 @@ import {
   MessageCircle, Shield, Award, Target, Building, ShoppingCart, Heart, 
   GraduationCap, Car, Home, Coffee, Camera, Music, Gamepad2, Briefcase,
   Clock, Star, TrendingUp, BarChart3, Settings, Database, Brain, Rocket,
-  Palette, Layers, Smartphone as Phone, Laptop, Tablet, Watch, Headphones
+  Palette, Layers, Smartphone as Phone, Laptop, Tablet, Watch, Headphones,
+  Search, ExternalLink, ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Footer } from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
 import ResearchIntegrations from "@/components/ResearchIntegrations";
@@ -29,19 +28,6 @@ const DesarrolloWebMovil = () => {
     window.open(`https://wa.me/593992249152?text=${message}`, '_blank', 'noopener,noreferrer');
   };
 
-  const handleWhatsAppDemo = () => {
-    const message = encodeURIComponent(
-      `Hola, me interesa ver una demo de sus desarrollos web y móviles.\n\n` +
-      `Me gustaría conocer:\n` +
-      `• Casos de éxito\n` +
-      `• Tecnologías utilizadas\n` +
-      `• Proceso de desarrollo\n` +
-      `• Tiempos de entrega\n\n` +
-      `¿Podrían mostrarme algunos ejemplos?`
-    );
-    window.open(`https://wa.me/593992249152?text=${message}`, '_blank', 'noopener,noreferrer');
-  };
-
   const handleWhatsAppPortfolio = () => {
     const message = encodeURIComponent(
       `Hola, me interesa ver el portfolio de desarrollo web y móvil.\n\n` +
@@ -57,7 +43,6 @@ const DesarrolloWebMovil = () => {
 
   const handleVolver = () => {
     navigate('/');
-    // Scroll a la sección de servicios después de navegar
     setTimeout(() => {
       const serviciosSection = document.getElementById('servicios');
       if (serviciosSection) {
@@ -66,536 +51,435 @@ const DesarrolloWebMovil = () => {
     }, 100);
   };
 
+  const fadeUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" as const }
+  };
+
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center gap-4 mb-8">
-          <Button variant="outline" size="sm" onClick={handleVolver}>
+    <div className="min-h-screen bg-background text-foreground font-sans">
+      <div className="container mx-auto px-4 py-12">
+        
+        <motion.div {...fadeUp} className="flex items-center gap-4 mb-16">
+          <Button variant="ghost" size="sm" onClick={handleVolver} className="text-muted-foreground hover:text-foreground">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Volver
           </Button>
-          <div className="h-8 w-px bg-border" />
-          <h1 className="text-3xl font-bold">Desarrollo Web - Móvil</h1>
-        </div>
+          <div className="h-4 w-px bg-border" />
+          <span className="text-sm font-medium text-muted-foreground">Servicios / Desarrollo Web y Móvil</span>
+        </motion.div>
 
-        {/* Hero */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="space-y-6">
-            <Badge variant="secondary" className="w-max">Desarrollo Profesional</Badge>
-            <h2 className="text-4xl font-bold leading-tight">
-              Soluciones digitales que impulsan tu negocio
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Desarrollamos sitios web, aplicaciones móviles y plataformas digitales personalizadas 
-              con las últimas tecnologías para maximizar tu presencia online y mejorar la experiencia de tus usuarios.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <Card className="p-4 text-center">
-                <div className="text-2xl font-bold text-primary mb-1">100%</div>
-                <div className="text-xs text-muted-foreground">Responsive</div>
-              </Card>
+        {/* Hero Section */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="space-y-8"
+          >
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-slate-200 dark:border-white/10 rounded-full bg-slate-50 dark:bg-white/5">
+                <Code className="w-4 h-4 text-[#0ea5e9]" />
+                <span className="text-xs font-semibold tracking-widest uppercase">Tecnología de Vanguardia</span>
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
+                Software que <br/> <span className="text-[#0ea5e9]">escala tu negocio</span>
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
+                Creamos aplicaciones web y móviles nativas de alto rendimiento, diseñadas con precisión técnica para resolver problemas reales y acelerar tu crecimiento.
+              </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-primary to-blue-light" onClick={handleWhatsAppConsultoria}>
-                <MessageCircle className="mr-2 h-5 w-5" />
+
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-[#0ea5e9]" />
+                  <span className="font-semibold text-lg">100%</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Código Robusto</p>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-[#0ea5e9]" />
+                  <span className="font-semibold text-lg">Cross-platform</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Experiencia fluida</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button size="lg" className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white px-8 h-14 rounded-full" onClick={handleWhatsAppConsultoria}>
                 Consultoría Gratuita
               </Button>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-light/5 rounded-3xl blur-xl" />
-            <div className="relative bg-card rounded-2xl border border-border/50 overflow-hidden">
-              <div className="space-y-0">
-                {/* Imagen de Desarrollo Web y Móvil */}
-                <div className="relative w-full aspect-[4/3]">
-                  <img 
-                    src="/imgs/pixelart3d.png" 
-                    alt="Desarrollo Web y Móvil - Pixel Art 3D" 
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Brillo azul inferior */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-blue-500/30 via-blue-400/15 to-transparent pointer-events-none" />
-                </div>
-              </div>
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+            className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-zinc-100 dark:bg-zinc-900"
+          >
+            <img 
+              src="/imgs/pixelart3d.png" 
+              alt="Desarrollo Web y Móvil" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+          </motion.div>
         </div>
 
-        {/* Servicios Principales */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Nuestros Servicios</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Soluciones completas de desarrollo web y móvil adaptadas a las necesidades de tu negocio
+        {/* Divider */}
+        <div className="w-full h-px bg-border my-24 hidden lg:block" />
+
+        {/* Servicios */}
+        <div className="mb-24">
+          <motion.div 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp}
+            className="mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4">Competencias Core</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              Dominamos todo el espectro del stack tecnológico para entregar soluciones integrales.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Desarrollo Web */}
-            <Card className="p-6 group hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300">
-                <Globe className="h-6 w-6 text-white" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+            
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <Globe className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Desarrollo Web</h3>
-              <p className="text-muted-foreground mb-4">
-                Sitios web profesionales, aplicaciones web progresivas y plataformas digitales con las últimas tecnologías.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Sitios web corporativos</li>
-                <li>• E-commerce personalizado</li>
-                <li>• Aplicaciones web progresivas</li>
-                <li>• Sistemas de gestión</li>
-              </ul>
-            </Card>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Desarrollo Web</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Arquitectura robusta y escalable para plataformas B2B/B2C, SaaS y soluciones e-commerce a medida.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Apps Web Progresivas (PWA)</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Sistemas de Gestión</li>
+                </ul>
+              </div>
+            </div>
 
-            {/* Desarrollo Móvil */}
-            <Card className="p-6 group hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300">
-                <Smartphone className="h-6 w-6 text-white" />
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <Smartphone className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Desarrollo Móvil</h3>
-              <p className="text-muted-foreground mb-4">
-                Aplicaciones móviles nativas e híbridas para iOS y Android con diseño intuitivo y funcionalidades avanzadas.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Apps nativas iOS/Android</li>
-                <li>• Aplicaciones híbridas</li>
-                <li>• Apps de e-commerce</li>
-                <li>• Aplicaciones empresariales</li>
-              </ul>
-            </Card>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Desarrollo Móvil</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Aplicaciones de alto rendimiento diseñadas específicamente para iOS y Android maximizando los recursos del dispositivo.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Nativas (Swift/Kotlin)</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Híbridas (React Native/Flutter)</li>
+                </ul>
+              </div>
+            </div>
 
-            {/* Diseño UX/UI */}
-            <Card className="p-6 group hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300">
-                <Palette className="h-6 w-6 text-white" />
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <Palette className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Diseño UX/UI</h3>
-              <p className="text-muted-foreground mb-4">
-                Diseño centrado en el usuario que mejora la experiencia y aumenta las conversiones de tu plataforma digital.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Diseño de interfaces</li>
-                <li>• Experiencia de usuario</li>
-                <li>• Prototipado interactivo</li>
-                <li>• Testing de usabilidad</li>
-              </ul>
-            </Card>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Diseño UX/UI</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Interfaces diseñadas métricamente para reducir la fricción, aumentar retención y guiar la conversión.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Prototipos Interactivos</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Sistemas de Diseño</li>
+                </ul>
+              </div>
+            </div>
 
-            {/* Integración de Sistemas */}
-            <Card className="p-6 group hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300">
-                <Zap className="h-6 w-6 text-white" />
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <Zap className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Integración de Sistemas</h3>
-              <p className="text-muted-foreground mb-4">
-                Conectamos tu nueva plataforma con sistemas existentes para un flujo de trabajo optimizado.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• APIs personalizadas</li>
-                <li>• Integración CRM/ERP</li>
-                <li>• Sistemas de pago</li>
-                <li>• Automatización de procesos</li>
-              </ul>
-            </Card>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Integración y APIs</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Conectamos engranajes aislados, sincronizando ERPs, CRMs y pasarelas de pago sin interrupciones.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Desarrollo de APIs REST/GraphQL</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Plataformas de Terceros</li>
+                </ul>
+              </div>
+            </div>
 
-            {/* Mantenimiento */}
-            <Card className="p-6 group hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out">
-              <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300">
-                <Settings className="h-6 w-6 text-white" />
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <Brain className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Mantenimiento</h3>
-              <p className="text-muted-foreground mb-4">
-                Soporte técnico continuo, actualizaciones de seguridad y mejoras para mantener tu plataforma actualizada.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Soporte 24/7</li>
-                <li>• Actualizaciones de seguridad</li>
-                <li>• Optimización de rendimiento</li>
-                <li>• Backup y recuperación</li>
-              </ul>
-            </Card>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Arquitectura Cloud</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Infraestructuras preparadas para alta concurrencia con estrategias de autoescalado y seguridad.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Serverless y Microservicios</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Optimización AWS/GCP</li>
+                </ul>
+              </div>
+            </div>
 
-            {/* Consultoría Técnica */}
-            <Card className="p-6 group hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out">
-              <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300">
-                <Brain className="h-6 w-6 text-white" />
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <Settings className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Consultoría Técnica</h3>
-              <p className="text-muted-foreground mb-4">
-                Asesoramiento estratégico para elegir las mejores tecnologías y arquitecturas para tu proyecto.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Arquitectura de software</li>
-                <li>• Selección de tecnologías</li>
-                <li>• Escalabilidad</li>
-                <li>• Mejores prácticas</li>
-              </ul>
-            </Card>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Mantenimiento DevSecOps</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Gestión proactiva del ciclo de vida del software, monitoreo continuo y resolución de vulnerabilidades.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> CI/CD Pipelines</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Auditorías de Código</li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        {/* Proyectos */}
-        <div className="mb-16">
-          {/* Proyectos Web */}
-          <div className="mb-16">
-            <motion.div 
-              className="text-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
+        {/* Proyectos Destacados (Cardless) */}
+        <div className="mb-24">
+          <motion.div 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-4">Caso de Estudio: Web</h2>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 mb-24">
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              className="space-y-6 group"
             >
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <Globe className="h-8 w-8 text-primary" />
-                <h3 className="text-3xl font-bold">Proyectos Web</h3>
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-border">
+                <img 
+                  src="/imgs/imgsWeb/appWeb1.png" 
+                  alt="Cielo Verde" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
               </div>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Soluciones web modernas y escalables que impulsan el crecimiento digital
-              </p>
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="text-2xl font-semibold">Cielo Verde</h4>
+                  <span className="text-xs font-semibold text-[#0ea5e9] uppercase tracking-wider">Web App</span>
+                </div>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Sistema integral de reservas turísticas que conecta operaciones complejas con una interfaz orientada puramente a la inmersión del usuario y conversión directa.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="px-3 py-1 bg-zinc-100 dark:bg-zinc-800 rounded-full text-xs font-medium">React</span>
+                  <span className="px-3 py-1 bg-zinc-100 dark:bg-zinc-800 rounded-full text-xs font-medium">Node.js</span>
+                  <span className="px-3 py-1 bg-zinc-100 dark:bg-zinc-800 rounded-full text-xs font-medium">MongoDB</span>
+                </div>
+                <Button variant="outline" size="sm" onClick={() => window.open('https://www.cieloverdespanishschool.com/about', '_blank')} className="group/btn">
+                  Ver Proyecto <ExternalLink className="w-4 h-4 ml-2 opacity-50 group-hover/btn:opacity-100 transition-opacity" />
+                </Button>
+              </div>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Proyecto Web 1 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                  <div className="relative h-72 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-4">
-                    <img 
-                      src="/imgs/imgsWeb/appWeb1.png" 
-                      alt="Proyecto Web 1" 
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 rounded-lg"
-                    />
-                    <div className="absolute inset-4 bg-gradient-to-t from-black/10 to-transparent rounded-lg" />
-                  </div>
-                  
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <h4 className="text-xl font-semibold">Cielo Verde</h4>
-                      <Badge variant="outline" className="text-xs">Web</Badge>
-                    </div>
-                    
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                      Cielo Verde, una empresa joven apasionada por mostrar la belleza de Ecuador 
-                      a través de experiencias de viaje únicas. Fundada en 2023, tenemos guías 
-                      experimentados que comparten un profundo amor por nuestro país y una gran 
-                      riqueza de conocimiento sobre destinos turísticos locales.
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <Badge variant="secondary" className="text-xs">React</Badge>
-                      <Badge variant="secondary" className="text-xs">Node.js</Badge>
-                      <Badge variant="secondary" className="text-xs">MongoDB</Badge>
-                      <Badge variant="secondary" className="text-xs">Stripe</Badge>
-                    </div>
-                    
-                    <div className="flex gap-2">
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        onClick={() => window.open('https://www.cieloverdespanishschool.com/about', '_blank', 'noopener,noreferrer')}
-                        className="flex-1 group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                      >
-                        Ver Proyecto
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="space-y-6 group"
+            >
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-border">
+                <img 
+                  src="/imgs/imgsWeb/appWeb2.png" 
+                  alt="Dashboard Empresarial" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="text-2xl font-semibold">Dashboard BI</h4>
+                  <span className="text-xs font-semibold text-[#0ea5e9] uppercase tracking-wider">Enterprise Web</span>
+                </div>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Panel corporativo con visualización de grandes set de datos en tiempo real, gestión de permisos estrictos y generación rápida de reportes a medida.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="px-3 py-1 bg-zinc-100 dark:bg-zinc-800 rounded-full text-xs font-medium">Vue.js</span>
+                  <span className="px-3 py-1 bg-zinc-100 dark:bg-zinc-800 rounded-full text-xs font-medium">Python</span>
+                  <span className="px-3 py-1 bg-zinc-100 dark:bg-zinc-800 rounded-full text-xs font-medium">PostgreSQL</span>
+                </div>
+                <Button variant="outline" size="sm" onClick={handleWhatsAppPortfolio} className="group/btn">
+                  Solicitar Acceso <ExternalLink className="w-4 h-4 ml-2 opacity-50 group-hover/btn:opacity-100 transition-opacity" />
+                </Button>
+              </div>
+            </motion.div>
 
-              {/* Proyecto Web 2 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                  <div className="relative h-72 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-4">
-                    <img 
-                      src="/imgs/imgsWeb/appWeb2.png" 
-                      alt="Proyecto Web 2" 
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 rounded-lg"
-                    />
-                    <div className="absolute inset-4 bg-gradient-to-t from-black/10 to-transparent rounded-lg" />
-                  </div>
-                  
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <h4 className="text-xl font-semibold">Dashboard Empresarial</h4>
-                      <Badge variant="outline" className="text-xs">Web</Badge>
-                    </div>
-                    
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                      Panel de control intuitivo con visualización de datos en tiempo real, 
-                      reportes automatizados y gestión de usuarios avanzada. Incluye 
-                      integración con múltiples fuentes de datos y exportación de reportes.
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <Badge variant="secondary" className="text-xs">Vue.js</Badge>
-                      <Badge variant="secondary" className="text-xs">Python</Badge>
-                      <Badge variant="secondary" className="text-xs">PostgreSQL</Badge>
-                      <Badge variant="secondary" className="text-xs">Chart.js</Badge>
-                    </div>
-                    
-                    <div className="flex gap-2">
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        onClick={handleWhatsAppPortfolio}
-                        className="flex-1 group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                      >
-                        Ver Proyecto
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            </div>
           </div>
 
-          {/* Proyectos Móviles */}
-          <div className="mb-16">
-            <motion.div 
-              className="text-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
+          <motion.div 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp}
+            className="mb-16 pt-16 border-t border-border"
+          >
+            <h2 className="text-3xl font-bold mb-4">Caso de Estudio: Móvil</h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-12">
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              className="space-y-6 group"
             >
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <Smartphone className="h-8 w-8 text-primary" />
-                <h3 className="text-3xl font-bold">Aplicaciones Móviles</h3>
+              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-border p-4 flex items-center justify-center">
+                <img 
+                  src="/imgs/imgsMovil/appMovil1.png" 
+                  alt="SwapMe" 
+                  className="w-[80%] object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl"
+                />
               </div>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Apps nativas e híbridas que conectan tu negocio con tus clientes
-              </p>
+              <div>
+                <h4 className="text-xl font-semibold mb-2">SwapMe</h4>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
+                  Marketplace C2C con geolocalización avanzada en tiempo real y arquitectura orientada a alta concurrencia.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-medium uppercase">React Native</span>
+                  <span className="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-medium uppercase">Firebase</span>
+                </div>
+                <Button variant="ghost" size="sm" onClick={() => window.open('https://play.google.com/store/apps/details?id=com.swapapp.me', '_blank')} className="px-0 hover:bg-transparent hover:text-[#0ea5e9]">
+                  Ver en Store <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* App Móvil 1 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                  <div className="relative h-56 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-3">
-                    <img 
-                      src="/imgs/imgsMovil/appMovil1.png" 
-                      alt="App Móvil 1" 
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 rounded-lg"
-                    />
-                    <div className="absolute inset-3 bg-gradient-to-t from-black/10 to-transparent rounded-lg" />
-                  </div>
-                  
-                  <div className="p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="text-lg font-semibold">SwapMe</h4>
-                      <Badge variant="outline" className="text-xs">Android</Badge>
-                    </div>
-                    
-                    <p className="text-muted-foreground text-xs mb-3 leading-relaxed">
-                      SwapMe es una aplicación que transforma la forma en que consumes moda. 
-                      Intercambia y vende ropa de segunda mano de manera sencilla, segura y 
-                      sostenible. Dale una segunda vida a tus prendas, ahorra dinero y 
-                      contribuye a reducir el impacto ambiental de la industria textil.
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      <Badge variant="secondary" className="text-xs">React Native</Badge>
-                      <Badge variant="secondary" className="text-xs">Firebase</Badge>
-                      <Badge variant="secondary" className="text-xs">Maps API</Badge>
-                    </div>
-                    
-                    <div className="flex gap-2">
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        onClick={() => window.open('https://play.google.com/store/apps/details?id=com.swapapp.me', '_blank', 'noopener,noreferrer')}
-                        className="flex-1 text-xs group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                      >
-                        Ver Proyecto
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="space-y-6 group"
+            >
+              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-border p-4 flex items-center justify-center">
+                <img 
+                  src="/imgs/imgsMovil/appMovil2.png" 
+                  alt="Chat Simulator" 
+                  className="w-[80%] object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl"
+                />
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold mb-2">Chat Simulator</h4>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
+                  Aplicación nativa diseñada para un rendimiento máximo offline, persistencia local segura y renderizado fluido.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-medium uppercase">Flutter</span>
+                  <span className="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-medium uppercase">Offline-first</span>
+                </div>
+                <Button variant="ghost" size="sm" onClick={() => window.open('https://play.google.com/store/apps/details?id=com.cristhianrecalde.app_chat', '_blank')} className="px-0 hover:bg-transparent hover:text-[#0ea5e9]">
+                  Ver en Store <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+            </motion.div>
 
-              {/* App Móvil 2 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                  <div className="relative h-56 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-3">
-                    <img 
-                      src="/imgs/imgsMovil/appMovil2.png" 
-                      alt="App Móvil 2" 
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 rounded-lg"
-                    />
-                    <div className="absolute inset-3 bg-gradient-to-t from-black/10 to-transparent rounded-lg" />
-                  </div>
-                  
-                  <div className="p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="text-lg font-semibold">Chat Simulator</h4>
-                      <Badge variant="outline" className="text-xs">Android</Badge>
-                    </div>
-                    
-                    <p className="text-muted-foreground text-xs mb-3 leading-relaxed">
-                      Chat Simulator es una aplicación simple, rápida y divertida que te permite 
-                      simular conversaciones realistas entre dos usuarios, todo sin necesidad de 
-                      conexión a internet ni cuentas de usuario. Diseñada con una interfaz moderna 
-                      inspirada en apps de mensajería populares.
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      <Badge variant="secondary" className="text-xs">Flutter</Badge>
-                      <Badge variant="secondary" className="text-xs">AWS</Badge>
-                      <Badge variant="secondary" className="text-xs">Offline</Badge>
-                    </div>
-                    
-                    <div className="flex gap-2">
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        onClick={() => window.open('https://play.google.com/store/apps/details?id=com.cristhianrecalde.app_chat', '_blank', 'noopener,noreferrer')}
-                        className="flex-1 text-xs group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                      >
-                        Ver Proyecto
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="space-y-6 group"
+            >
+              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-border p-4 flex items-center justify-center">
+                <img 
+                  src="/imgs/imgsMovil/appMovil3.png" 
+                  alt="Chulla Cash" 
+                  className="w-[80%] object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl"
+                />
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold mb-2">Chulla Cash</h4>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
+                  Herramienta Fintech que orquesta datos sensibles con protocolos férreos de encriptado y biometría activa.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-medium uppercase">Fintech</span>
+                  <span className="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-medium uppercase">SecOps</span>
+                </div>
+                <Button variant="ghost" size="sm" onClick={() => window.open('https://play.google.com/store/apps/details?id=com.chullacash.app', '_blank')} className="px-0 hover:bg-transparent hover:text-[#0ea5e9]">
+                  Ver en Store <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+            </motion.div>
 
-              {/* App Móvil 3 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                  <div className="relative h-56 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-3">
-                    <img 
-                      src="/imgs/imgsMovil/appMovil3.png" 
-                      alt="App Móvil 3" 
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 rounded-lg"
-                    />
-                    <div className="absolute inset-3 bg-gradient-to-t from-black/10 to-transparent rounded-lg" />
-                  </div>
-                  
-                  <div className="p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="text-lg font-semibold">Chulla Cash</h4>
-                      <Badge variant="outline" className="text-xs">Android</Badge>
-                    </div>
-                    
-                    <p className="text-muted-foreground text-xs mb-3 leading-relaxed">
-                      Chulla Cash es una aplicación innovadora de gestión financiera personal 
-                      diseñada para transformar la manera en que las personas manejan su dinero. 
-                      Combinando tecnología avanzada con una experiencia de usuario intuitiva, 
-                      hace que el control de gastos y el ahorro sean procesos simples y efectivos.
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      <Badge variant="secondary" className="text-xs">React Native</Badge>
-                      <Badge variant="secondary" className="text-xs">MongoDB</Badge>
-                      <Badge variant="secondary" className="text-xs">Fintech</Badge>
-                    </div>
-                    
-                    <div className="flex gap-2">
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        onClick={() => window.open('https://play.google.com/store/apps/details?id=com.chullacash.app', '_blank', 'noopener,noreferrer')}
-                        className="flex-1 text-xs group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                      >
-                        Ver Proyecto
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            </div>
           </div>
         </div>
-        
-        {/* Proceso de Desarrollo */}
-        <div className="mb-16">
-          <div className="rounded-3xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/30 px-6 md:px-16 py-14 shadow-inner">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Nuestro Proceso de Desarrollo</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Metodología ágil probada que garantiza entregas de calidad en tiempo y forma
-              </p>
+
+        {/* Proceso */}
+        <div className="p-10 lg:p-16 bg-[#0ea5e9]/5 border border-[#0ea5e9]/20 rounded-3xl mb-24">
+          <motion.div 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-4">Pipeline Ágil</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Nuestra metodología empírica garantiza calidad superior iterando rápidamente hacia el mercado.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="border-t-2 border-[#0ea5e9]/30 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">01</div>
+              <h3 className="text-xl font-semibold mb-2">Discovery</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">Arquitectura técnica inicial, definición core del producto y evaluación estricta de factibilidad.</p>
+            </div>
+            
+            <div className="border-t-2 border-[#0ea5e9]/30 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">02</div>
+              <h3 className="text-xl font-semibold mb-2">Wireframing</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">Diseño de experiencia interactivo mitigando riesgos antes de escribir una sola línea de código.</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Target className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">1. Análisis & Planificación</h3>
-                <p className="text-muted-foreground">
-                  Analizamos tus necesidades, definimos objetivos y creamos un plan de desarrollo detallado.
-                </p>
-              </div>
+            <div className="border-t-2 border-[#0ea5e9]/30 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">03</div>
+              <h3 className="text-xl font-semibold mb-2">Sprints Técnicos</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">Desarrollo iterativo de 2 semanas mediante CI/CD asegurando entregables siempre funcionales.</p>
+            </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Palette className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">2. Diseño & Prototipado</h3>
-                <p className="text-muted-foreground">
-                  Creamos wireframes, mockups y prototipos interactivos para validar la experiencia de usuario.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Code className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">3. Desarrollo & Testing</h3>
-                <p className="text-muted-foreground">
-                  Desarrollamos la solución con metodología ágil y realizamos pruebas continuas de calidad.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Rocket className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">4. Despliegue & Soporte</h3>
-                <p className="text-muted-foreground">
-                  Desplegamos tu solución y proporcionamos soporte continuo para mantenerla actualizada.
-                </p>
-              </div>
+            <div className="border-t-2 border-[#0ea5e9]/30 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">04</div>
+              <h3 className="text-xl font-semibold mb-2">Escalamiento</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">Despliegue a producción blindado con analítica y observabilidad en tiempo real.</p>
             </div>
           </div>
         </div>
 
-        {/* CTA Final */}
-        <div className="mb-16">
+        {/* CTA Integrations */}
+        <div className="mt-8 mb-24">
           <ResearchIntegrations />
         </div>
+
       </div>
       <Footer />
     </div>

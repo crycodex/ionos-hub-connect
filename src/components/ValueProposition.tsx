@@ -1,5 +1,6 @@
 import { CheckCircle2 } from "lucide-react";
 import MagnetLines from "./MagnetLines";
+import { motion } from "framer-motion";
 
 const values = [
   {
@@ -16,21 +17,28 @@ const values = [
   },
   {
     title: "Expertise Local",
-    description: "Más de 5 años trabajando con empresas ecuatorianas nos dan el conocimiento único del mercado local y sus necesidades específicas."
+    description: "Más de 5 años trabajando con empresas innovadoras nos dan el conocimiento único del mercado y sus necesidades operativas."
   }
 ];
 
 export function ValueProposition() {
+  const fadeUp = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.6, ease: "easeOut" as const }
+  };
+
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden">
+    <section className="relative py-24 md:py-32 overflow-hidden bg-background">
       {/* Background with MagnetLines */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+      <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
         <MagnetLines
           rows={12}
           columns={12}
           containerSize="100%"
-          lineColor="hsl(204 100% 37%)"
-          lineWidth="2px"
+          lineColor="#0ea5e9"
+          lineWidth="1px"
           lineHeight="40px"
           baseAngle={0}
         />
@@ -38,76 +46,82 @@ export function ValueProposition() {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <h2 className="text-3xl md:text-5xl font-bold">
-                ¿Por qué elegir{" "}
-                <span className="bakbak-one-regular bg-gradient-to-r from-primary to-blue-light bg-clip-text text-transparent">
-                  IonosHub?
-                </span>
-              </h2>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Somos expertos en transformación digital con casos de éxito. 
-                Implementamos soluciones personalizadas usando tecnologías de última generación, 
-                garantizando resultados tangibles en tiempo récord sin interrumpir tu operación.
-              </p>
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            
+            <motion.div {...fadeUp} className="space-y-8">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+                  ¿Por qué elegir <br />
+                  <span className="text-[#0ea5e9]">
+                    IonosHub?
+                  </span>
+                </h2>
+                
+                <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+                  Somos especialistas en transformación digital orientada a resultados. 
+                  Implementamos tecnología de última generación garantizando impacto tangible en ingresos y eficiencia operativa, sin interrumpir tu operación activa.
+                </p>
+              </div>
 
-              <div className="space-y-4 pt-4">
+              <div className="space-y-6 pt-4">
                 {values.map((value, index) => (
-                  <div 
+                  <motion.div 
                     key={value.title}
-                    className="flex gap-4 animate-slide-in"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="flex gap-4 group"
                   >
-                    <div className="flex-shrink-0">
-                      <CheckCircle2 className="w-6 h-6 text-primary" />
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="w-8 h-8 rounded-full bg-[#0ea5e9]/10 flex items-center justify-center group-hover:bg-[#0ea5e9] transition-colors duration-300">
+                        <CheckCircle2 className="w-5 h-5 text-[#0ea5e9] group-hover:text-white transition-colors duration-300" />
+                      </div>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg mb-1">{value.title}</h3>
-                      <p className="text-muted-foreground">{value.description}</p>
+                      <h3 className="font-semibold text-lg mb-2">{value.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{value.description}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="relative animate-fade-in" style={{ animationDelay: "0.3s" }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-blue-light/20 rounded-3xl blur-3xl" />
-              <div className="relative bg-card p-8 rounded-2xl border-2 border-primary/10 shadow-xl">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0ea5e9]/10 to-transparent rounded-[2.5rem] blur-2xl" />
+              <div className="relative bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm p-10 md:p-12 rounded-[2.5rem] border border-border shadow-2xl">
                 <div className="space-y-8">
-                  <div className="text-center pb-6 border-b border-border">
-                    <div className="text-4xl font-bold text-primary mb-2">Nuestra Visión</div>
-                    <p className="text-muted-foreground">
-                      Liderar la innovación tecnológica en Latinoamérica unificando datos, experiencia del cliente con tecnologías de vanguardia.
+                  <div className="text-center pb-8 border-b border-border">
+                    <h3 className="text-3xl font-bold mb-4 tracking-tight">Cultura de Ingeniería</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Lideramos el diseño de software en la región con una prioridad innegociable por el rendimiento, la escalabilidad y la obsesión por el usuario.
                     </p>
                   </div>
                   
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 rounded-full bg-primary" />
-                      <span className="text-foreground">Protección de datos desde el diseño inicial</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 rounded-full bg-blue-light" />
-                      <span className="text-foreground">Soluciones simples para problemas complejos</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 rounded-full bg-accent" />
-                      <span className="text-foreground">Conectividad con sistemas existentes</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 rounded-full bg-primary" />
-                      <span className="text-foreground">Análisis constante de resultados</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 rounded-full bg-blue-light" />
-                      <span className="text-foreground">Manejo responsable de información</span>
-                    </div>
+                  <div className="space-y-5">
+                    {[
+                      "Protección y cifrado de datos by design",
+                      "Código minimalista para problemas complejos",
+                      "Arquitecturas desacopladas y serverless",
+                      "Monitoreo de telemetría constante",
+                      "Gobernanza ética y responsable"
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-4">
+                        <div className="shrink-0 w-2 h-2 rounded-full bg-[#0ea5e9]" />
+                        <span className="text-foreground font-medium">{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
+
           </div>
         </div>
       </div>

@@ -8,11 +8,10 @@ import {
   BookOpen, GraduationCap as Cap, Users2, Calendar, DollarSign, Percent
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Footer } from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
 import ResearchIntegrations from "@/components/ResearchIntegrations";
+import { motion } from "framer-motion";
 
 const TransformacionDigital = () => {
   const navigate = useNavigate();
@@ -41,33 +40,8 @@ const TransformacionDigital = () => {
     window.open(`https://wa.me/593992249152?text=${message}`, '_blank', 'noopener,noreferrer');
   };
 
-  const handleWhatsAppAutomatizacion = () => {
-    const message = encodeURIComponent(
-      `Hola, me interesa automatizar procesos en mi empresa.\n\n` +
-      `Objetivos:\n` +
-      `• Reducir tiempos operativos\n` +
-      `• Eliminar tareas repetitivas\n` +
-      `• Implementar RPA sin detener operaciones\n\n` +
-      `¿Podríamos discutir un plan de automatización?`
-    );
-    window.open(`https://wa.me/593992249152?text=${message}`, '_blank', 'noopener,noreferrer');
-  };
-
-  const handleWhatsAppCasos = () => {
-    const message = encodeURIComponent(
-      `Hola, me interesa ver casos de éxito de transformación digital.\n\n` +
-      `Me gustaría conocer:\n` +
-      `• Casos de automatización exitosos\n` +
-      `• Resultados de capacitación\n` +
-      `• Modernización sin interrupciones\n\n` +
-      `¿Podrían compartir algunos ejemplos?`
-    );
-    window.open(`https://wa.me/593992249152?text=${message}`, '_blank', 'noopener,noreferrer');
-  };
-
   const handleVolver = () => {
     navigate('/');
-    // Scroll a la sección de servicios después de navegar
     setTimeout(() => {
       const serviciosSection = document.getElementById('servicios');
       if (serviciosSection) {
@@ -76,230 +50,296 @@ const TransformacionDigital = () => {
     }, 100);
   };
 
+  const fadeUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" as const }
+  };
+
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center gap-4 mb-8">
-          <Button variant="outline" size="sm" onClick={handleVolver}>
+    <div className="min-h-screen bg-background text-foreground font-sans">
+      <div className="container mx-auto px-4 py-12">
+        
+        <motion.div {...fadeUp} className="flex items-center gap-4 mb-16">
+          <Button variant="ghost" size="sm" onClick={handleVolver} className="text-muted-foreground hover:text-foreground">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Volver
           </Button>
-          <div className="h-8 w-px bg-border" />
-          <h1 className="text-3xl font-bold">Transformación Digital</h1>
-        </div>
+          <div className="h-4 w-px bg-border" />
+          <span className="text-sm font-medium text-muted-foreground">Servicios / Transformación Digital</span>
+        </motion.div>
 
-        {/* Hero */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="space-y-6 overflow-x-hidden">
-            <Badge variant="secondary" className="w-max">Transformación Sin Interrupciones</Badge>
-            <h2 className="text-4xl font-bold leading-tight">
-              Modernización inteligente que mantiene tu operación funcionando
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Asesorías tecnológicas, capacitaciones especializadas y consultorías para automatización
-              de procesos y modernización sin detener tu operación actual.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 overflow-hidden">
-              <Card className="p-4 text-center h-full flex flex-col justify-center overflow-hidden">
-                <div className="text-2xl font-bold text-primary mb-1 truncate">24/7</div>
-                <div className="text-xs text-muted-foreground break-words">Operación continua durante la modernización</div>
-              </Card>
-              <Card className="p-4 text-center h-full flex flex-col justify-center overflow-hidden">
-                <div className="text-2xl font-bold text-primary mb-1 truncate">RPA</div>
-                <div className="text-xs text-muted-foreground break-words">Avances por módulos, sin afectar el día a día</div>
-              </Card>
+        {/* Hero Section */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="space-y-8 overflow-x-hidden"
+          >
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-slate-200 dark:border-white/10 rounded-full bg-slate-50 dark:bg-white/5">
+                <Workflow className="w-4 h-4 text-[#0ea5e9]" />
+                <span className="text-xs font-semibold tracking-widest uppercase">Evolución Sin Interrupciones</span>
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
+                Modernización <br/> <span className="text-[#0ea5e9]">inteligente</span>
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
+                Auditorías tecnológicas, capacitación especializada y automatización orquestada para evolucionar tu negocio sin detener la operación diaria.
+              </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-primary to-blue-light" onClick={handleWhatsAppConsultoria}>
-                <MessageCircle className="mr-2 h-5 w-5" />
+
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-[#0ea5e9]" />
+                  <span className="font-semibold text-lg">24/7</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Operación continua</p>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-[#0ea5e9]" />
+                  <span className="font-semibold text-lg">RPA</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Automatización modular</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button size="lg" className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white px-8 h-14 rounded-full" onClick={handleWhatsAppConsultoria}>
                 Consultoría Gratuita
               </Button>
-              <Button size="lg" variant="outline" onClick={handleWhatsAppCapacitacion}>
-                <BookOpen className="mr-2 h-5 w-5" />
+              <Button size="lg" variant="outline" className="px-8 h-14 rounded-full" onClick={handleWhatsAppCapacitacion}>
                 Ver Capacitaciones
               </Button>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="relative max-w-xl mx-auto w-full">
-            {/* Elimina el espacio superior antiestético adaptando el diseño de la imagen */}
-            <div className="relative rounded-2xl border border-border/50 overflow-hidden shadow-xl bg-card p-0">
-              <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
-                <img 
-                  src="/imgs/adanRobot.png" 
-                  alt="Robot Adán - Transformación Digital" 
-                  className="w-full h-full object-cover"
-                  style={{ borderRadius: '1rem' }}
-                />
-                {/* Brillo azul inferior mínimo, no invadir arriba */}
-                <div className="absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-blue-500/30 via-blue-400/15 to-transparent pointer-events-none" />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+            className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-zinc-100 dark:bg-zinc-900"
+          >
+            <img 
+              src="/imgs/adanRobot.png" 
+              alt="Transformación Digital" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+          </motion.div>
+        </div>
+
+        {/* Divider */}
+        <div className="w-full h-px bg-border my-24 hidden lg:block" />
+
+        {/* Paradigma Statement */}
+        <div className="mb-24">
+          <motion.div 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-6">El puente hacia el futuro operativo</h2>
+            <p className="text-xl text-muted-foreground">
+              El 70% de las iniciativas de transformación digital fallan por fricción interna y paradas críticas. Nuestra arquitectura de transición revierte este riesgo.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="p-10 border border-red-100 dark:border-red-950/30 bg-red-50/30 dark:bg-red-950/10 rounded-3xl"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 flex flex-shrink-0 items-center justify-center bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 rounded-xl">
+                  <X className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-semibold text-red-950 dark:text-red-100">Transición Tradicional</h3>
               </div>
+              <ul className="space-y-4 text-foreground/80">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-500" />
+                  <span>Interrupciones sistémicas prolongadas.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-500" />
+                  <span>Resistencia pronunciada del personal a las nuevas herramientas.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-500" />
+                  <span>Costos ocultos y deuda técnica imprevista.</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="p-10 border border-[#0ea5e9]/20 bg-[#0ea5e9]/5 rounded-3xl"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 flex flex-shrink-0 items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                  <CheckCircle className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-semibold">Integración Evolutiva</h3>
+              </div>
+              <ul className="space-y-4 text-foreground/80">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#0ea5e9]" />
+                  <span>Continuidad operativa garantizada mediante módulos paralelos.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#0ea5e9]" />
+                  <span>Capacitación en-ruta (On-the-job training) para fluidez de adopción.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#0ea5e9]" />
+                  <span>Costos predecibles y esquemas de contingencia inmediata.</span>
+                </li>
+              </ul>
+            </motion.div>
+
+          </div>
+        </div>
+
+        {/* Pilares */}
+        <div className="mb-24">
+          <motion.div 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-4">Módulos de Implementación</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              Nuestras unidades de transformación pueden aplicarse de forma holística o como inyecciones focales en tu cadena de valor.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-12">
+            
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <Brain className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Auditoría & Estrategia</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6 block h-auto md:h-[80px]">
+                  Disección meticulosa de tu infraestructura técnica y operativa para encontrar cuellos de botella de alto impacto.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Roadmap de modernización</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Arquitectura de soluciones</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Evaluación de deuda técnica</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <BookOpen className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Upskilling & Adopción</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6 block h-auto md:h-[80px]">
+                  Elevamos las competencias de tu capital humano para asegurar que la tecnología sea un multiplicador, no un obstáculo.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Mentorías especializadas</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Talleres de alfabetización digital</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Seguimiento post-implementación</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <Bot className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Automatización (RPA)</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6 block h-auto md:h-[80px]">
+                  Delegación de procesos rutinarios a agentes lógicos para que tu equipo se concentre en decisiones estratégicas de negocio.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Diseño de flujos autónomos</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Integración cross-platform</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Observabilidad de procesos</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Proceso */}
+        <div className="py-24 border-t border-border mb-16">
+          <motion.div 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-4">Ruta de Ejecución</h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8">
+            <div className="border-t-2 border-slate-200 dark:border-slate-800 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">01</div>
+              <h3 className="text-sm font-semibold mb-2">Discovery</h3>
+              <p className="text-muted-foreground text-xs leading-relaxed">Mapeo del tejido digital actual y fricciones operativas.</p>
+            </div>
+            
+            <div className="border-t-2 border-slate-200 dark:border-slate-800 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">02</div>
+              <h3 className="text-sm font-semibold mb-2">Roadmap</h3>
+              <p className="text-muted-foreground text-xs leading-relaxed">Diseño de la meta a futuro (To-Be) con KPIs financieros.</p>
+            </div>
+
+            <div className="border-t-2 border-slate-200 dark:border-slate-800 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">03</div>
+              <h3 className="text-sm font-semibold mb-2">Enablement</h3>
+              <p className="text-muted-foreground text-xs leading-relaxed">Capacitación focal para alinear equipos a herramientas clave.</p>
+            </div>
+
+            <div className="border-t-2 border-slate-200 dark:border-slate-800 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">04</div>
+              <h3 className="text-sm font-semibold mb-2">Build & RPA</h3>
+              <p className="text-muted-foreground text-xs leading-relaxed">Codificación y configuración de agentes automatizados.</p>
+            </div>
+
+            <div className="border-t-2 border-slate-200 dark:border-slate-800 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">05</div>
+              <h3 className="text-sm font-semibold mb-2">Rollout</h3>
+              <p className="text-muted-foreground text-xs leading-relaxed">Puesta en marcha secuencial para mantener el uptime.</p>
+            </div>
+
+            <div className="border-t-2 border-slate-200 dark:border-slate-800 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">06</div>
+              <h3 className="text-sm font-semibold mb-2">Monitor</h3>
+              <p className="text-muted-foreground text-xs leading-relaxed">Auditorías post-lanzamiento para asegurar adopción y ROI.</p>
             </div>
           </div>
         </div>
 
-        {/* Problema Statement */}
-        <div className="mb-16">
-          <div className="text-center mb-10">
-            <Badge variant="destructive" className="mb-4">El Problema</Badge>
-            <h3 className="text-3xl font-bold mb-3">Modernización tradicional = Caos operativo</h3>
-            <p className="text-muted-foreground max-w-3xl mx-auto">
-              El 78% de las transformaciones digitales fallan porque interrumpen las operaciones críticas.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="p-8 border-red-200 bg-red-50/50 dark:bg-red-950/20 dark:border-red-800">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center">
-                  <X className="h-6 w-6 text-red-600 dark:text-red-400" />
-                </div>
-                <h4 className="text-xl font-semibold text-red-800 dark:text-red-200">Transformación Tradicional</h4>
-              </div>
-              <ul className="text-sm text-red-700 dark:text-red-300 space-y-2">
-                <li>• Interrupciones prolongadas</li>
-                <li>• Pérdida de productividad</li>
-                <li>• Resistencia del personal</li>
-                <li>• Costos imprevistos</li>
-                <li>• Riesgo de falla total</li>
-              </ul>
-            </Card>
-            <Card className="p-8 border-green-200 bg-green-50/50 dark:bg-green-950/20 dark:border-green-800">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
-                  <CheckCircle className="h-6 w-6 text-green-600 dark:text-green-400" />
-                </div>
-                <h4 className="text-xl font-semibold text-green-800 dark:text-green-200">Nuestra Metodología</h4>
-              </div>
-              <ul className="text-sm text-green-700 dark:text-green-300 space-y-2">
-                <li>• Operación continua garantizada</li>
-                <li>• Implementación gradual</li>
-                <li>• Capacitación paralela</li>
-                <li>• Costos predecibles</li>
-                <li>• Rollback automático</li>
-              </ul>
-            </Card>
-          </div>
-        </div>
-
-        {/* Servicios Detallados */}
-        <div className="mb-16">
-          <div className="text-center mb-10">
-            <h3 className="text-3xl font-bold mb-3">Nuestros Servicios</h3>
-            <p className="text-muted-foreground max-w-3xl mx-auto">
-              Tres pilares fundamentales para una transformación digital exitosa sin interrupciones.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Brain className="h-6 w-6 text-primary" />
-                <h4 className="text-xl font-semibold">Asesoría Tecnológica</h4>
-              </div>
-              <ul className="text-sm text-muted-foreground space-y-2 mb-4">
-                <li>• Auditoría tecnológica completa</li>
-                <li>• Roadmap de modernización</li>
-                <li>• Selección de herramientas</li>
-                <li>• Arquitectura de soluciones</li>
-                <li>• Migración sin interrupciones</li>
-              </ul>
-              <div className="text-xs text-primary font-medium">Duración: 2-4 semanas</div>
-            </Card>
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <BookOpen className="h-6 w-6 text-primary" />
-                <h4 className="text-xl font-semibold">Capacitación Especializada</h4>
-              </div>
-              <ul className="text-sm text-muted-foreground space-y-2 mb-4">
-                <li>• Formación en nuevas tecnologías</li>
-                <li>• Certificaciones profesionales</li>
-                <li>• Workshops prácticos</li>
-                <li>• Mentoring continuo</li>
-                <li>• Soporte post-capacitación</li>
-              </ul>
-              <div className="text-xs text-primary font-medium">Modalidad: Híbrida</div>
-            </Card>
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Bot className="h-6 w-6 text-primary" />
-                <h4 className="text-xl font-semibold">Automatización RPA</h4>
-              </div>
-              <ul className="text-sm text-muted-foreground space-y-2 mb-4">
-                <li>• Identificación de procesos</li>
-                <li>• Desarrollo de bots</li>
-                <li>• Implementación gradual</li>
-                <li>• Monitoreo continuo</li>
-                <li>• Optimización constante</li>
-              </ul>
-              <div className="text-xs text-primary font-medium">ROI: 3-6 meses</div>
-            </Card>
-          </div>
-        </div>
-
-        {/* Proceso de Transformación */}
-        <div className="mb-16">
-          <div className="text-center mb-10">
-            <h3 className="text-3xl font-bold mb-3">Nuestro Proceso</h3>
-            <p className="text-muted-foreground max-w-3xl mx-auto">
-              Metodología probada para transformación sin interrupciones en 6 fases.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
-            <Card className="p-4 text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                <Eye className="h-6 w-6 text-white" />
-              </div>
-              <h4 className="text-sm font-semibold mb-1">Fase 1</h4>
-              <h5 className="text-xs font-medium mb-2">Auditoría</h5>
-              <p className="text-xs text-muted-foreground">Análisis del estado actual</p>
-            </Card>
-            <Card className="p-4 text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                <Target className="h-6 w-6 text-white" />
-              </div>
-              <h4 className="text-sm font-semibold mb-1">Fase 2</h4>
-              <h5 className="text-xs font-medium mb-2">Estrategia</h5>
-              <p className="text-xs text-muted-foreground">Roadmap personalizado</p>
-            </Card>
-            <Card className="p-4 text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                <Users2 className="h-6 w-6 text-white" />
-              </div>
-              <h4 className="text-sm font-semibold mb-1">Fase 3</h4>
-              <h5 className="text-xs font-medium mb-2">Capacitación</h5>
-              <p className="text-xs text-muted-foreground">Formación del equipo</p>
-            </Card>
-            <Card className="p-4 text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                <Bot className="h-6 w-6 text-white" />
-              </div>
-              <h4 className="text-sm font-semibold mb-1">Fase 4</h4>
-              <h5 className="text-xs font-medium mb-2">Automatización</h5>
-              <p className="text-xs text-muted-foreground">Implementación RPA</p>
-            </Card>
-            <Card className="p-4 text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                <RefreshCw className="h-6 w-6 text-white" />
-              </div>
-              <h4 className="text-sm font-semibold mb-1">Fase 5</h4>
-              <h5 className="text-xs font-medium mb-2">Migración</h5>
-              <p className="text-xs text-muted-foreground">Transición gradual</p>
-            </Card>
-            <Card className="p-4 text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                <Activity className="h-6 w-6 text-white" />
-              </div>
-              <h4 className="text-sm font-semibold mb-1">Fase 6</h4>
-              <h5 className="text-xs font-medium mb-2">Optimización</h5>
-              <p className="text-xs text-muted-foreground">Monitoreo continuo</p>
-            </Card>
-          </div>
-        </div>
-
-        {/* CTA Final */}
-        <div className="mb-16">
+        {/* CTA Integrations */}
+        <div className="mt-8 mb-24">
           <ResearchIntegrations />
         </div>
+
       </div>
       <Footer />
     </div>

@@ -1,11 +1,9 @@
 import { ArrowLeft, Megaphone, Target, TrendingUp, Users, BarChart3, Zap, Eye, MessageCircle, Download, Share2, Calendar, DollarSign, MousePointer, Smartphone, Globe, Search, Heart, Star, Award, CheckCircle, ArrowRight, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import { Footer } from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
 import ResearchIntegrations from "@/components/ResearchIntegrations";
+import { motion } from "framer-motion";
 
 const MarketingDigital = () => {
   const navigate = useNavigate();
@@ -32,362 +30,293 @@ const MarketingDigital = () => {
     window.open(`https://wa.me/593992249152?text=${message}`, '_blank', 'noopener,noreferrer');
   };
 
-  const handleWhatsAppDemo = () => {
-    const message = encodeURIComponent(
-      `Hola, he visto su página de Marketing Digital y me interesa ver una demo de sus campañas.\n\n` +
-      `Me gustaría conocer:\n` +
-      `• Ejemplos de campañas exitosas\n` +
-      `• Estrategias de engagement\n` +
-      `• Métricas de ROI reales\n\n` +
-      `¿Podrían mostrarme casos de éxito?`
-    );
-    window.open(`https://wa.me/593992249152?text=${message}`, '_blank', 'noopener,noreferrer');
-  };
-
-  const handleWhatsAppPortfolio = () => {
-    const message = encodeURIComponent(
-      `Hola, me interesa ver el portfolio de Marketing Digital.\n\n` +
-      `Quiero conocer:\n` +
-      `• Campañas realizadas para empresas similares\n` +
-      `• Resultados obtenidos\n` +
-      `• Estrategias implementadas\n\n` +
-      `¿Podrían enviarme ejemplos relevantes para mi industria?`
-    );
-    window.open(`https://wa.me/593992249152?text=${message}`, '_blank', 'noopener,noreferrer');
-  };
-
-  const formatNumber = (num: number) => {
-    return new Intl.NumberFormat('es-ES').format(num);
+  const fadeUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" as const }
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center gap-4 mb-8">
-          <Button variant="outline" size="sm" onClick={handleVolver}>
+    <div className="min-h-screen bg-background text-foreground font-sans">
+      <div className="container mx-auto px-4 py-12">
+        
+        <motion.div {...fadeUp} className="flex items-center gap-4 mb-16">
+          <Button variant="ghost" size="sm" onClick={handleVolver} className="text-muted-foreground hover:text-foreground">
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Volver a Servicios
+            Volver
           </Button>
-          <div className="h-8 w-px bg-border" />
-          <h1 className="text-3xl font-bold">Marketing Digital</h1>
-        </div>
+          <div className="h-4 w-px bg-border" />
+          <span className="text-sm font-medium text-muted-foreground">Servicios / Marketing Digital</span>
+        </motion.div>
 
         {/* Hero Section */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <Badge variant="secondary" className="w-fit">
-                <Megaphone className="h-3 w-3 mr-1" />
-                Marketing Digital Estratégico
-              </Badge>
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-                Campañas que <span className="text-primary">transforman</span> tu presencia digital
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="space-y-8"
+          >
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-slate-200 dark:border-white/10 rounded-full bg-slate-50 dark:bg-white/5">
+                <Megaphone className="w-4 h-4 text-[#0ea5e9]" />
+                <span className="text-xs font-semibold tracking-widest uppercase">Marketing Estratégico</span>
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
+                Campañas que <br/> <span className="text-[#0ea5e9]">transforman</span> tu presencia digital
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Desarrollamos campañas de marketing efectivas con personal capacitado y tecnologías emergentes 
-                para impulsar tu presencia digital, aumentar el engagement y maximizar el ROI de tu inversión.
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
+                Desarrollamos campañas de marketing efectivas con tecnologías emergentes para impulsar tu marca, aumentar el engagement y maximizar el ROI.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-semibold">+320%</span>
+                  <CheckCircle className="h-5 w-5 text-[#0ea5e9]" />
+                  <span className="font-semibold text-lg">+320%</span>
                 </div>
                 <p className="text-sm text-muted-foreground">Aumento promedio en ROI</p>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-semibold">+150%</span>
+                  <CheckCircle className="h-5 w-5 text-[#0ea5e9]" />
+                  <span className="font-semibold text-lg">+150%</span>
                 </div>
                 <p className="text-sm text-muted-foreground">Crecimiento en engagement</p>
               </div>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-semibold">+200%</span>
-                </div>
-                <p className="text-sm text-muted-foreground">Mejora en conversión</p>
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-semibold">24/7</span>
-                </div>
-                <p className="text-sm text-muted-foreground">Monitoreo continuo</p>
-              </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-primary to-blue-light" onClick={handleWhatsAppConsultoria}>
-                <MessageCircle className="mr-2 h-5 w-5" />
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button size="lg" className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white px-8 h-14 rounded-full" onClick={handleWhatsAppConsultoria}>
                 Contáctanos
               </Button>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-light/5 rounded-3xl blur-xl" />
-            <div className="relative bg-card rounded-2xl border border-border/50 overflow-hidden">
-              <div className="space-y-0">
-                {/* Imagen de Marketing Digital */}
-                <div className="relative w-full aspect-[4/3]">
-                  <img 
-                    src="/imgs/Brandbook Ionos 2025.png" 
-                    alt="Brandbook IonosHub - Marketing Digital" 
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Brillo azul inferior */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-blue-500/30 via-blue-400/15 to-transparent pointer-events-none" />
-                </div>
-              </div>
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+            className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
+          >
+            <img 
+              src="/imgs/Brandbook Ionos 2025.png" 
+              alt="Brandbook IonosHub - Marketing Digital" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+          </motion.div>
         </div>
 
         {/* Problem Statement */}
-        <div className="mb-16">
-          <Card className="p-8 bg-gradient-to-br from-red-50 via-red-100 to-orange-50 dark:from-red-950/40 dark:via-red-900/30 dark:to-orange-950/40 border-red-200/50 dark:border-red-800/50 shadow-lg">
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <h2 className="text-3xl font-bold mb-4">¿Tu Marketing Digital No Genera Resultados?</h2>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8">
+        <motion.div 
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+          className="border border-[#0ea5e9]/20 bg-[#0ea5e9]/5 rounded-2xl p-10 mb-24"
+        >
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">¿Tu Marketing Digital No Genera Resultados?</h2>
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-red-600 dark:text-red-400 mb-4">Problemas Comunes:</h3>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2" />
-                    <p className="text-muted-foreground">Campañas que no llegan a la audiencia correcta</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2" />
-                    <p className="text-muted-foreground">Bajo engagement en redes sociales</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2" />
-                    <p className="text-muted-foreground">ROI negativo en publicidad digital</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2" />
-                    <p className="text-muted-foreground">Falta de estrategia omnicanal</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2" />
-                    <p className="text-muted-foreground">Experiencia de usuario deficiente</p>
-                  </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-1.5 h-1.5 bg-[#0ea5e9] rounded-full mt-2" />
+                  <p className="text-foreground/80">Campañas que no llegan a la audiencia correcta.</p>
                 </div>
-              </div>
-              
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-green-600 dark:text-green-400 mb-4">Nuestra Solución:</h3>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                    <p className="text-muted-foreground">Segmentación precisa de audiencias</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                    <p className="text-muted-foreground">Estrategias de engagement probadas</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                    <p className="text-muted-foreground">Optimización continua del ROI</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                    <p className="text-muted-foreground">Integración omnicanal perfecta</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                    <p className="text-muted-foreground">UX/UI optimizada para conversión</p>
-                  </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-1.5 h-1.5 bg-[#0ea5e9] rounded-full mt-2" />
+                  <p className="text-foreground/80">Bajo engagement en redes sociales y escasa conversión.</p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-1.5 h-1.5 bg-[#0ea5e9] rounded-full mt-2" />
+                  <p className="text-foreground/80">ROI negativo en publicidad y falta de estrategia omnicanal.</p>
                 </div>
               </div>
             </div>
-          </Card>
-        </div>
+            <div className="md:border-l border-border md:pl-12">
+              <h3 className="text-xl font-semibold mb-6">Nuestra Solución:</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <CheckCircle className="w-5 h-5 text-[#0ea5e9] shrink-0" />
+                  <p className="text-foreground/80">Segmentación precisa de audiencias apoyada en data.</p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <CheckCircle className="w-5 h-5 text-[#0ea5e9] shrink-0" />
+                  <p className="text-foreground/80">Estrategias de engagement probadas para nutrir comunidades.</p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <CheckCircle className="w-5 h-5 text-[#0ea5e9] shrink-0" />
+                  <p className="text-foreground/80">Optimización continua del ROI con UX/UI enfocada en conversión.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="w-full h-px bg-border my-24 hidden lg:block" />
 
         {/* Services Overview */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Nuestros Servicios de Marketing Digital</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Soluciones integrales diseñadas para maximizar tu presencia digital y generar resultados medibles
+        <div className="mb-24">
+          <motion.div 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp}
+            className="mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4">Servicios Integrales</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              Soluciones estructuradas para maximizar tu presencia y convertir visualizaciones en clientes fieles.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Estrategia Digital */}
-            <Card className="p-6 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out group">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300">
-                <Target className="h-6 w-6 text-white" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+            
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <Target className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Estrategia Digital</h3>
-              <p className="text-muted-foreground mb-4">
-                Desarrollo de estrategias personalizadas basadas en análisis de mercado y comportamiento del consumidor.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Análisis de competencia</li>
-                <li>• Definición de buyer personas</li>
-                <li>• Plan de contenido estratégico</li>
-                <li>• Roadmap de implementación</li>
-              </ul>
-            </Card>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Estrategia Digital</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Desarrollo de estrategias personalizadas basadas en análisis de mercado y comportamiento del consumidor.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Buyer personas</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Plan de contenido</li>
+                </ul>
+              </div>
+            </div>
 
-            {/* Campañas Publicitarias */}
-            <Card className="p-6 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out group">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300">
-                <Megaphone className="h-6 w-6 text-white" />
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <Megaphone className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Campañas Publicitarias</h3>
-              <p className="text-muted-foreground mb-4">
-                Creación y gestión de campañas en Google Ads, Facebook, Instagram y LinkedIn con optimización continua.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Google Ads (Search & Display)</li>
-                <li>• Facebook & Instagram Ads</li>
-                <li>• LinkedIn Advertising</li>
-                <li>• TikTok & YouTube Ads</li>
-              </ul>
-            </Card>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Campañas Publicitarias</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Gestión integral en Google Ads, Facebook, Instagram y LinkedIn con optimización en tiempo real.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Google Ads & Search</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Meta & TikTok Ads</li>
+                </ul>
+              </div>
+            </div>
 
-            {/* Social Media Marketing */}
-            <Card className="p-6 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out group">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300">
-                <Users className="h-6 w-6 text-white" />
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <Search className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Social Media Marketing</h3>
-              <p className="text-muted-foreground mb-4">
-                Gestión profesional de redes sociales con contenido de calidad y engagement estratégico.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Gestión de comunidades</li>
-                <li>• Creación de contenido</li>
-                <li>• Influencer marketing</li>
-                <li>• Social listening</li>
-              </ul>
-            </Card>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">SEO & SEM</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Optimización para motores de búsqueda y gestión para aumentar visibilidad y dominar SERPs.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Optimización técnica</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Link building</li>
+                </ul>
+              </div>
+            </div>
 
-            {/* SEO & SEM */}
-            <Card className="p-6 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out group">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300">
-                <Search className="h-6 w-6 text-white" />
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <MessageCircle className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">SEO & SEM</h3>
-              <p className="text-muted-foreground mb-4">
-                Optimización para motores de búsqueda y gestión de campañas de pago para aumentar visibilidad.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Optimización técnica SEO</li>
-                <li>• Link building estratégico</li>
-                <li>• Google Ads management</li>
-                <li>• Local SEO</li>
-              </ul>
-            </Card>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Email Marketing</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Campañas automatizadas y personalizadas para nutrir leads y aumentar conversiones estables.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Flujos Automáticos</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> A/B Testing</li>
+                </ul>
+              </div>
+            </div>
 
-            {/* Email Marketing */}
-            <Card className="p-6 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out group">
-              <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300">
-                <MessageCircle className="h-6 w-6 text-white" />
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <Users className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Email Marketing</h3>
-              <p className="text-muted-foreground mb-4">
-                Campañas de email automatizadas y personalizadas para nutrir leads y aumentar conversiones.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Automatización de flujos</li>
-                <li>• Segmentación avanzada</li>
-                <li>• A/B testing</li>
-                <li>• Análisis de comportamiento</li>
-              </ul>
-            </Card>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Social Media Management</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Gestión profesional de redes con contenido de calidad, engagement estratégico y social listening.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Gestión de comunidad</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Influencer Marketing</li>
+                </ul>
+              </div>
+            </div>
 
-            {/* Analytics & Reporting */}
-            <Card className="p-6 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 ease-in-out group">
-              <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300">
-                <BarChart3 className="h-6 w-6 text-white" />
+            <div className="space-y-6">
+              <div className="w-12 h-12 flex items-center justify-center bg-[#0ea5e9]/10 text-[#0ea5e9] rounded-xl">
+                <BarChart3 className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Analytics & Reporting</h3>
-              <p className="text-muted-foreground mb-4">
-                Análisis detallado de métricas y reportes ejecutivos para optimizar estrategias continuamente.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Google Analytics 4</li>
-                <li>• Facebook Analytics</li>
-                <li>• Reportes personalizados</li>
-                <li>• Dashboards en tiempo real</li>
-              </ul>
-            </Card>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Analytics & Reporting</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Análisis detallado de métricas y reportes ejecutivos para optimizar estrategias continuamente.
+                </p>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Dashboards en vivo</li>
+                  <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-[#0ea5e9]" /> Analítica integral</li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
 
         {/* Process */}
-        <div className="mb-16">
-          <div className="rounded-3xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/30 px-6 md:px-16 py-14 shadow-inner">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Nuestro Proceso</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Metodología probada que garantiza resultados excepcionales en cada proyecto
-              </p>
+        <div className="py-24 mb-16 border-t border-border">
+          <motion.div 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-4">Nuestro Proceso</h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="border-t-2 border-slate-200 dark:border-slate-800 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">01</div>
+              <h3 className="text-xl font-semibold mb-2">Análisis & Estrategia</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">Estudiamos tu mercado, competencia y audiencia para desarrollar un roadmap personalizado.</p>
+            </div>
+            
+            <div className="border-t-2 border-slate-200 dark:border-slate-800 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">02</div>
+              <h3 className="text-xl font-semibold mb-2">Implementación</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">Ejecutamos las campañas utilizando plataformas nativas y herramientas de automatización.</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">1</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Análisis & Estrategia</h3>
-                <p className="text-muted-foreground">
-                  Analizamos tu mercado, competencia y audiencia para desarrollar una estrategia personalizada.
-                </p>
-              </div>
+            <div className="border-t-2 border-slate-200 dark:border-slate-800 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">03</div>
+              <h3 className="text-xl font-semibold mb-2">Optimización</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">Monitoreamos el ROAS y CTR continuamente para maximizar la eficiencia y el retorno.</p>
+            </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">2</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Implementación</h3>
-                <p className="text-muted-foreground">
-                  Ejecutamos las campañas con las mejores herramientas y tecnologías del mercado.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">3</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Optimización</h3>
-                <p className="text-muted-foreground">
-                  Monitoreamos y optimizamos continuamente para maximizar el ROI y mejorar resultados.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">4</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Escalamiento</h3>
-                <p className="text-muted-foreground">
-                  Escalamos las campañas exitosas y replicamos estrategias ganadoras en nuevos canales.
-                </p>
-              </div>
+            <div className="border-t-2 border-slate-200 dark:border-slate-800 pt-6">
+              <div className="text-4xl font-light text-[#0ea5e9] mb-4">04</div>
+              <h3 className="text-xl font-semibold mb-2">Escalamiento</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">Elevamos presupuestos en campañas exitosas y exploramos nuevos canales rentables.</p>
             </div>
           </div>
         </div>
 
-        {/* CTA Final */}
-        <div className="mb-16">
-            <ResearchIntegrations />
-          </div>
+        {/* CTA Integrations */}
+        <div className="mt-8 mb-24">
+          <ResearchIntegrations />
+        </div>
       </div>
-
       <Footer />
     </div>
   );

@@ -16,7 +16,7 @@ export function Certifications() {
       image: "/imgs/certificados/certificadoAzure.webp",
       title: "Microsoft Azure",
       subtitle: "Cloud Computing",
-      description: "Certificación oficial en servicios de computación en la nube de Microsoft Azure",
+      description: "Certificación oficial en servicios de computación en la nube de Microsoft Azure.",
       badge: "Certificado",
       color: "from-blue-500 to-cyan-500",
       icon: FaMicrosoft
@@ -25,7 +25,7 @@ export function Certifications() {
       image: "/imgs/certificados/emblemagoogleCloud.png",
       title: "Google Cloud",
       subtitle: "Cloud Platform",
-      description: "Certificación en Google Cloud Platform para desarrollo y despliegue de aplicaciones",
+      description: "Certificación en Google Cloud Platform para desarrollo y despliegue de aplicaciones.",
       badge: "Certificado",
       color: "from-green-500 to-emerald-500",
       icon: FaGoogle
@@ -34,7 +34,7 @@ export function Certifications() {
       image: "/imgs/certificados/emblemaOracle.png",
       title: "Oracle Cloud",
       subtitle: "Database & Cloud",
-      description: "Certificación en Oracle Cloud Infrastructure y gestión de bases de datos",
+      description: "Certificación en Oracle Cloud Infrastructure y gestión de bases de datos.",
       badge: "Certificado",
       color: "from-red-500 to-orange-500",
       icon: FaDatabase
@@ -42,12 +42,9 @@ export function Certifications() {
   ];
 
   return (
-    <section id="certificaciones" className="py-20 bg-background relative overflow-hidden">
+    <section id="certificaciones" className="py-24 bg-background relative overflow-hidden border-t border-border">
       {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-blue-light/10 rounded-full blur-3xl" />
-      </div>
+      <div className="absolute inset-x-0 top-0 h-[500px] bg-gradient-to-b from-[#0ea5e9]/5 to-transparent pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
@@ -55,18 +52,18 @@ export function Certifications() {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <Badge variant="secondary" className="mb-4">
-            <FaAward className="h-3 w-3 mr-1" />
+          <Badge variant="outline" className="mb-4 text-[#0ea5e9] border-[#0ea5e9]/30 bg-[#0ea5e9]/5">
+            <FaAward className="h-3 w-3 mr-2" />
             Certificaciones Oficiales
           </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Certificaciones <span className="text-primary">Cloud</span>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
+            Nuestras <span className="text-[#0ea5e9]">Credenciales</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Certificaciones oficiales de las principales plataformas cloud del mercado
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Certificaciones oficiales emitidas por las principales plataformas cloud del mercado.
           </p>
         </motion.div>
 
@@ -77,41 +74,36 @@ export function Certifications() {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
               viewport={{ once: true }}
+              className="group"
             >
               <Card 
-                className="p-6 hover:shadow-2xl transition-all duration-500 border-0 hover:-translate-y-2 group relative overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900"
+                className="p-8 h-full rounded-[2rem] border border-border bg-card hover:bg-[#0ea5e9]/5 hover:border-[#0ea5e9]/30 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden shadow-sm hover:shadow-xl"
               >
-                {/* Gradient background on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                 
                 <div className="relative z-10">
                   {/* Certificate Image */}
-                  <div className={`relative h-48 mb-6 rounded-xl overflow-hidden bg-white shadow-lg ${cert.title === 'Oracle Cloud' ? 'p-2' : 'p-4'}`}>
+                  <div className={`relative h-48 mb-8 rounded-2xl overflow-hidden bg-white/50 dark:bg-black/20 shadow-inner ${cert.title === 'Oracle Cloud' ? 'p-2' : 'p-6'}`}>
                     <img 
                       src={cert.image} 
                       alt={cert.title}
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-sm"
                     />
-                    <div className={`absolute ${cert.title === 'Oracle Cloud' ? 'inset-2' : 'inset-4'} bg-gradient-to-t from-black/5 to-transparent rounded-lg`} />
                   </div>
 
                   {/* Content */}
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
+                  <div className="space-y-4">
+                    <div className="flex items-start justify-between">
                       <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${cert.color} flex items-center justify-center shadow-md`}>
-                          <cert.icon className="h-5 w-5 text-white" />
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cert.color} flex items-center justify-center text-white shadow-md`}>
+                          <cert.icon className="h-6 w-6" />
                         </div>
                         <div>
-                          <h3 className="text-lg font-bold">{cert.title}</h3>
-                          <p className="text-sm text-primary font-semibold">{cert.subtitle}</p>
+                          <h3 className="text-xl font-bold tracking-tight">{cert.title}</h3>
+                          <p className="text-sm text-[#0ea5e9] font-medium">{cert.subtitle}</p>
                         </div>
                       </div>
-                      <Badge variant="outline" className="text-xs font-semibold">
-                        {cert.badge}
-                      </Badge>
                     </div>
 
                     <p className="text-sm text-muted-foreground leading-relaxed">
@@ -119,9 +111,9 @@ export function Certifications() {
                     </p>
 
                     {/* Verified Badge */}
-                    <div className="flex items-center gap-2 pt-3 border-t border-border/50">
-                      <FaCheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-xs text-muted-foreground font-medium">Certificación Oficial</span>
+                    <div className="flex items-center gap-2 pt-4 border-t border-border mt-auto">
+                      <FaCheckCircle className="h-4 w-4 text-emerald-500" />
+                      <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Verificado Oficialmente</span>
                     </div>
                   </div>
                 </div>
@@ -135,13 +127,13 @@ export function Certifications() {
           className="text-center mt-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 rounded-full">
-            <FaBolt className="h-4 w-4 text-primary" />
-            <span className="text-sm font-semibold text-primary">
-              Certificaciones actualizadas y vigentes
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-[#0ea5e9]/10 rounded-full border border-[#0ea5e9]/20">
+            <FaBolt className="h-4 w-4 text-[#0ea5e9]" />
+            <span className="text-sm font-semibold text-[#0ea5e9]">
+              Competencias validadas a nivel global
             </span>
           </div>
         </motion.div>
