@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useGsapReveal } from "@/hooks/useGsapReveal";
 
 export const HomeTeam = () => {
@@ -28,13 +29,13 @@ export const HomeTeam = () => {
         </div>
 
         <div className="ht-reveal text-center">
-          <a
-            href="/equipo"
+          <Link
+            to="/equipo"
             className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#0ea5e9] text-white font-medium rounded-full hover:bg-[#0284c7] transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[#0ea5e9]/20 transform hover:-translate-y-0.5"
           >
             Ver Equipo Completo
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

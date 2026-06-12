@@ -1,6 +1,6 @@
 import { MessageCircle, Mail, MapPin } from "lucide-react";
 import { FaLinkedin, FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useGsapReveal } from "@/hooks/useGsapReveal";
 
 export function Footer() {
@@ -9,6 +9,11 @@ export function Footer() {
   const revealRef = useGsapReveal<HTMLDivElement>({ selector: ":scope > div", stagger: 0.1, y: 24 });
 
   const scrollToSection = (id: string) => {
+    // Desde una subpágina, redirigir primero a la home con el hash
+    if (window.location.pathname !== '/') {
+      window.location.href = `/#${id}`;
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -72,29 +77,32 @@ export function Footer() {
           <div className="space-y-6">
             <h3 className="font-medium text-foreground text-sm tracking-widest uppercase">Navegación</h3>
             <div className="flex flex-col space-y-4 text-sm">
-              <button 
+              <button
+                type="button"
                 onClick={() => scrollToSection('servicios')}
                 className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
                 Servicios
               </button>
-              <button 
-                onClick={() => scrollToSection('quienes-somos')}
+              <Link
+                to="/equipo"
                 className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
-                Quienes Somos
-              </button>
-              <button 
-                onClick={() => scrollToSection('proceso')}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
-              >
-                Nuestro Proceso
-              </button>
-              <button 
+                Equipo
+              </Link>
+              <button
+                type="button"
                 onClick={() => scrollToSection('certificaciones')}
                 className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
                 Certificaciones
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollToSection('contacto')}
+                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
+              >
+                Contacto
               </button>
             </div>
           </div>
@@ -103,30 +111,30 @@ export function Footer() {
           <div className="space-y-6">
             <h3 className="font-medium text-foreground text-sm tracking-widest uppercase">Servicios</h3>
             <div className="flex flex-col space-y-4 text-sm">
-              <button 
-                onClick={() => scrollToSection('servicios')}
+              <Link
+                to="/agentes-virtuales"
                 className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
                 Agentes Virtuales
-              </button>
-              <button 
-                onClick={() => scrollToSection('servicios')}
+              </Link>
+              <Link
+                to="/business-intelligence"
                 className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
                 Business Intelligence
-              </button>
-              <button 
-                onClick={() => scrollToSection('servicios')}
+              </Link>
+              <Link
+                to="/marketing-digital"
                 className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
                 Marketing Digital
-              </button>
-              <button 
-                onClick={() => scrollToSection('servicios')}
+              </Link>
+              <Link
+                to="/transformacion-digital"
                 className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
               >
                 Transformación Digital
-              </button>
+              </Link>
             </div>
           </div>
 
