@@ -28,6 +28,9 @@ export default defineConfig(({ mode }) => ({
           'router': ['react-router-dom'],
           // Separar librerías de UI
           'ui-vendor': ['lucide-react', 'framer-motion'],
+          // Separar librerías de animación y WebGL
+          'gsap': ['gsap'],
+          'webgl': ['ogl'],
           // Separar librerías de iconos
           'icons': ['react-icons'],
           // Separar librerías de utilidades

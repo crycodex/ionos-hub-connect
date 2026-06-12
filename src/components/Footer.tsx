@@ -1,10 +1,12 @@
 import { MessageCircle, Mail, MapPin } from "lucide-react";
 import { FaLinkedin, FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useGsapReveal } from "@/hooks/useGsapReveal";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
+  const revealRef = useGsapReveal<HTMLDivElement>({ selector: ":scope > div", stagger: 0.1, y: 24 });
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -16,7 +18,7 @@ export function Footer() {
   return (
     <footer className="bg-background border border-border mt-20 theme-instant m-12 rounded-2xl">
       <div className="container mx-auto px-6 md:px-12 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <div ref={revealRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Brand & Social */}
           <div className="space-y-6">
             <div className="flex items-center gap-2 mb-4">

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import LogoLoop, { LogoItem } from './LogoLoop';
+import { useGsapReveal } from '@/hooks/useGsapReveal';
 
 const ClientesCarousel = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const revealRef = useGsapReveal<HTMLDivElement>({ selector: '.cc-reveal', stagger: 0.15 });
 
   // Detectar el tema actual
   useEffect(() => {
@@ -63,8 +65,8 @@ const ClientesCarousel = () => {
 
   return (
     <section className="py-16 bg-background border-y border-border">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+      <div ref={revealRef} className="container mx-auto px-4">
+        <div className="cc-reveal text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Clientes que Confían en Nosotros
           </h2>
@@ -72,8 +74,8 @@ const ClientesCarousel = () => {
             Empresas líderes que han transformado su negocio con nuestras soluciones
           </p>
         </div>
-        
-        <div className="max-w-6xl mx-auto">
+
+        <div className="cc-reveal max-w-6xl mx-auto">
           <LogoLoop
             logos={clientes}
             speed={80}

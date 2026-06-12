@@ -1,6 +1,6 @@
 import { CheckCircle2 } from "lucide-react";
 import MagnetLines from "./MagnetLines";
-import { motion } from "framer-motion";
+import { useGsapReveal } from "@/hooks/useGsapReveal";
 
 const values = [
   {
@@ -8,7 +8,7 @@ const values = [
     description: "Agentes IA que aprenden y se adaptan a tu negocio, gestionando consultas, ventas y soporte técnico de forma autónoma las 24 horas."
   },
   {
-    title: "Integración Total", 
+    title: "Integración Total",
     description: "Conectamos perfectamente con tus sistemas actuales - desde bases de datos y CRMs hasta canales de comunicación, manteniendo altos estándares de seguridad."
   },
   {
@@ -22,12 +22,7 @@ const values = [
 ];
 
 export function ValueProposition() {
-  const fadeUp = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.6, ease: "easeOut" as const }
-  };
+  const revealRef = useGsapReveal<HTMLDivElement>({ selector: ".vp-reveal", stagger: 0.12 });
 
   return (
     <section className="relative py-24 md:py-32 overflow-hidden bg-background">
@@ -43,36 +38,29 @@ export function ValueProposition() {
           baseAngle={0}
         />
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            
-            <motion.div {...fadeUp} className="space-y-8">
-              <div>
+          <div ref={revealRef} className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+            <div className="space-y-8">
+              <div className="vp-reveal">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
                   ¿Por qué elegir <br />
                   <span className="text-[#0ea5e9]">
                     IonosHub?
                   </span>
                 </h2>
-                
+
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-                  Somos especialistas en transformación digital orientada a resultados. 
+                  Somos especialistas en transformación digital orientada a resultados.
                   Implementamos tecnología de última generación garantizando impacto tangible en ingresos y eficiencia operativa, sin interrumpir tu operación activa.
                 </p>
               </div>
 
               <div className="space-y-6 pt-4">
-                {values.map((value, index) => (
-                  <motion.div 
-                    key={value.title}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex gap-4 group"
-                  >
+                {values.map((value) => (
+                  <div key={value.title} className="vp-reveal flex gap-4 group">
                     <div className="flex-shrink-0 mt-1">
                       <div className="w-8 h-8 rounded-full bg-[#0ea5e9]/10 flex items-center justify-center group-hover:bg-[#0ea5e9] transition-colors duration-300">
                         <CheckCircle2 className="w-5 h-5 text-[#0ea5e9] group-hover:text-white transition-colors duration-300" />
@@ -82,18 +70,12 @@ export function ValueProposition() {
                       <h3 className="font-semibold text-lg mb-2">{value.title}</h3>
                       <p className="text-muted-foreground leading-relaxed">{value.description}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="relative"
-            >
+            <div className="vp-reveal relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#0ea5e9]/10 to-transparent rounded-[2.5rem] blur-2xl" />
               <div className="relative bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm p-10 md:p-12 rounded-[2.5rem] border border-border shadow-2xl">
                 <div className="space-y-8">
@@ -103,7 +85,7 @@ export function ValueProposition() {
                       Lideramos el diseño de software en la región con una prioridad innegociable por el rendimiento, la escalabilidad y la obsesión por el usuario.
                     </p>
                   </div>
-                  
+
                   <div className="space-y-5">
                     {[
                       "Protección y cifrado de datos by design",
@@ -120,7 +102,7 @@ export function ValueProposition() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
           </div>
         </div>

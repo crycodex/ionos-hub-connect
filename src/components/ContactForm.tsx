@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { motion } from "framer-motion";
+import { useGsapReveal } from "@/hooks/useGsapReveal";
 import { 
   MessageSquare, 
   Mail, 
@@ -88,21 +88,16 @@ export function ContactForm() {
     }
   };
 
-  const fadeUp = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.6, ease: "easeOut" as const }
-  };
+  const revealRef = useGsapReveal<HTMLDivElement>({ selector: ".cf-reveal", stagger: 0.15 });
 
   return (
     <section className="py-24 bg-background relative overflow-hidden" id="contacto-form">
       {/* Background decoration */}
       <div className="absolute inset-x-0 top-0 h-[500px] bg-gradient-to-b from-[#0ea5e9]/5 to-transparent pointer-events-none" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div ref={revealRef} className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <motion.div {...fadeUp} className="text-center mb-16">
+        <div className="cf-reveal text-center mb-16">
           <Badge variant="outline" className="mb-4 text-[#0ea5e9] border-[#0ea5e9]/30 bg-[#0ea5e9]/5">
             <MessageSquare className="h-3 w-3 mr-2" />
             Hablemos
@@ -113,16 +108,11 @@ export function ContactForm() {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Déjanos tus datos y un especialista se pondrá en contacto en menos de 24 horas.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          >
+          <div className="cf-reveal">
             <Card className="p-8 border border-border shadow-xl rounded-3xl bg-card">
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -277,16 +267,10 @@ export function ContactForm() {
                 </div>
               )}
             </Card>
-          </motion.div>
+          </div>
 
           {/* Contact Info & Quick Actions */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="space-y-6"
-          >
+          <div className="cf-reveal space-y-6">
             {/* Quick Contact */}
             <Card className="p-8 bg-zinc-50/50 dark:bg-zinc-900/30 border border-border rounded-3xl">
               <h3 className="text-2xl font-bold mb-6 tracking-tight">¿Prefieres Contacto Directo?</h3>
@@ -351,7 +335,7 @@ export function ContactForm() {
                 </div>
               </div>
             </Card>
-          </motion.div>
+          </div>
         </div>
 
       </div>

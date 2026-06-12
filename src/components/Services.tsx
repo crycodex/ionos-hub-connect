@@ -1,141 +1,163 @@
-import { BarChart3, Bot, Lightbulb, Rocket, Search, Code, ArrowRight } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import gsap from "gsap";
+import { services } from "./services/servicesData";
 
-const services = [
-  {
-    icon: Bot,
-    title: "Agentes Virtuales a medida",
-    description: "Asistentes virtuales inteligentes que atienden 24/7 con funciones avanzadas.",
-    path: "/agentes-virtuales",
-    stats: "Atención 24/7",
+const scaleAnimation = {
+  initial: { scale: 0, x: "-50%", y: "-50%" },
+  enter: {
+    scale: 1,
+    x: "-50%",
+    y: "-50%",
+    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] as const },
   },
-  {
-    icon: BarChart3,
-    title: "Business Intelligence",
-    description: "Dashboards ejecutivos y análisis avanzado para decisiones estratégicas.",
-    path: "/business-intelligence",
-    stats: "Tiempo Real",
+  closed: {
+    scale: 0,
+    x: "-50%",
+    y: "-50%",
+    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] as const },
   },
-  {
-    icon: Lightbulb,
-    title: "Marketing Digital",
-    description: "Impulsa tu presencia online con estrategias orientadas a resultados tangibles.",
-    path: "/marketing-digital",
-    stats: "ROAS Optimizado",
-  },
-  {
-    icon: Search,
-    title: "Investigación de Mercados",
-    description: "Estudios especializados que identifican oportunidades ocultas y ventajas competitivas.",
-    path: "/investigacion-mercados",
-    stats: "Datos Precisos",
-  },
-  {
-    icon: Rocket,
-    title: "Transformación Digital",
-    description: "Automatización de procesos y adopción tecnológica para hacer tu empresa escalable.",
-    path: "/transformacion-digital",
-    stats: "Sin Interrupciones",
-  },
-  {
-    icon: Code,
-    title: "Desarrollo Web - Móvil",
-    description: "Sitios web y aplicaciones digitales personalizadas con las últimas tecnologías.",
-    path: "/desarrollo-web-movil",
-    stats: "Multiplataforma",
-  },
-];
+};
 
 export function Services() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
+  const [modal, setModal] = useState({ active: false, index: 0 });
+  const sectionRef = useRef<HTMLElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } }
-  };
+  // Solo activar el modal flotante en dispositivos con puntero fino (desktop)
+  const isFinePointer = useMemo(
+    () => typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches,
+    []
+  );
+
+  useEffect(() => {
+    if (!isFinePointer || !sectionRef.current || !modalRef.current || !cursorRef.current) return;
+
+    const xMoveModal = gsap.quickTo(modalRef.current, "left", { duration: 0.8, ease: "power3" });
+    const yMoveModal = gsap.quickTo(modalRef.current, "top", { duration: 0.8, ease: "power3" });
+    const xMoveCursor = gsap.quickTo(cursorRef.current, "left", { duration: 0.5, ease: "power3" });
+    const yMoveCursor = gsap.quickTo(cursorRef.current, "top", { duration: 0.5, ease: "power3" });
+
+    const section = sectionRef.current;
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      xMoveModal(x);
+      yMoveModal(y);
+      xMoveCursor(x);
+      yMoveCursor(y);
+    };
+
+    section.addEventListener("mousemove", handleMouseMove);
+    return () => section.removeEventListener("mousemove", handleMouseMove);
+  }, [isFinePointer]);
 
   return (
-    <section id="servicios" className="py-24 md:py-32 bg-background relative overflow-hidden font-sans border-t border-border">
-      
-      {/* Subtle Background Gradients */}
-      <div className="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-[#0ea5e9]/5 to-transparent pointer-events-none" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24">
-          <motion.h2 
+    <section
+      ref={sectionRef}
+      id="servicios"
+      className="relative py-24 md:py-32 bg-background overflow-hidden border-t border-border"
+      onMouseLeave={() => setModal({ active: false, index: modal.index })}
+    >
+      <div className="container mx-auto px-4">
+        {/* Heading */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-24 max-w-[1200px] mx-auto">
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight leading-tight"
+            className="text-5xl md:text-7xl font-bold tracking-tight text-foreground"
           >
-            Servicios que <span className="text-[#0ea5e9]">Impulsan tu</span><br/>
-            <span className="text-[#0ea5e9]">Crecimiento</span>
+            Servicios<span className="text-[#0ea5e9]">.</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+            className="max-w-md text-muted-foreground font-medium leading-relaxed"
           >
-            Ofrecemos soluciones completas que abarcan desde el análisis inicial hasta el crecimiento proyectado, diseñadas para transformar tu negocio.
+            Soluciones de IA, datos y desarrollo diseñadas para automatizar, medir y
+            escalar tu negocio en cada etapa.
           </motion.p>
         </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-[1200px] mx-auto"
-        >
+        {/* Lista de servicios */}
+        <div className="max-w-[1200px] mx-auto group/list">
           {services.map((service, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <Link to={service.path} className="group outline-none block h-full">
-                <div 
-                  className="h-full flex flex-col p-8 rounded-3xl bg-zinc-50/50 dark:bg-zinc-900/30 border border-border hover:border-[#0ea5e9]/50 hover:bg-[#0ea5e9]/5 transition-all duration-300 relative overflow-hidden"
-                >
-                  <div className="absolute inset-x-0 bottom-0 h-1 bg-[#0ea5e9] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out" />
-
-                  {/* Icon */}
-                  <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-[#0ea5e9]/10 mb-6 group-hover:scale-110 group-hover:bg-[#0ea5e9] transition-all duration-300">
-                    <service.icon className="w-6 h-6 text-[#0ea5e9] group-hover:text-white transition-colors duration-300" strokeWidth={2} />
-                  </div>
-                  
-                  {/* Title */}
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-[#0ea5e9] transition-colors duration-300">
+            <Link
+              key={service.id}
+              to={service.route}
+              className="group flex w-full cursor-pointer items-center justify-between gap-4 border-t border-border py-8 md:py-12 px-2 md:px-6 last:border-b transition-opacity duration-300 group-hover/list:opacity-40 hover:!opacity-100"
+              onMouseEnter={() => isFinePointer && setModal({ active: true, index })}
+            >
+              <div className="flex items-baseline gap-4 md:gap-8 min-w-0">
+                <span className="text-sm font-mono text-muted-foreground shrink-0">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="min-w-0">
+                  <h3 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight transition-all duration-300 group-hover:translate-x-2.5 group-hover:text-[#0ea5e9]">
                     {service.title}
                   </h3>
-                  
-                  {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed mb-8 flex-grow text-sm">
-                    {service.description}
+                  <p className="mt-2 text-sm md:text-base text-muted-foreground font-light transition-transform duration-300 group-hover:translate-x-2.5">
+                    {service.subtitle}
                   </p>
-
-                  {/* Footer of card */}
-                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-border group-hover:border-[#0ea5e9]/20 transition-colors">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full text-[#0ea5e9] bg-[#0ea5e9]/10 group-hover:bg-[#0ea5e9] group-hover:text-white transition-colors duration-300">
-                      {service.stats}
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-[#0ea5e9] group-hover:translate-x-1 transition-all duration-300" />
-                  </div>
                 </div>
-              </Link>
-            </motion.div>
+              </div>
+              <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 shrink-0 text-muted-foreground group-hover:text-[#0ea5e9] group-hover:rotate-45 transition-all duration-300" />
+            </Link>
           ))}
-        </motion.div>
-
+        </div>
       </div>
+
+      {/* Modal flotante + cursor (solo desktop) */}
+      {isFinePointer && (
+        <>
+          <motion.div
+            ref={modalRef}
+            variants={scaleAnimation}
+            initial="initial"
+            animate={modal.active ? "enter" : "closed"}
+            className="pointer-events-none absolute z-30 h-[230px] w-[320px] md:h-[260px] md:w-[380px] overflow-hidden rounded-2xl bg-muted shadow-2xl"
+            style={{ left: 0, top: 0 }}
+          >
+            <div
+              className="absolute h-full w-full"
+              style={{ top: `${modal.index * -100}%`, transition: "top 0.5s cubic-bezier(0.76, 0, 0.24, 1)" }}
+            >
+              {services.map((service) => (
+                <div
+                  key={service.id}
+                  className="flex h-full w-full items-center justify-center bg-slate-100 dark:bg-slate-800"
+                >
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            ref={cursorRef}
+            variants={scaleAnimation}
+            initial="initial"
+            animate={modal.active ? "enter" : "closed"}
+            className="pointer-events-none absolute z-40 flex h-20 w-20 items-center justify-center rounded-full bg-[#0ea5e9] text-sm font-light text-white"
+            style={{ left: 0, top: 0 }}
+          >
+            Ver
+          </motion.div>
+        </>
+      )}
     </section>
   );
 }

@@ -1,16 +1,18 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  FaAward, 
-  FaCheckCircle, 
+import {
+  FaAward,
+  FaCheckCircle,
   FaBolt,
   FaMicrosoft,
   FaGoogle,
   FaDatabase
 } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { useGsapReveal } from "@/hooks/useGsapReveal";
 
 export function Certifications() {
+  const revealRef = useGsapReveal<HTMLDivElement>({ selector: ".cert-reveal", stagger: 0.12 });
+
   const certifications = [
     {
       image: "/imgs/certificados/certificadoAzure.webp",
@@ -46,15 +48,9 @@ export function Certifications() {
       {/* Background decoration */}
       <div className="absolute inset-x-0 top-0 h-[500px] bg-gradient-to-b from-[#0ea5e9]/5 to-transparent pointer-events-none" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div ref={revealRef} className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
+        <div className="cert-reveal text-center mb-16">
           <Badge variant="outline" className="mb-4 text-[#0ea5e9] border-[#0ea5e9]/30 bg-[#0ea5e9]/5">
             <FaAward className="h-3 w-3 mr-2" />
             Certificaciones Oficiales
@@ -65,28 +61,21 @@ export function Certifications() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Certificaciones oficiales emitidas por las principales plataformas cloud del mercado.
           </p>
-        </motion.div>
+        </div>
 
         {/* Certifications Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {certifications.map((cert, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <Card 
+            <div key={index} className="cert-reveal group">
+              <Card
                 className="p-8 h-full rounded-[2rem] border border-border bg-card hover:bg-[#0ea5e9]/5 hover:border-[#0ea5e9]/30 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden shadow-sm hover:shadow-xl"
               >
-                
+
                 <div className="relative z-10">
                   {/* Certificate Image */}
                   <div className={`relative h-48 mb-8 rounded-2xl overflow-hidden bg-white/50 dark:bg-black/20 shadow-inner ${cert.title === 'Oracle Cloud' ? 'p-2' : 'p-6'}`}>
-                    <img 
-                      src={cert.image} 
+                    <img
+                      src={cert.image}
                       alt={cert.title}
                       className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-sm"
                     />
@@ -118,27 +107,20 @@ export function Certifications() {
                   </div>
                 </div>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Additional Info */}
-        <motion.div 
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
+        <div className="cert-reveal text-center mt-16">
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-[#0ea5e9]/10 rounded-full border border-[#0ea5e9]/20">
             <FaBolt className="h-4 w-4 text-[#0ea5e9]" />
             <span className="text-sm font-semibold text-[#0ea5e9]">
               Competencias validadas a nivel global
             </span>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 }
-
