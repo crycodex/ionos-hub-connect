@@ -1,23 +1,24 @@
 import { CheckCircle2 } from "lucide-react";
 import MagnetLines from "./MagnetLines";
+import { WorldMap } from "@/components/ui/world-map";
 import { useGsapReveal } from "@/hooks/useGsapReveal";
 
 const values = [
   {
     title: "Automatización Inteligente",
-    description: "Agentes IA que aprenden y se adaptan a tu negocio, gestionando consultas, ventas y soporte técnico de forma autónoma las 24 horas."
+    description: "Agentes IA que atienden tu negocio 24/7."
   },
   {
     title: "Integración Total",
-    description: "Conectamos perfectamente con tus sistemas actuales - desde bases de datos y CRMs hasta canales de comunicación, manteniendo altos estándares de seguridad."
+    description: "Nos conectamos a tus sistemas sin fricción."
   },
   {
     title: "Resultados Medibles",
-    description: "Reportes detallados del retorno de inversión, reducción de tiempos operativos y mejoras en satisfacción del cliente con KPIs específicos."
+    description: "ROI y KPIs claros desde el primer mes."
   },
   {
     title: "Expertise Local",
-    description: "Más de 5 años trabajando con empresas innovadoras nos dan el conocimiento único del mercado y sus necesidades operativas."
+    description: "+5 años con empresas de la región."
   }
 ];
 
@@ -45,7 +46,7 @@ export function ValueProposition() {
 
             <div className="space-y-8">
               <div className="vp-reveal">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
                   ¿Por qué elegir <br />
                   <span className="text-[#0ea5e9]">
                     IonosHub?
@@ -53,22 +54,19 @@ export function ValueProposition() {
                 </h2>
 
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-                  Somos especialistas en transformación digital orientada a resultados.
-                  Implementamos tecnología de última generación garantizando impacto tangible en ingresos y eficiencia operativa, sin interrumpir tu operación activa.
+                  Tecnología con impacto real en tus ingresos, sin interrumpir tu operación.
                 </p>
               </div>
 
-              <div className="space-y-6 pt-4">
+              <div className="space-y-5 pt-2">
                 {values.map((value) => (
-                  <div key={value.title} className="vp-reveal flex gap-4 group">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-8 h-8 rounded-full bg-[#0ea5e9]/10 flex items-center justify-center group-hover:bg-[#0ea5e9] transition-colors duration-300">
-                        <CheckCircle2 className="w-5 h-5 text-[#0ea5e9] group-hover:text-white transition-colors duration-300" />
-                      </div>
+                  <div key={value.title} className="vp-reveal flex items-center gap-4 group">
+                    <div className="shrink-0 w-9 h-9 rounded-full bg-[#0ea5e9]/10 flex items-center justify-center group-hover:bg-[#0ea5e9] transition-colors duration-300">
+                      <CheckCircle2 className="w-5 h-5 text-[#0ea5e9] group-hover:text-white transition-colors duration-300" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg mb-2">{value.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                      <h3 className="font-semibold text-lg leading-tight">{value.title}</h3>
+                      <p className="text-sm text-muted-foreground">{value.description}</p>
                     </div>
                   </div>
                 ))}
@@ -77,30 +75,17 @@ export function ValueProposition() {
 
             <div className="vp-reveal relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#0ea5e9]/10 to-transparent rounded-[2.5rem] blur-2xl" />
-              <div className="relative bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm p-10 md:p-12 rounded-[2.5rem] border border-border shadow-2xl">
-                <div className="space-y-8">
-                  <div className="text-center pb-8 border-b border-border">
-                    <h3 className="text-3xl font-bold mb-4 tracking-tight">Cultura de Ingeniería</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Lideramos el diseño de software en la región con una prioridad innegociable por el rendimiento, la escalabilidad y la obsesión por el usuario.
-                    </p>
-                  </div>
-
-                  <div className="space-y-5">
-                    {[
-                      "Protección y cifrado de datos by design",
-                      "Código minimalista para problemas complejos",
-                      "Arquitecturas desacopladas y serverless",
-                      "Monitoreo de telemetría constante",
-                      "Gobernanza ética y responsable"
-                    ].map((item, idx) => (
-                      <div key={idx} className="flex items-center gap-4">
-                        <div className="shrink-0 w-2 h-2 rounded-full bg-[#0ea5e9]" />
-                        <span className="text-foreground font-medium">{item}</span>
-                      </div>
-                    ))}
-                  </div>
+              <div className="relative bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm p-8 md:p-10 rounded-[2.5rem] border border-border shadow-2xl">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
+                    Presencia <span className="text-[#0ea5e9]">regional</span>
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Base en Ecuador, proyectos en toda Latinoamérica.
+                  </p>
                 </div>
+
+                <WorldMap />
               </div>
             </div>
 

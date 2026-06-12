@@ -115,15 +115,6 @@ export function Certifications() {
           ))}
         </div>
 
-        {/* Additional Info */}
-        <div className="cert-reveal text-center mt-16">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-[#0ea5e9]/10 rounded-full border border-[#0ea5e9]/20">
-            <FaBolt className="h-4 w-4 text-[#0ea5e9]" />
-            <span className="text-sm font-semibold text-[#0ea5e9]">
-              Competencias validadas a nivel global
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -31,6 +31,8 @@ export default defineConfig(({ mode }) => ({
           // Separar librerías de animación y WebGL
           'gsap': ['gsap'],
           'webgl': ['ogl'],
+          // dotted-map incluye datos geográficos pesados
+          'map': ['dotted-map'],
           // Separar librerías de iconos
           'icons': ['react-icons'],
           // Separar librerías de utilidades
