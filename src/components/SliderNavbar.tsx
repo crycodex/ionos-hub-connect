@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
-import { ThemeToggle } from "./ThemeToggle";
 
 export function SliderNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -105,9 +104,6 @@ export function SliderNavbar() {
               )}
             </div>
             
-            {/* Theme Toggle */}
-            <ThemeToggle />
-            
             {/* Contact Button */}
             <Button 
               onClick={handleContactClick}
@@ -119,7 +115,6 @@ export function SliderNavbar() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"

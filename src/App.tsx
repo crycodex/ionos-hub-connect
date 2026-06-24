@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import BlogRecursos from "./pages/BlogRecursos";
 import ScrollToTop from "./components/ScrollToTop";
+import { CookieConsent } from "./components/CookieConsent";
 import TerminosCondiciones from "./pages/TerminosCondiciones";
 import Team from "./pages/Team";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
@@ -38,6 +39,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <CookieConsent />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog-recursos" element={<BlogRecursos />} />

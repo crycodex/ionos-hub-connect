@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ThemeToggle } from './ThemeToggle';
 
 interface NavLink {
   label: string;
@@ -88,7 +87,6 @@ export function Navbar() {
 
           {/* Acciones desktop */}
           <div className="hidden md:flex items-center gap-2">
-            <ThemeToggle />
             <button
               onClick={() => scrollToSection('contacto')}
               className="px-5 py-2 bg-[#0ea5e9] hover:bg-[#0284c7] text-white text-sm font-medium rounded-full shadow-md transition-colors"
@@ -99,7 +97,6 @@ export function Navbar() {
 
           {/* Botón menú móvil */}
           <div className="flex md:hidden items-center gap-2">
-            <ThemeToggle />
             <button
               className="p-2 rounded-full bg-white/50 dark:bg-white/10 text-slate-700 dark:text-slate-200"
               onClick={() => setIsMenuOpen(!isMenuOpen)}

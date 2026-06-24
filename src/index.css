@@ -8,11 +8,12 @@ All colors MUST be HSL.
 
 html {
   font-family: "Monda", sans-serif;
+  color-scheme: light;
 }
 
 @layer base {
   :root {
-    /* Modo Claro - Fondos blancos y grises claros */
+    /* El sitio usa siempre el tema claro - fondos blancos y grises claros */
     --background: 0 0% 100%;
     --foreground: 222.2 47% 11%;
 
@@ -45,55 +46,18 @@ html {
 
     --blue-light: 199 100% 45%;
     --blue-vivid: 210 100% 50%;
-    
+
     --gradient-primary: linear-gradient(135deg, hsl(204 100% 37%), hsl(199 100% 45%));
     --gradient-accent: linear-gradient(135deg, hsl(22 100% 63%), hsl(22 100% 70%));
     --gradient-hero: linear-gradient(180deg, hsl(0 0% 98%), hsl(204 100% 97%));
-    
+
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
     --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1);
     --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1);
     --shadow-glow: 0 0 40px hsl(204 100% 37% / 0.15);
-    
+
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    
-    /* Transición instantánea para cambio de tema */
-    --theme-transition: none;
-  }
 
-  .dark {
-    /* Modo Oscuro - Fondos oscuros con tonos azulados */
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
-
-    --card: 222 47% 14%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222 47% 14%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 199 100% 45%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 217 32% 17%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217 32% 17%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 22 100% 63%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 217 32% 24%;
-    --input: 217 32% 24%;
-    --ring: 199 100% 45%;
-
-    --gradient-hero: linear-gradient(180deg, hsl(222 47% 11%), hsl(222 47% 14%));
-    --shadow-glow: 0 0 40px hsl(199 100% 45% / 0.2);
-    
     /* Transición instantánea para cambio de tema */
     --theme-transition: none;
   }
