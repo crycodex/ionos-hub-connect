@@ -10,6 +10,9 @@ import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { useEffect } from "react";
 import { HomeTeam } from "@/components/HomeTeam";
+import { Steps } from "@/components/Steps";
+import { Pricing } from "@/components/Pricing";
+import { FAQ } from "@/components/FAQ";
 
 const Index = () => {
   // Scroll automático a la sección si hay un hash en la URL
@@ -35,23 +38,32 @@ const Index = () => {
         
         {/* 2. Services - QUÉ ofrecemos: INFORMACIÓN CLAVE (lo más importante primero) */}
         <Services />
-        
-        {/* 3. Value Proposition - POR QUÉ elegirnos: DIFERENCIACIÓN */}
+
+        {/* 3. Steps - CÓMO EMPEZAR: reduce fricción + urgencia/escasez */}
+        <Steps />
+
+        {/* 4. Value Proposition - POR QUÉ elegirnos: DIFERENCIACIÓN */}
         <ValueProposition />
-        
-        {/* 4. Nuestro Equipo - EQUIPO: CONFIANZA (humaniza la empresa) */}
+
+        {/* 5. Nuestro Equipo - EQUIPO: CONFIANZA (humaniza la empresa) */}
         <HomeTeam />
-        
-        {/* 5. Clientes - PRUEBA SOCIAL: Empresas que confían en nosotros */}
+
+        {/* 6. Clientes - PRUEBA SOCIAL: Empresas que confían en nosotros */}
         <ClientesCarousel />
-        
-        {/* 6. Certifications - CREDENCIALES: AUTORIDAD (refuerza confianza) */}
+
+        {/* 7. Certifications - CREDENCIALES: AUTORIDAD (refuerza confianza) */}
         <Certifications />
-        
-        {/* 8. Testimonials - PRUEBA SOCIAL: VALIDACIÓN (cuando ya están interesados) */}
+
+        {/* 8. Pricing - PLANES: ofertas claras una vez generada la confianza */}
+        <Pricing />
+
+        {/* 9. Testimonials - PRUEBA SOCIAL: VALIDACIÓN (cuando ya están interesados) */}
         {/* <Testimonials /> */}
-        
-        {/* 10. Contact Form - CONVERSIÓN: CAPTURA DE LEADS (momento de acción) */}
+
+        {/* 10. FAQ - OBJECIONES: despeja dudas justo antes de convertir */}
+        <FAQ />
+
+        {/* 11. Contact Form - CONVERSIÓN: CAPTURA DE LEADS (momento de acción) */}
         <div id="contacto">
           <ContactForm />
         </div>
