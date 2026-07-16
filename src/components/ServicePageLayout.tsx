@@ -106,6 +106,15 @@ export function ServicePageLayout({ service }: Props) {
             <div className="container mx-auto max-w-content px-4">
               <h2 className="font-display text-3xl text-ink mb-6">Caso relacionado</h2>
               <article className="feature-card bg-white max-w-2xl">
+                {relatedCase.logo && (
+                  <div className="mb-5 h-14 flex items-center">
+                    <img
+                      src={relatedCase.logo}
+                      alt={`Logo ${relatedCase.client}`}
+                      className="max-h-12 max-w-[180px] object-contain"
+                    />
+                  </div>
+                )}
                 <p className="text-xs text-muted-foreground mb-1">{relatedCase.industry}</p>
                 <h3 className="text-xl font-semibold mb-2">{relatedCase.client}</h3>
                 <p className="text-primary font-display text-2xl mb-4">{relatedCase.highlight}</p>

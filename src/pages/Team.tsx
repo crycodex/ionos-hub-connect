@@ -52,20 +52,23 @@ export default function Team() {
               {area.members.map((m) => (
                 <article
                   key={m.name}
-                  className="feature-card group transition-shadow hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]"
+                  className="feature-card group flex gap-5 items-start transition-shadow hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-surface-strong text-primary font-display text-xl mb-4">
-                    {m.name
-                      .split(" ")
-                      .map((p) => p[0])
-                      .slice(0, 2)
-                      .join("")}
+                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-surface-strong ring-2 ring-border">
+                    <img
+                      src={m.photo}
+                      alt={`Foto de ${m.name}`}
+                      className="h-full w-full object-cover object-top"
+                      loading="lazy"
+                    />
                   </div>
-                  <h2 className="text-xl font-semibold mb-1">{m.name}</h2>
-                  <p className="text-sm text-primary font-medium mb-3">{m.role}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
-                    {m.expertise}
-                  </p>
+                  <div className="min-w-0">
+                    <h2 className="text-xl font-semibold mb-1">{m.name}</h2>
+                    <p className="text-sm text-primary font-medium mb-3">{m.role}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {m.expertise}
+                    </p>
+                  </div>
                 </article>
               ))}
             </div>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { teamTeaserPhotos } from "@/data/team";
 
 export function HomeTeam() {
   return (
@@ -28,12 +29,26 @@ export function HomeTeam() {
               Conoce al equipo
             </Link>
           </div>
-          <div className="rounded-3xl overflow-hidden border border-white/10 bg-surface-dark-elevated aspect-[4/3] flex items-center justify-center">
-            <img
-              src="/imgs/logo%20remove.png"
-              alt="Equipo IonosHub — foto grupal pendiente"
-              className="max-h-24 opacity-80 invert brightness-0"
-            />
+
+          <div
+            className="grid grid-cols-3 gap-2 sm:gap-3 rounded-3xl overflow-hidden"
+            aria-label="Equipo IonosHub"
+          >
+            {teamTeaserPhotos.map((p, i) => (
+              <div
+                key={p.src + i}
+                className={`relative overflow-hidden rounded-2xl bg-surface-dark-elevated ${
+                  i === 0 ? "col-span-2 row-span-2 aspect-square" : "aspect-square"
+                }`}
+              >
+                <img
+                  src={p.src}
+                  alt={p.alt}
+                  className="absolute inset-0 h-full w-full object-cover object-top"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -29,9 +29,14 @@ export function HomeCases() {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
           {cases.map((c) => (
             <article key={c.slug} className="feature-card flex flex-col">
+              {c.logo && (
+                <div className="mb-4 h-12 flex items-center">
+                  <img src={c.logo} alt="" className="max-h-10 max-w-[140px] object-contain" />
+                </div>
+              )}
               <span className="text-xs text-muted-foreground mb-2">{c.industry}</span>
               <h3 className="text-lg font-semibold mb-3">{c.client}</h3>
               <p className="text-2xl font-display text-primary mb-4">{c.highlight}</p>

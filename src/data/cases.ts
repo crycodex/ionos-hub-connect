@@ -7,6 +7,7 @@ export interface SuccessCase {
   result: string;
   highlight: string;
   relatedService?: string;
+  logo?: string;
 }
 
 export const successCases: SuccessCase[] = [
@@ -19,6 +20,7 @@ export const successCases: SuccessCase[] = [
     result: "De 0 vistas a redirección activa de leads al canal de WhatsApp.",
     highlight: "De 0 a leads activos",
     relatedService: "pauta-publicidad-digital",
+    logo: "/imgs/clientes/chipotle.png",
   },
   {
     slug: "zona-gamers",
@@ -29,6 +31,7 @@ export const successCases: SuccessCase[] = [
     result: "El proceso ahora toma ~10 minutos.",
     highlight: "De 5 h a 10 min",
     relatedService: "analitica-resultados",
+    logo: "/imgs/clientes/zonagamers.png",
   },
   {
     slug: "ecu593",

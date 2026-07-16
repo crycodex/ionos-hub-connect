@@ -1,67 +1,19 @@
-import { useEffect, useState } from 'react';
-import LogoLoop, { LogoItem } from './LogoLoop';
-import { useGsapReveal } from '@/hooks/useGsapReveal';
+import LogoLoop, { LogoItem } from "./LogoLoop";
+import { useGsapReveal } from "@/hooks/useGsapReveal";
+
+/** Logos en /public/imgs/clientes */
+const clientes: LogoItem[] = [
+  { src: "/imgs/clientes/chipotle.png", alt: "El Chipotle", height: 72 },
+  { src: "/imgs/clientes/zonagamers.png", alt: "Zona Gamers", height: 72 },
+  { src: "/imgs/clientes/santalucia.png", alt: "Santa Lucía", height: 72 },
+  { src: "/imgs/clientes/mianonna.png", alt: "Mia Nonna", height: 72 },
+  { src: "/imgs/clientes/distribuidora.png", alt: "Distribuidora Hernández", height: 72 },
+  { src: "/imgs/clientes/mafercano.png", alt: "Mafercano", height: 72 },
+  { src: "/imgs/clientes/itsi.png", alt: "ITSI", height: 72 },
+];
 
 const ClientesCarousel = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const revealRef = useGsapReveal<HTMLDivElement>({ selector: '.cc-reveal', stagger: 0.15 });
-
-  // Detectar el tema actual
-  useEffect(() => {
-    // Verificar el tema inicial
-    const checkTheme = () => {
-      setIsDarkMode(document.documentElement.classList.contains('dark'));
-    };
-
-    checkTheme();
-
-    // Observar cambios en el tema
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const clientes: LogoItem[] = [
-    {
-      src: '/imgs/clientes/chipotle.png',
-      alt: 'Chipotle',
-      height: 80,
-    },
-    {
-      src: '/imgs/clientes/santalucia.png',
-      alt: 'Santa Lucía',
-      height: 80,
-    },
-    {
-      src: '/imgs/clientes/mianonna.png',
-      alt: 'Mia Nonna',
-      height: 80,
-    },
-    {
-      src: '/imgs/clientes/distribuidora.png',
-      alt: 'Distribuidora',
-      height: 80,
-    },
-    {
-      src: isDarkMode ? '/imgs/clientes/mafercano_dark.png' : '/imgs/clientes/mafercano.png',
-      alt: 'Mafercano',
-      height: 80,
-    },
-    {
-      src: isDarkMode ? '/imgs/clientes/zonagamers_dark.png' : '/imgs/clientes/zonagamers.png',
-      alt: 'Zona Gamers',
-      height: 80,
-    },
-    {
-      src: '/imgs/clientes/itsi.png',
-      alt: 'ITSI',
-      height: 80,
-    },
-  ];
+  const revealRef = useGsapReveal<HTMLDivElement>({ selector: ".cc-reveal", stagger: 0.15 });
 
   return (
     <section className="section-band border-y border-border bg-white" id="clientes">
@@ -81,11 +33,11 @@ const ClientesCarousel = () => {
             logos={clientes}
             speed={80}
             direction="left"
-            logoHeight={80}
+            logoHeight={72}
             gap={64}
             pauseOnHover
             fadeOut={false}
-            scaleOnHover={true}
+            scaleOnHover
             ariaLabel="Logos de clientes"
             className="py-8"
           />
@@ -96,4 +48,3 @@ const ClientesCarousel = () => {
 };
 
 export default ClientesCarousel;
-

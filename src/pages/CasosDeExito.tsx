@@ -34,6 +34,15 @@ export default function CasosDeExito() {
                 return (
                   <article key={c.slug} className="feature-card grid lg:grid-cols-3 gap-6">
                     <div>
+                      {c.logo && (
+                        <div className="mb-4 h-14 flex items-center">
+                          <img
+                            src={c.logo}
+                            alt={`Logo ${c.client}`}
+                            className="max-h-12 max-w-[160px] object-contain"
+                          />
+                        </div>
+                      )}
                       <p className="text-xs text-muted-foreground mb-1">{c.industry}</p>
                       <h2 className="text-2xl font-semibold mb-2">{c.client}</h2>
                       <p className="font-display text-3xl text-primary">{c.highlight}</p>
