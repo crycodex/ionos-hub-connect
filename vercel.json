@@ -2,9 +2,18 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
+  "redirects": [
+    { "source": "/agentes-virtuales", "destination": "/servicios/ionic-agente-ia", "permanent": true },
+    { "source": "/business-intelligence", "destination": "/servicios/analitica-resultados", "permanent": true },
+    { "source": "/desarrollo-web-movil", "destination": "/servicios/software-a-medida", "permanent": true },
+    { "source": "/marketing-digital", "destination": "/servicios/pauta-publicidad-digital", "permanent": true },
+    { "source": "/transformacion-digital", "destination": "/#ecosistema", "permanent": true },
+    { "source": "/investigacion-de-mercados", "destination": "/servicios/analitica-resultados", "permanent": true },
+    { "source": "/roi-calculator", "destination": "/servicios/ionic-agente-ia", "permanent": true }
+  ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ]

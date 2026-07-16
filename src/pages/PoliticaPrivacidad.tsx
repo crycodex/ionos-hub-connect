@@ -1,11 +1,13 @@
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { PageSeo } from "@/components/PageSeo";
+import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const PoliticaPrivacidad = () => {
   const navigate = useNavigate();
-  const lastUpdate = "11 de febrero de 2026";
+  const lastUpdate = "16 de julio de 2026";
 
   const handleVolver = () => {
     navigate('/');
@@ -14,7 +16,13 @@ const PoliticaPrivacidad = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
+      <PageSeo
+        title="Política de privacidad"
+        description="Política de privacidad de IonosHub conforme a la LOPDP de Ecuador."
+        path="/politica-de-privacidad"
+      />
+      <Navbar />
+      <main className="pt-16">
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center gap-4 mb-8">
           <Button variant="outline" size="sm" onClick={handleVolver}>
@@ -22,7 +30,7 @@ const PoliticaPrivacidad = () => {
             Volver al Inicio
           </Button>
           <div className="h-8 w-px bg-border" />
-          <h1 className="text-3xl font-bold">Política de Privacidad</h1>
+          <h1 className="font-display text-3xl text-ink">Política de Privacidad</h1>
         </div>
 
         {/* Información de actualización */}
@@ -356,6 +364,7 @@ const PoliticaPrivacidad = () => {
 
       </div>
 
+      </main>
       <Footer />
     </div>
   );

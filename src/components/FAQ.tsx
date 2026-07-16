@@ -1,78 +1,56 @@
-import { Badge } from "@/components/ui/badge";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { HelpCircle } from "lucide-react";
-import { useGsapReveal } from "@/hooks/useGsapReveal";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const faqs = [
   {
-    question: "¿Cuánto tiempo toma ver resultados?",
-    answer:
-      "Depende del servicio: chatbots y automatizaciones suelen estar en producción en semanas, los dashboards de BI muestran valor desde la primera fase, y los proyectos integrales suelen tomar entre 4 y 12 semanas según el alcance.",
+    q: "¿Venden paquetes fijos o precios públicos?",
+    a: "No. Cada ecosistema se arma a medida tras un diagnóstico. El sitio no publica tarifas: el CTA siempre es agendar un diagnóstico o hablar con un asesor.",
   },
   {
-    question: "No tengo conocimientos técnicos, ¿puedo trabajar con ustedes?",
-    answer:
-      "Sí. Nosotros nos encargamos de toda la implementación técnica de principio a fin. Tú solo necesitas contarnos tu proceso y tus objetivos de negocio.",
+    q: "¿Debo contratar todos los módulos?",
+    a: "No. Empiezas con las piezas que más impacto den hoy y conectas el resto cuando el negocio lo pida. Ese es el Sistema LEGO.",
   },
   {
-    question: "¿Los agentes virtuales se integran con WhatsApp y mi calendario?",
-    answer:
-      "Sí, nuestros agentes de IA se conectan con WhatsApp, redes sociales y tu calendario para responder, agendar y dar seguimiento a tus clientes de forma automática.",
+    q: "¿Qué es IONIC?",
+    a: "Nuestro agente de IA 24/7 en WhatsApp y redes: responde, clasifica leads y agenda, para que tu equipo no pierda clientes por saturación.",
   },
   {
-    question: "¿Trabajan con empresas fuera de Ecuador?",
-    answer:
-      "Sí. Tenemos base en Ecuador, pero ejecutamos proyectos en toda Latinoamérica de forma remota, con el mismo nivel de seguimiento y soporte.",
+    q: "¿Trabajan solo en Ecuador?",
+    a: "Somos una empresa ecuatoriana con foco local. También acompañamos iniciativas en la región (por ejemplo formación en comunidades LATAM).",
   },
   {
-    question: "Ya tengo herramientas (CRM, ERP, etc.), ¿tengo que cambiarlas?",
-    answer:
-      "No. Nuestras automatizaciones y dashboards de BI se integran con los sistemas que ya usas, no necesitas migrar todo desde cero.",
-  },
-  {
-    question: "¿Cómo se mide el ROI del proyecto?",
-    answer:
-      "Definimos los KPIs y métricas de éxito desde la propuesta inicial, y los seguimos con reportes periódicos durante y después de la implementación.",
-  },
-  {
-    question: "¿Ofrecen soporte después de la implementación?",
-    answer:
-      "Sí. Todos nuestros planes incluyen una ventana de soporte post-lanzamiento (30 o 90 días según el plan), y opciones de acompañamiento continuo.",
+    q: "¿Cuánto dura el diagnóstico?",
+    a: "Es una conversación para entender tu operación y proponer un ecosistema viable. Sin compromiso de compra al agendar.",
   },
 ];
 
 export function FAQ() {
-  const revealRef = useGsapReveal<HTMLDivElement>({ selector: ".faq-reveal", stagger: 0.12 });
-
   return (
-    <section className="py-20 bg-background relative overflow-hidden border-t border-border">
-      <div ref={revealRef} className="container mx-auto px-4 relative z-10">
-        {/* Header */}
-        <div className="faq-reveal text-center mb-16">
-          <Badge variant="outline" className="mb-4 text-[#0ea5e9] border-[#0ea5e9]/30 bg-[#0ea5e9]/5">
-            <HelpCircle className="h-3 w-3 mr-2" />
-            Preguntas Frecuentes
-          </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
-            Despeja tus <span className="text-[#0ea5e9]">Dudas</span>
+    <section className="section-band" id="faq">
+      <div className="container mx-auto max-w-content px-4">
+        <div className="max-w-2xl mx-auto text-center mb-12">
+          <p className="badge-pill mb-4">FAQ</p>
+          <h2 className="font-display text-3xl sm:text-4xl text-ink tracking-tight mb-3">
+            Preguntas frecuentes
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Las preguntas que más nos hacen antes de empezar un proyecto.
+          <p className="text-muted-foreground">
+            Resolvemos las dudas más comunes antes de agendar tu diagnóstico.
           </p>
         </div>
-
-        <div className="faq-reveal max-w-3xl mx-auto">
-          <Accordion type="single" collapsible>
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`faq-${index}`}>
-                <AccordionTrigger className="text-left text-base">{faq.question}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+        <Accordion type="single" collapsible className="max-w-2xl mx-auto">
+          {faqs.map((f, i) => (
+            <AccordionItem key={f.q} value={`item-${i}`}>
+              <AccordionTrigger className="text-left font-semibold">{f.q}</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed">
+                {f.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   );

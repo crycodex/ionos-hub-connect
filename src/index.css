@@ -2,63 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* IonosHub design system — Brandbook 2025 + editorial rhythm (DESIGN.md) */
 
 html {
-  font-family: "Monda", sans-serif;
+  font-family: "Monda", system-ui, sans-serif;
   color-scheme: light;
 }
 
 @layer base {
   :root {
-    /* El sitio usa siempre el tema claro - fondos blancos y grises claros */
+    /* Surfaces */
     --background: 0 0% 100%;
-    --foreground: 222.2 47% 11%;
+    --foreground: 214 23% 23%; /* #2D3748 ink */
+
+    --canvas: 0 0% 100%;
+    --surface-soft: 0 0% 97%; /* #f7f7f7 */
+    --surface-strong: 220 14% 94%; /* #eef0f3 */
+    --surface-dark: 214 23% 23%; /* #2D3748 */
+    --surface-dark-elevated: 215 20% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 47% 11%;
+    --card-foreground: 214 23% 23%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47% 11%;
+    --popover-foreground: 214 23% 23%;
 
-    --primary: 204 100% 37%;
+    /* Brand — Celeste Vívido #006EBD */
+    --primary: 205 100% 37%;
     --primary-foreground: 0 0% 100%;
+    --primary-active: 205 100% 30%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 47% 11%;
+    --secondary: 220 14% 94%;
+    --secondary-foreground: 214 23% 23%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14% 94%;
+    --muted-foreground: 0 0% 45%; /* #737373 */
 
+    /* Naranja Cálido #FF8C42 — use sparingly */
     --accent: 22 100% 63%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72% 47%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 204 100% 37%;
+    --border: 220 13% 88%; /* hairline */
+    --input: 220 13% 88%;
+    --ring: 205 100% 37%;
 
     --radius: 0.75rem;
+    --radius-xl: 1.5rem; /* 24px cards */
+    --radius-pill: 100px;
 
-    --blue-light: 199 100% 45%;
-    --blue-vivid: 210 100% 50%;
+    /* Gris Cielo #0099E6 */
+    --blue-light: 200 100% 45%;
+    --blue-vivid: 200 100% 45%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(204 100% 37%), hsl(199 100% 45%));
+    --body: 220 8% 40%;
+    --ink: 214 23% 23%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(205 100% 37%), hsl(200 100% 45%));
     --gradient-accent: linear-gradient(135deg, hsl(22 100% 63%), hsl(22 100% 70%));
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 98%), hsl(204 100% 97%));
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%), hsl(205 100% 97%));
 
-    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1);
-    --shadow-glow: 0 0 40px hsl(204 100% 37% / 0.15);
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.04);
+    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.04);
+    --shadow-lg: 0 10px 24px hsl(0 0% 0% / 0.06);
+    --shadow-glow: 0 0 40px hsl(205 100% 37% / 0.12);
+
+    --section-py: 6rem; /* 96px */
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    /* Transición instantánea para cambio de tema */
     --theme-transition: none;
   }
 }
@@ -69,84 +82,27 @@ html {
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
   }
 
-  /* Cambio de tema instantáneo solo para colores de fondo/texto */
-  .theme-instant {
-    transition: background-color 0s, color 0s, border-color 0s !important;
+  h1, h2, .font-display {
+    font-family: "Bakbak One", "Monda", sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
   }
 
-  /* Transiciones suaves solo para elementos específicos que las necesitan */
-  .theme-smooth {
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  }
-
-  /* Aplicar transición instantánea globalmente solo para cambio de tema */
-  * {
-    transition: background-color var(--theme-transition), 
-                color var(--theme-transition), 
-                border-color var(--theme-transition) !important;
-  }
-
-  /* Permitir transiciones de transform y scale para animaciones */
-  nav, .animate-fade-in, .group, [class*="hover:scale"], [class*="hover:shadow"], 
-  [class*="translate-y"], [class*="group-hover:translate"], [class*="transition-all"] {
-    transition: transform 0.3s ease, 
-                scale 0.3s ease, 
-                box-shadow 0.3s ease,
-                opacity 0.3s ease,
-                translate 0.3s ease !important;
-  }
-
-  /* Animaciones específicas para tarjetas de servicios */
-  .group:hover [class*="translate-y"] {
-    transition: transform 0.5s ease, opacity 0.5s ease !important;
-  }
-
-  /* Asegurar que las animaciones del navbar funcionen */
-  nav[class*="transition-all"] {
-    transition: all 0.3s ease !important;
-  }
-
-  /* Asegurar que las animaciones de las tarjetas funcionen */
-  .group[class*="transition-all"] {
-    transition: all 0.5s ease !important;
-  }
-
-  /* Animaciones específicas para tarjetas de servicios */
-  .group:hover {
-    transform: scale(1.02) translateY(-4px) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-  }
-
-  /* Utilidades para truncar texto */
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .line-clamp-none {
-    display: block;
-    -webkit-line-clamp: unset;
-    -webkit-box-orient: unset;
-    overflow: visible;
-  }
-
-  /* Mantener transiciones específicas para hover y efectos interactivos */
-  .hover-transitions {
-    transition: transform 0.2s ease, 
-                box-shadow 0.2s ease, 
-                opacity 0.2s ease,
-                scale 0.2s ease !important;
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-/* Tipografías personalizadas */
 @layer components {
-  .bakbak-one-regular {
+  .bakbak-one-regular,
+  .font-display {
     font-family: "Bakbak One", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -154,39 +110,84 @@ html {
 
   .monda-regular {
     font-family: "Monda", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 400;
-    font-style: normal;
   }
 
   .monda-medium {
     font-family: "Monda", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 500;
-    font-style: normal;
   }
 
   .monda-semibold {
     font-family: "Monda", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 600;
-    font-style: normal;
   }
 
   .monda-bold {
     font-family: "Monda", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 700;
-    font-style: normal;
   }
 
-  /* Scrollbar hide utility */
+  /* Editorial section rhythm */
+  .section-band {
+    @apply py-24;
+  }
+
+  .section-band-soft {
+    @apply py-24 bg-[hsl(var(--surface-soft))];
+  }
+
+  .section-band-dark {
+    @apply py-24 bg-[hsl(var(--surface-dark))] text-white;
+  }
+
+  /* Pill CTAs */
+  .btn-pill {
+    @apply inline-flex items-center justify-center rounded-full font-semibold text-base h-11 px-5 transition-colors;
+  }
+
+  .btn-pill-primary {
+    @apply btn-pill bg-primary text-primary-foreground hover:bg-[hsl(var(--primary-active))];
+  }
+
+  .btn-pill-secondary {
+    @apply btn-pill bg-[hsl(var(--surface-strong))] text-foreground hover:bg-[hsl(var(--border))];
+  }
+
+  .btn-pill-cta {
+    @apply btn-pill bg-primary text-primary-foreground h-14 px-8 hover:bg-[hsl(var(--primary-active))];
+  }
+
+  .btn-pill-outline-dark {
+    @apply btn-pill border border-white/80 bg-transparent text-white hover:bg-white/10;
+  }
+
+  /* Feature cards — hairline, no heavy shadow */
+  .feature-card {
+    @apply rounded-3xl border border-[hsl(var(--border))] bg-card p-8 transition-shadow hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)];
+  }
+
+  .product-ui-card-dark {
+    @apply rounded-3xl bg-[hsl(var(--surface-dark-elevated))] p-8 text-white;
+  }
+
+  .badge-pill {
+    @apply inline-flex items-center rounded-full bg-[hsl(var(--surface-strong))] px-3 py-1 text-xs font-semibold text-foreground;
+  }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

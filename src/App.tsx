@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import Index from "./pages/Index";
@@ -13,103 +13,111 @@ import { CookieConsent } from "./components/CookieConsent";
 import TerminosCondiciones from "./pages/TerminosCondiciones";
 import Team from "./pages/Team";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
+import CasosDeExito from "./pages/CasosDeExito";
+import { WhatsAppFloat } from "./components/WhatsAppFloat";
+import { SeoProvider } from "./components/PageSeo";
 
-// Code-splitting dinámico para páginas de servicios (las más pesadas)
-const AgentesVirtuales = lazy(() => import("./pages/servicios/agentes-virtuales/AgentesVirtuales"));
-const ROICalculator = lazy(() => import("./pages/servicios/agentes-virtuales/ROICalculator"));
-const BusinessIntelligence = lazy(() => import("./pages/servicios/business-intelligence/BusinessIntelligence"));
-const MarketingDigital = lazy(() => import("./pages/servicios/marketing-digital/MarketingDigital"));
-const InvestigacionMercados = lazy(() => import("./pages/servicios/investigacion-mercados/InvestigacionMercados"));
-const TransformacionDigital = lazy(() => import("./pages/servicios/transformacion-digital/TransformacionDigital"));
-const DesarrolloWebMovil = lazy(() => import("./pages/servicios/desarrollo-web-movil/DesarrolloWebMovil"));
+const EstrategiaContenido = lazy(() => import("./pages/servicios/estrategia-contenido/EstrategiaContenido"));
+const ProduccionVisual = lazy(() => import("./pages/servicios/produccion-visual-audiovisual/ProduccionVisual"));
+const PautaPublicidad = lazy(() => import("./pages/servicios/pauta-publicidad-digital/PautaPublicidad"));
+const IonicAgenteIa = lazy(() => import("./pages/servicios/ionic-agente-ia/IonicAgenteIa"));
+const SoftwareAMedida = lazy(() => import("./pages/servicios/software-a-medida/SoftwareAMedida"));
+const AnaliticaResultados = lazy(() => import("./pages/servicios/analitica-resultados/AnaliticaResultados"));
 
-// Componente de carga para Suspense
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
-    <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
   </div>
 );
 
 const queryClient = new QueryClient();
 
+function ServiceRoute({ children }: { children: React.ReactNode }) {
+  return <Suspense fallback={<PageLoader />}>{children}</Suspense>;
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <CookieConsent />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/blog-recursos" element={<BlogRecursos />} />
-          <Route path="/equipo" element={<Team />} />
-          <Route path="/terminos-y-condiciones" element={<TerminosCondiciones />} />
-          <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
-          
-          {/* Rutas con code-splitting dinámico */}
-          <Route 
-            path="/roi-calculator" 
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <ROICalculator />
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/agentes-virtuales" 
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <AgentesVirtuales />
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/business-intelligence" 
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <BusinessIntelligence />
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/marketing-digital" 
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <MarketingDigital />
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/investigacion-de-mercados" 
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <InvestigacionMercados />
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/transformacion-digital" 
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <TransformacionDigital />
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/desarrollo-web-movil" 
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <DesarrolloWebMovil />
-              </Suspense>
-            } 
-          />
-          
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-      <Analytics />
-    </TooltipProvider>
+    <SeoProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <CookieConsent />
+          <WhatsAppFloat />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/blog-recursos" element={<BlogRecursos />} />
+            <Route path="/equipo" element={<Team />} />
+            <Route path="/casos-de-exito" element={<CasosDeExito />} />
+            <Route path="/terminos-y-condiciones" element={<TerminosCondiciones />} />
+            <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
+
+            <Route
+              path="/servicios/estrategia-contenido"
+              element={
+                <ServiceRoute>
+                  <EstrategiaContenido />
+                </ServiceRoute>
+              }
+            />
+            <Route
+              path="/servicios/produccion-visual-audiovisual"
+              element={
+                <ServiceRoute>
+                  <ProduccionVisual />
+                </ServiceRoute>
+              }
+            />
+            <Route
+              path="/servicios/pauta-publicidad-digital"
+              element={
+                <ServiceRoute>
+                  <PautaPublicidad />
+                </ServiceRoute>
+              }
+            />
+            <Route
+              path="/servicios/ionic-agente-ia"
+              element={
+                <ServiceRoute>
+                  <IonicAgenteIa />
+                </ServiceRoute>
+              }
+            />
+            <Route
+              path="/servicios/software-a-medida"
+              element={
+                <ServiceRoute>
+                  <SoftwareAMedida />
+                </ServiceRoute>
+              }
+            />
+            <Route
+              path="/servicios/analitica-resultados"
+              element={
+                <ServiceRoute>
+                  <AnaliticaResultados />
+                </ServiceRoute>
+              }
+            />
+
+            {/* Legacy SPA fallbacks (Vercel also has 301 redirects) */}
+            <Route path="/agentes-virtuales" element={<Navigate to="/servicios/ionic-agente-ia" replace />} />
+            <Route path="/business-intelligence" element={<Navigate to="/servicios/analitica-resultados" replace />} />
+            <Route path="/desarrollo-web-movil" element={<Navigate to="/servicios/software-a-medida" replace />} />
+            <Route path="/marketing-digital" element={<Navigate to="/servicios/pauta-publicidad-digital" replace />} />
+            <Route path="/transformacion-digital" element={<Navigate to="/#ecosistema" replace />} />
+            <Route path="/investigacion-de-mercados" element={<Navigate to="/servicios/analitica-resultados" replace />} />
+            <Route path="/roi-calculator" element={<Navigate to="/servicios/ionic-agente-ia" replace />} />
+
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+        <Analytics />
+      </TooltipProvider>
+    </SeoProvider>
   </QueryClientProvider>
 );
 

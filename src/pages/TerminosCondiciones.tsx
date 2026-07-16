@@ -1,11 +1,13 @@
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
+import { PageSeo } from "@/components/PageSeo";
 import { useNavigate } from "react-router-dom";
 
 const TerminosCondiciones = () => {
   const navigate = useNavigate();
-  const lastUpdate = "25 de octubre de 2025";
+  const lastUpdate = "16 de julio de 2026";
 
   const handleVolver = () => {
     navigate('/');
@@ -14,7 +16,13 @@ const TerminosCondiciones = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
+      <PageSeo
+        title="Términos y condiciones"
+        description="Términos y condiciones del sitio web IonosHub."
+        path="/terminos-y-condiciones"
+      />
+      <Navbar />
+      <main className="pt-16">
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center gap-4 mb-8">
           <Button variant="outline" size="sm" onClick={handleVolver}>
@@ -22,7 +30,7 @@ const TerminosCondiciones = () => {
             Volver al Inicio
           </Button>
           <div className="h-8 w-px bg-border" />
-          <h1 className="text-3xl font-bold">Términos y Condiciones</h1>
+          <h1 className="font-display text-3xl text-ink">Términos y Condiciones</h1>
         </div>
 
         {/* Información de actualización */}
@@ -314,6 +322,7 @@ const TerminosCondiciones = () => {
 
       </div>
 
+      </main>
       <Footer />
     </div>
   );

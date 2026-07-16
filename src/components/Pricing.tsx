@@ -53,9 +53,8 @@ export function Pricing() {
             Cotiza tu <span className="text-[#0ea5e9]">Proyecto</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-4">
-            No manejamos tarifas fijas: cada proyecto se cotiza según su alcance real. Como referencia, nuestras{" "}
-            <strong className="text-foreground">landing pages parten desde $200 USD</strong>. Cuéntanos qué necesitas
-            y te armamos una propuesta a tu medida.
+            No manejamos tarifas fijas: cada proyecto se cotiza según su alcance real tras un diagnóstico.
+            Cuéntanos qué necesitas y te armamos una propuesta a tu medida.
           </p>
           <button
             onClick={scrollToContacto}

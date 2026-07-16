@@ -1,187 +1,86 @@
-import { MessageCircle, Mail, MapPin } from "lucide-react";
+import { Mail } from "lucide-react";
 import { FaLinkedin, FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
-import { useGsapReveal } from "@/hooks/useGsapReveal";
+import { Link } from "react-router-dom";
+import { services } from "@/data/services";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, waLink } from "@/lib/whatsapp";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const navigate = useNavigate();
-  const revealRef = useGsapReveal<HTMLDivElement>({ selector: ":scope > div", stagger: 0.1, y: 24 });
 
   const scrollToSection = (id: string) => {
-    // Desde una subpágina, redirigir primero a la home con el hash
-    if (window.location.pathname !== '/') {
+    if (window.location.pathname !== "/") {
       window.location.href = `/#${id}`;
       return;
     }
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <footer className="bg-background border border-border mt-20 theme-instant m-12 rounded-2xl">
-      <div className="container mx-auto px-6 md:px-12 py-16">
-        <div ref={revealRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
-          {/* Brand & Social */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-2 mb-4">
-              <img src="/imgs/logo%20remove.png" alt="IonosHub" className="h-9 w-auto opacity-90" />
-            </div>
+    <footer className="border-t border-border bg-white">
+      <div className="container mx-auto max-w-content px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
+          <div className="space-y-5">
+            <img src="/imgs/logo%20remove.png" alt="IonosHub" className="h-9 w-auto opacity-90" />
             <p className="text-sm text-muted-foreground leading-relaxed">
-              De Datos a Resultados. Transformación digital con IA y Business Intelligence. 
-              Especialistas en automatización y análisis de datos.
+              De datos a resultados. Ecosistemas digitales modulares para empresas en Ecuador — no servicios sueltos.
             </p>
-            <div className="flex items-center gap-5 pt-2">
-              <a 
-                href="https://linkedin.com/company/ionoshub" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="LinkedIn"
-              >
+            <div className="flex items-center gap-5">
+              <a href="https://linkedin.com/company/ionoshub" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary" aria-label="LinkedIn">
                 <FaLinkedin className="h-5 w-5" />
               </a>
-              <a 
-                href="https://www.instagram.com/ionoshub?igsh=aW1uYXhha21rM2Rx" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Instagram"
-              >
+              <a href="https://www.instagram.com/ionoshub" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary" aria-label="Instagram">
                 <FaInstagram className="h-5 w-5" />
               </a>
-              <a 
-                href="https://api.whatsapp.com/send/?phone=593992249152&text&type=phone_number&app_absent=0" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="WhatsApp"
-              >
+              <a href={waLink()} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary" aria-label="WhatsApp">
                 <FaWhatsapp className="h-5 w-5" />
               </a>
-              <a 
-                href="https://www.tiktok.com/@ionoshub?_t=ZM-90mGRMawTPP&_r=1" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="TikTok"
-              >
+              <a href="https://www.tiktok.com/@ionoshub" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary" aria-label="TikTok">
                 <FaTiktok className="h-5 w-5" />
               </a>
             </div>
           </div>
 
-          {/* Navegación */}
-          <div className="space-y-6">
-            <h3 className="font-medium text-foreground text-sm tracking-widest uppercase">Navegación</h3>
-            <div className="flex flex-col space-y-4 text-sm">
-              <button
-                type="button"
-                onClick={() => scrollToSection('servicios')}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
-              >
-                Servicios
-              </button>
-              <Link
-                to="/equipo"
-                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
-              >
-                Equipo
-              </Link>
-              <button
-                type="button"
-                onClick={() => scrollToSection('certificaciones')}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
-              >
-                Certificaciones
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollToSection('contacto')}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
-              >
-                Contacto
-              </button>
+          <div className="space-y-4">
+            <h3 className="font-semibold text-sm tracking-wider uppercase text-foreground">Navegación</h3>
+            <div className="flex flex-col gap-3 text-sm">
+              <Link to="/" className="text-muted-foreground hover:text-foreground w-fit">Inicio</Link>
+              <button type="button" onClick={() => scrollToSection("servicios")} className="text-left text-muted-foreground hover:text-foreground w-fit">Servicios</button>
+              <Link to="/equipo" className="text-muted-foreground hover:text-foreground w-fit">Equipo</Link>
+              <Link to="/casos-de-exito" className="text-muted-foreground hover:text-foreground w-fit">Casos de éxito</Link>
+              <button type="button" onClick={() => scrollToSection("contacto")} className="text-left text-muted-foreground hover:text-foreground w-fit">Contacto</button>
             </div>
           </div>
 
-          {/* Servicios */}
-          <div className="space-y-6">
-            <h3 className="font-medium text-foreground text-sm tracking-widest uppercase">Servicios</h3>
-            <div className="flex flex-col space-y-4 text-sm">
-              <Link
-                to="/agentes-virtuales"
-                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
-              >
-                Agentes Virtuales
-              </Link>
-              <Link
-                to="/business-intelligence"
-                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
-              >
-                Business Intelligence
-              </Link>
-              <Link
-                to="/marketing-digital"
-                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
-              >
-                Marketing Digital
-              </Link>
-              <Link
-                to="/transformacion-digital"
-                className="text-left text-muted-foreground hover:text-foreground transition-colors w-fit"
-              >
-                Transformación Digital
-              </Link>
+          <div className="space-y-4">
+            <h3 className="font-semibold text-sm tracking-wider uppercase text-foreground">Ecosistema</h3>
+            <div className="flex flex-col gap-3 text-sm">
+              {services.map((s) => (
+                <Link key={s.slug} to={s.route} className="text-muted-foreground hover:text-foreground w-fit">
+                  {s.shortTitle}
+                </Link>
+              ))}
             </div>
           </div>
 
-          {/* Contacto */}
-          <div className="space-y-6">
-            <h3 className="font-medium text-foreground text-sm tracking-widest uppercase">Contacto</h3>
-            <div className="flex flex-col space-y-5 text-sm">
-              <div className="flex items-start gap-3 text-muted-foreground">
-                <MapPin className="h-4 w-4 mt-0.5" />
-                <span>Ecuador • Ibarra</span>
-              </div>
-              <a 
-                href="mailto:info@ionoshub.net"
-                className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
-              >
+          <div className="space-y-4">
+            <h3 className="font-semibold text-sm tracking-wider uppercase text-foreground">Contacto</h3>
+            <div className="flex flex-col gap-3 text-sm text-muted-foreground">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center gap-2 hover:text-foreground">
                 <Mail className="h-4 w-4" />
-                <span>info@ionoshub.net</span>
+                {CONTACT_EMAIL}
               </a>
-              <a 
-                href="https://wa.me/593992249152" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <MessageCircle className="h-4 w-4" />
-                <span>+593 99 224 9152</span>
+              <a href={waLink()} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
+                WhatsApp: {WHATSAPP_DISPLAY}
               </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+        <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between gap-4 text-xs text-muted-foreground">
           <p>© {currentYear} IonosHub. Todos los derechos reservados.</p>
-          <div className="flex items-center gap-6">
-            <button 
-              onClick={() => navigate('/politica-de-privacidad')}
-              className="hover:text-foreground transition-colors"
-            >
-              Política de Privacidad
-            </button>
-            <button 
-              onClick={() => navigate('/terminos-y-condiciones')}
-              className="hover:text-foreground transition-colors"
-            >
-              Términos y Condiciones
-            </button>
+          <div className="flex gap-4">
+            <Link to="/politica-de-privacidad" className="hover:text-foreground">Política de privacidad</Link>
+            <Link to="/terminos-y-condiciones" className="hover:text-foreground">Términos y condiciones</Link>
           </div>
         </div>
       </div>

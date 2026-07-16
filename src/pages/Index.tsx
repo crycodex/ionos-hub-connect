@@ -1,69 +1,50 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { PainPoints } from "@/components/PainPoints";
+import { EcosystemLego } from "@/components/EcosystemLego";
 import { Services } from "@/components/Services";
-import { ValueProposition } from "@/components/ValueProposition";
-
-import ClientesCarousel from "../components/ClientesCarousel";
-import { Certifications } from "@/components/Certifications";
-// import { Testimonials } from "@/components/Testimonials";
+import { Steps } from "@/components/Steps";
+import { HomeTeam } from "@/components/HomeTeam";
+import { HomeCases } from "@/components/HomeCases";
+import { AdvancedStats } from "@/components/AdvancedStats";
+import ClientesCarousel from "@/components/ClientesCarousel";
+import { FAQ } from "@/components/FAQ";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
+import { PageSeo, organizationJsonLd } from "@/components/PageSeo";
 import { useEffect } from "react";
-import { HomeTeam } from "@/components/HomeTeam";
-import { Steps } from "@/components/Steps";
-import { Pricing } from "@/components/Pricing";
-import { FAQ } from "@/components/FAQ";
 
 const Index = () => {
-  // Scroll automático a la sección si hay un hash en la URL
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
-      const id = hash.replace('#', '');
+      const id = hash.replace("#", "");
       setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 100);
     }
   }, []);
 
   return (
     <div className="min-h-screen">
+      <PageSeo
+        title="IonosHub — Ecosistema digital para empresas en Ecuador"
+        description="Transformación digital con ecosistema modular: contenido, pauta, IONIC, software y analítica. Agenda tu diagnóstico gratuito."
+        path="/"
+        jsonLd={organizationJsonLd}
+      />
       <Navbar />
       <main>
-        {/* 1. Hero - Primera impresión: HOOK (captar atención) */}
         <Hero />
-        
-        {/* 2. Services - QUÉ ofrecemos: INFORMACIÓN CLAVE (lo más importante primero) */}
+        <PainPoints />
+        <EcosystemLego />
         <Services />
-
-        {/* 3. Steps - CÓMO EMPEZAR: reduce fricción + urgencia/escasez */}
         <Steps />
-
-        {/* 4. Value Proposition - POR QUÉ elegirnos: DIFERENCIACIÓN */}
-        <ValueProposition />
-
-        {/* 5. Nuestro Equipo - EQUIPO: CONFIANZA (humaniza la empresa) */}
         <HomeTeam />
-
-        {/* 6. Clientes - PRUEBA SOCIAL: Empresas que confían en nosotros */}
+        <HomeCases />
+        <AdvancedStats />
         <ClientesCarousel />
-
-        {/* 7. Certifications - CREDENCIALES: AUTORIDAD (refuerza confianza) */}
-        <Certifications />
-
-        {/* 8. Pricing - PLANES: ofertas claras una vez generada la confianza */}
-        <Pricing />
-
-        {/* 9. Testimonials - PRUEBA SOCIAL: VALIDACIÓN (cuando ya están interesados) */}
-        {/* <Testimonials /> */}
-
-        {/* 10. FAQ - OBJECIONES: despeja dudas justo antes de convertir */}
         <FAQ />
-
-        {/* 11. Contact Form - CONVERSIÓN: CAPTURA DE LEADS (momento de acción) */}
         <div id="contacto">
           <ContactForm />
         </div>

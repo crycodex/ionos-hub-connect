@@ -1,39 +1,37 @@
-import { ArrowLeft, Calendar, Download, ExternalLink, Play } from "lucide-react";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { PageSeo } from "@/components/PageSeo";
+import { Calendar, Download, ExternalLink, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Footer } from "@/components/Footer";
-import { useNavigate } from "react-router-dom";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const BlogRecursos = () => {
-  const navigate = useNavigate();
-
-  const handleVolver = () => {
-    navigate('/');
-  };
-
   const handleWhatsAppDownload = (resource: string) => {
-    const message = encodeURIComponent(`Hola, me interesa descargar el recurso: ${resource}. Me gustaría conocer más sobre los recursos educativos de IonosHub.`);
-    window.open(`https://wa.me/593992249152?text=${message}`, "_blank", "noopener,noreferrer");
+    openWhatsApp(
+      `Hola, me interesa descargar el recurso: ${resource}. Me gustaría conocer más sobre los recursos educativos de IonosHub.`
+    );
   };
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
+      <PageSeo
+        title="Blog y recursos"
+        description="Recursos educativos y webinars de IonosHub para acelerar tu transformación digital."
+        path="/blog-recursos"
+      />
+      <Navbar />
+      <main className="pt-16">
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center gap-4 mb-8">
-          <Button variant="outline" size="sm" onClick={handleVolver}>
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Volver
-          </Button>
-          <div className="h-8 w-px bg-border" />
-          <h1 className="text-3xl font-bold">Blog & Recursos</h1>
+          <h1 className="font-display text-3xl text-ink">Blog & Recursos</h1>
         </div>
 
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="font-display text-4xl md:text-5xl text-ink mb-6">
             Conocimiento que
-            <span className="text-primary"> Transforma</span>
+            <span className="text-primary"> transforma</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Accede a recursos exclusivos, webinars en vivo y contenido educativo 
@@ -290,6 +288,7 @@ const BlogRecursos = () => {
           </Button>
         </div>
       </div>
+      </main>
       <Footer />
     </div>
   );

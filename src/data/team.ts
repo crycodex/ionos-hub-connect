@@ -1,0 +1,75 @@
+export interface TeamMember {
+  name: string;
+  role: string;
+  expertise: string;
+  photo?: string;
+}
+
+export interface TeamArea {
+  id: string;
+  label: string;
+  members: TeamMember[];
+}
+
+export const teamAreas: TeamArea[] = [
+  {
+    id: "direccion",
+    label: "Dirección",
+    members: [
+      {
+        name: "Orlidan Montesdeoca",
+        role: "Director Ejecutivo, Cofundador",
+        expertise:
+          "DevOps, análisis de datos, infraestructura cloud, IA y automatización avanzada con RAGs. Relación con clientes.",
+      },
+      {
+        name: "Cristhian Recalde",
+        role: "Director Financiero y Operaciones, Cofundador",
+        expertise:
+          "Gestión de recursos y proyectos; líder de desarrollo móvil (Flutter); expositor en comunidad AWS y Google.",
+      },
+    ],
+  },
+  {
+    id: "desarrollo",
+    label: "Desarrollo",
+    members: [
+      {
+        name: "Alan Rodríguez",
+        role: "PMO",
+        expertise:
+          "Bases de datos transaccionales, levantamiento de propuestas y organización bajo SCRUM.",
+      },
+    ],
+  },
+  {
+    id: "automatizaciones",
+    label: "Automatizaciones",
+    members: [
+      {
+        name: "David Villarreal",
+        role: "Especialista de Automatizaciones",
+        expertise:
+          "Flujos de automatización y soporte técnico; tecnologías de vanguardia; apoyo en diseño y maquetado web.",
+      },
+    ],
+  },
+  {
+    id: "marketing",
+    label: "Marketing",
+    members: [
+      {
+        name: "Cami",
+        role: "Especialista de Marketing",
+        expertise:
+          "Gestión de redes sociales, traducción de tecnicismos a lenguaje de negocio y cobertura de eventos.",
+      },
+      {
+        name: "Dome",
+        role: "Especialista en Representación de Marca",
+        expertise:
+          "Vocera pública para clientes; carisma y naturalidad en cámara y eventos.",
+      },
+    ],
+  },
+];

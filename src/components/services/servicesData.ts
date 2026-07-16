@@ -1,53 +1,13 @@
-export interface ServiceItem {
-  id: number;
-  title: string;
-  subtitle: string;
-  route: string;
-  image: string;
-}
+/** @deprecated Use @/data/services — kept for compatibility */
+export { services as default } from "@/data/services";
+export type { ServiceModule as ServiceItem } from "@/data/services";
 
-// Rutas exactas según App.tsx
-export const services: ServiceItem[] = [
-  {
-    id: 1,
-    title: "AI & Chatbots",
-    subtitle: "Agentes virtuales 24/7",
-    route: "/agentes-virtuales",
-    image: "/imgs/agenteVirtual.png",
-  },
-  {
-    id: 2,
-    title: "Análisis de Datos & BI",
-    subtitle: "Dashboards y decisiones en tiempo real",
-    route: "/business-intelligence",
-    image: "/imgs/fotoDashboards.webp",
-  },
-  {
-    id: 3,
-    title: "Automatizaciones & RevOps",
-    subtitle: "Procesos escalables sin fricción",
-    route: "/transformacion-digital",
-    image: "/imgs/cta.jpg",
-  },
-  {
-    id: 4,
-    title: "Desarrollo Web & Sistemas",
-    subtitle: "Landings, apps y plataformas a medida",
-    route: "/desarrollo-web-movil",
-    image: "/imgs/imgsWeb/appWeb1.png",
-  },
-  {
-    id: 5,
-    title: "Marketing Digital",
-    subtitle: "Estrategias orientadas a resultados",
-    route: "/marketing-digital",
-    image: "/imgs/imgsMovil/appMovil1.png",
-  },
-  {
-    id: 6,
-    title: "Investigación de Mercados",
-    subtitle: "Oportunidades ocultas, datos precisos",
-    route: "/investigacion-de-mercados",
-    image: "/imgs/inv.png",
-  },
-];
+import { services as mods } from "@/data/services";
+
+export const services = mods.map((s, i) => ({
+  id: i + 1,
+  title: s.shortTitle,
+  subtitle: s.subtitle,
+  route: s.route,
+  image: "/imgs/icon.png",
+}));

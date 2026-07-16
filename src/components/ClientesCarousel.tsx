@@ -64,14 +64,15 @@ const ClientesCarousel = () => {
   ];
 
   return (
-    <section className="py-16 bg-background border-y border-border">
-      <div ref={revealRef} className="container mx-auto px-4">
+    <section className="section-band border-y border-border bg-white" id="clientes">
+      <div ref={revealRef} className="container mx-auto max-w-content px-4">
         <div className="cc-reveal text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Clientes que Confían en Nosotros
+          <p className="badge-pill mb-4 mx-auto w-fit">Clientes</p>
+          <h2 className="font-display text-3xl md:text-4xl text-ink tracking-tight mb-4">
+            Empresas que confían en IonosHub
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Empresas líderes que han transformado su negocio con nuestras soluciones
+            Negocios que digitalizaron su operación con nuestro ecosistema
           </p>
         </div>
 

@@ -1,121 +1,102 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import KineticTeamList, { KineticTeamMember } from "@/components/ui/kinetic-team-hybrid";
-import { ArrowRight } from "lucide-react";
-import { useEffect } from "react";
+import { PageSeo } from "@/components/PageSeo";
+import { teamAreas } from "@/data/team";
+import { openWhatsApp } from "@/lib/whatsapp";
 
-const team: KineticTeamMember[] = [
-  {
-    id: "01",
-    name: "Orlidan Montesdeoca",
-    role: "CEO · DevOps Specialist",
-    group: "Liderazgo",
-    image: "/imgs/equipo/orli.png",
-    linkedin: "https://www.linkedin.com/in/orlidan-montesdeoca",
-  },
-  {
-    id: "02",
-    name: "Cristhian Recalde",
-    role: "COO · Tech Lead",
-    group: "Liderazgo",
-    image: "/imgs/equipo/gris.png",
-    linkedin: "https://www.linkedin.com/in/isnotcristhianr/",
-  },
-  {
-    id: "03",
-    name: "Giuseppe Tubon",
-    role: "CMO · Marketing Digital",
-    group: "Liderazgo",
-    image: "/imgs/equipo/gius.png",
-    linkedin: "https://www.linkedin.com/in/giuseppechamorro/",
-  },
-  {
-    id: "04",
-    name: "David Villarreal",
-    role: "Developer · Automatizaciones",
-    group: "Ingeniería",
-    image: "/imgs/equipo/deivid.png",
-    linkedin: "https://www.linkedin.com/in/david-villarreal-c",
-  },
-  {
-    id: "05",
-    name: "Alan Rodriguez",
-    role: "Product Manager",
-    group: "Ingeniería",
-    image: "/imgs/equipo/user.png",
-    linkedin: "https://www.linkedin.com/in/alan-rodriguez-c",
-  },
-  {
-    id: "06",
-    name: "Domenica Alvarez",
-    role: "Content Creator",
-    group: "Marketing",
-    image: "/imgs/equipo/dome.png",
-    linkedin: "https://www.linkedin.com/in/dom%C3%A9nica/",
-  },
-  {
-    id: "07",
-    name: "Cristian Morales",
-    role: "Filmmaker · Editor",
-    group: "Marketing",
-    image: "/imgs/equipo/cris.png",
-    linkedin: "https://www.linkedin.com/in/cristian-morales/",
-  },
-];
-
-const Team = () => {
-  // Scroll to top on mount
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const handleJoinClick = () => {
-    window.open(
-      "https://wa.me/593992249152?text=Hola,%20me%20interesa%20unirme%20al%20equipo%20de%20IonosHub",
-      "_blank",
-      "noopener,noreferrer"
-    );
-  };
+export default function Team() {
+  const [active, setActive] = useState(teamAreas[0].id);
+  const area = teamAreas.find((a) => a.id === active) ?? teamAreas[0];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen">
+      <PageSeo
+        title="Nuestro equipo"
+        description="Conoce al equipo IonosHub: dirección, desarrollo, automatizaciones y marketing detrás de tu ecosistema digital."
+        path="/equipo"
+      />
       <Navbar />
-      <main className="flex-grow pt-20">
-        <KineticTeamList
-          title={
-            <>
-              Nuestro <span className="text-[#0ea5e9]">Equipo</span>
-            </>
-          }
-          eyebrow="IonosHub · Ecuador"
-          members={team}
-        />
+      <main className="pt-16">
+        <section className="section-band">
+          <div className="container mx-auto max-w-content px-4">
+            <p className="badge-pill mb-4">Equipo</p>
+            <h1 className="font-display text-4xl sm:text-5xl text-ink tracking-tight mb-4 max-w-2xl">
+              Las personas detrás de IonosHub
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mb-10">
+              Organizados por área — como trabajamos en el día a día.
+            </p>
 
-        {/* Banner: únete al equipo */}
-        <section className="container mx-auto px-4 pb-24 max-w-6xl">
-          <div className="bg-gradient-to-r from-slate-900 to-blue-950 rounded-3xl p-10 md:p-14 text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px] mix-blend-overlay" />
-            <div className="max-w-xl relative z-10 text-center md:text-left">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">¿Listo para generar un impacto?</h3>
-              <p className="text-slate-300 text-lg">
-                Siempre estamos buscando talento excepcional. Si te apasiona la
-                innovación, tenemos un escritorio esperando por ti.
-              </p>
+            <div className="flex flex-wrap gap-2 mb-10" role="tablist" aria-label="Áreas del equipo">
+              {teamAreas.map((a) => (
+                <button
+                  key={a.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={active === a.id}
+                  onClick={() => setActive(a.id)}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                    active === a.id
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-surface-strong text-foreground hover:bg-border"
+                  }`}
+                >
+                  {a.label}
+                </button>
+              ))}
             </div>
-            <button
-              type="button"
-              onClick={handleJoinClick}
-              className="relative z-10 bg-white text-slate-900 hover:bg-slate-100 transition-colors px-8 py-4 rounded-full font-semibold flex items-center gap-2 whitespace-nowrap shrink-0 group"
-            >
-              Únete a Nuestro Equipo
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+
+            <div className="grid sm:grid-cols-2 gap-6" role="tabpanel">
+              {area.members.map((m) => (
+                <article
+                  key={m.name}
+                  className="feature-card group transition-shadow hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]"
+                >
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-surface-strong text-primary font-display text-xl mb-4">
+                    {m.name
+                      .split(" ")
+                      .map((p) => p[0])
+                      .slice(0, 2)
+                      .join("")}
+                  </div>
+                  <h2 className="text-xl font-semibold mb-1">{m.name}</h2>
+                  <p className="text-sm text-primary font-medium mb-3">{m.role}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
+                    {m.expertise}
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-16 feature-card bg-surface-soft text-center">
+              <h2 className="font-display text-2xl mb-3">¿Quieres unirte al equipo?</h2>
+              <p className="text-muted-foreground text-sm mb-6 max-w-md mx-auto">
+                Buscamos gente con ganas de construir ecosistemas digitales.
+              </p>
+              <button
+                type="button"
+                onClick={() =>
+                  openWhatsApp(
+                    "Hola IonosHub, me interesa unirme al equipo. ¿Tienen vacantes abiertas?"
+                  )
+                }
+                className="btn-pill-primary"
+              >
+                Escribir por WhatsApp
+              </button>
+            </div>
+
+            <div className="mt-8 text-center">
+              <Link to="/#contacto" className="text-sm font-semibold text-primary">
+                ¿Prefieres agendar un diagnóstico? →
+              </Link>
+            </div>
           </div>
         </section>
       </main>
       <Footer />
     </div>
   );
-};
-
-export default Team;
+}

@@ -9,16 +9,23 @@ export default {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1200px",
       },
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Monda', 'system-ui', 'sans-serif'],
+        display: ['Bakbak One', 'Monda', 'sans-serif'],
       },
       colors: {
         'blue-light': 'hsl(var(--blue-light))',
         'blue-vivid': 'hsl(var(--blue-vivid))',
+        ink: 'hsl(var(--ink))',
+        body: 'hsl(var(--body))',
+        'surface-soft': 'hsl(var(--surface-soft))',
+        'surface-strong': 'hsl(var(--surface-strong))',
+        'surface-dark': 'hsl(var(--surface-dark))',
+        'surface-dark-elevated': 'hsl(var(--surface-dark-elevated))',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -27,6 +34,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          active: "hsl(var(--primary-active))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -67,6 +75,11 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "var(--radius-xl)",
+        pill: "var(--radius-pill)",
+      },
+      maxWidth: {
+        content: "1200px",
       },
       keyframes: {
         "accordion-down": {
@@ -93,9 +106,9 @@ export default {
           "0%": { opacity: "0", transform: "translateX(-20px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
-        "glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--primary) / 0.3)" },
-          "50%": { boxShadow: "0 0 30px hsl(var(--primary) / 0.5)" },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
         },
       },
       animation: {
@@ -105,7 +118,7 @@ export default {
         "fade-in-up": "fade-in-up 0.8s ease-out",
         "scale-in": "scale-in 0.5s ease-out",
         "slide-in": "slide-in 0.6s ease-out",
-        "glow": "glow 2s ease-in-out infinite",
+        float: "float 4s ease-in-out infinite",
       },
     },
   },
