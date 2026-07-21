@@ -42,7 +42,7 @@ export const teamAreas: TeamArea[] = [
         role: "PMO",
         expertise:
           "Bases de datos transaccionales, levantamiento de propuestas y organización bajo SCRUM.",
-        photo: "/imgs/equipo/user.png",
+        photo: "/imgs/equipo/alan.JPG",
       },
     ],
   },

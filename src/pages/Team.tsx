@@ -1,14 +1,21 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageSeo } from "@/components/PageSeo";
+import TeamShowcase from "@/components/ui/team-showcase";
 import { teamAreas } from "@/data/team";
 import { openWhatsApp } from "@/lib/whatsapp";
 
 export default function Team() {
-  const [active, setActive] = useState(teamAreas[0].id);
-  const area = teamAreas.find((a) => a.id === active) ?? teamAreas[0];
+  const showcaseMembers = teamAreas.flatMap((area) =>
+    area.members.map((m) => ({
+      id: m.name,
+      name: m.name,
+      role: `${m.role} · ${area.label}`,
+      image: m.photo,
+      expertise: m.expertise,
+    }))
+  );
 
   return (
     <div className="min-h-screen">
@@ -26,52 +33,10 @@ export default function Team() {
               Las personas detrás de IonosHub
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mb-10">
-              Organizados por área — como trabajamos en el día a día.
+              Dirección, desarrollo, automatizaciones y marketing — el equipo completo.
             </p>
 
-            <div className="flex flex-wrap gap-2 mb-10" role="tablist" aria-label="Áreas del equipo">
-              {teamAreas.map((a) => (
-                <button
-                  key={a.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={active === a.id}
-                  onClick={() => setActive(a.id)}
-                  className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                    active === a.id
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-surface-strong text-foreground hover:bg-border"
-                  }`}
-                >
-                  {a.label}
-                </button>
-              ))}
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-6" role="tabpanel">
-              {area.members.map((m) => (
-                <article
-                  key={m.name}
-                  className="feature-card group flex gap-5 items-start transition-shadow hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]"
-                >
-                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-surface-strong ring-2 ring-border">
-                    <img
-                      src={m.photo}
-                      alt={`Foto de ${m.name}`}
-                      className="h-full w-full object-cover object-top"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <h2 className="text-xl font-semibold mb-1">{m.name}</h2>
-                    <p className="text-sm text-primary font-medium mb-3">{m.role}</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {m.expertise}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
+            <TeamShowcase members={showcaseMembers} />
 
             <div className="mt-16 feature-card bg-surface-soft text-center">
               <h2 className="font-display text-2xl mb-3">¿Quieres unirte al equipo?</h2>
