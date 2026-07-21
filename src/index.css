@@ -180,6 +180,10 @@ html {
     scrollbar-width: none;
   }
 
+  .loader {
+    @apply block h-8 w-8 rounded-full border-2 border-white/20 border-t-white animate-spin;
+  }
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }

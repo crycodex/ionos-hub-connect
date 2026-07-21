@@ -34,7 +34,7 @@ const Index = () => {
         jsonLd={organizationJsonLd}
       />
       <Navbar />
-      <main>
+      <main className="max-w-screen-2xl mx-auto px-8">
         <Hero />
         <PainPoints />
         <EcosystemLego />

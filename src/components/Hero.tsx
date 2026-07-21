@@ -1,5 +1,23 @@
-import { Link } from "react-router-dom";
 import { openWhatsApp } from "@/lib/whatsapp";
+import { SplineScene } from "@/components/ui/spline";
+import LogoLoop, { LogoItem } from "@/components/LogoLoop";
+
+const ecosystemItems: LogoItem[] = [
+  "Estrategia & contenido",
+  "Producción visual",
+  "Pauta digital",
+  "IONIC · Agente IA",
+  "Software a medida",
+  "Analítica en tiempo real",
+].map((item) => ({
+  node: (
+    <span className="badge-pill gap-2 whitespace-nowrap">
+      <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+      {item}
+    </span>
+  ),
+  ariaLabel: item,
+}));
 
 export function Hero() {
   const scrollToContact = () => {
@@ -7,24 +25,27 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-white pt-16">
+    <>
+    <section className="relative min-h-[90vh] flex items-center bg-white pt-16">
       {/* Soft brand atmosphere */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 70% 20%, hsl(205 100% 37% / 0.08), transparent), radial-gradient(ellipse 60% 40% at 10% 80%, hsl(200 100% 45% / 0.06), transparent)",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute -right-20 top-1/4 h-72 w-72 rounded-full border border-primary/10 animate-float"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute right-1/4 bottom-1/4 h-40 w-40 rounded-full border border-primary/5"
-        aria-hidden
-      />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 50% at 70% 20%, hsl(205 100% 37% / 0.08), transparent), radial-gradient(ellipse 60% 40% at 10% 80%, hsl(200 100% 45% / 0.06), transparent)",
+          }}
+        />
+        <div className="absolute -right-20 top-1/4 h-72 w-72 rounded-full border border-primary/10 animate-float" />
+        <div className="absolute right-1/4 bottom-1/4 h-40 w-40 rounded-full border border-primary/5" />
+      </div>
+
+      <div className="absolute inset-0 z-0 opacity-25 lg:z-30 lg:opacity-100 lg:inset-y-0 lg:left-auto lg:right-0 lg:w-[65%] animate-fade-in-up">
+        <SplineScene
+          scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+          className="h-full w-full"
+        />
+      </div>
 
       <div className="container relative z-10 mx-auto max-w-content px-4 py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -52,39 +73,23 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative animate-fade-in-up hidden lg:block">
-            <div className="product-ui-card-dark relative z-10 max-w-md ml-auto shadow-lg">
-              <p className="text-xs uppercase tracking-wider text-white/50 mb-4">Tu ecosistema</p>
-              <ul className="space-y-3">
-                {[
-                  "Estrategia & contenido",
-                  "Producción visual",
-                  "Pauta digital",
-                  "IONIC · Agente IA",
-                  "Software a medida",
-                  "Analítica en tiempo real",
-                ].map((item, i) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3 text-sm"
-                    style={{ animationDelay: `${i * 80}ms` }}
-                  >
-                    <span className="h-2 w-2 rounded-full bg-primary shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link to="/#ecosistema" className="mt-6 inline-block text-sm text-primary hover:underline">
-                Cómo se conectan las piezas →
-              </Link>
-            </div>
-            <div
-              className="absolute -bottom-6 -left-6 w-48 h-48 rounded-3xl bg-surface-strong border border-border -z-0"
-              aria-hidden
-            />
-          </div>
+          <div className="hidden lg:block" aria-hidden />
         </div>
       </div>
     </section>
+
+    <div className="relative z-10 bg-white py-8 lg:py-10 animate-fade-in">
+      <LogoLoop
+        logos={ecosystemItems}
+        speed={40}
+        direction="left"
+        gap={16}
+        pauseOnHover
+        fadeOut
+        fadeOutColor="hsl(0 0% 100%)"
+        ariaLabel="Piezas del ecosistema IonosHub"
+      />
+    </div>
+    </>
   );
 }
