@@ -12,7 +12,6 @@ export function HomeCases() {
       <div className="container mx-auto max-w-content px-4">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
           <div className="max-w-xl">
-            <p className="badge-pill mb-4">Resultados reales</p>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-ink tracking-tight mb-3">
               Casos de éxito
             </h2>
@@ -29,18 +28,21 @@ export function HomeCases() {
           </Link>
         </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {cases.map((c) => (
-            <article key={c.slug} className="feature-card flex flex-col">
+            <article key={c.slug} className="feature-card-metric flex flex-col">
               {c.logo && (
-                <div className="mb-4 h-12 flex items-center">
-                  <img src={c.logo} alt="" className="max-h-10 max-w-[140px] object-contain" />
+                <div className="mb-6 h-8 flex items-center">
+                  <img
+                    src={c.logo}
+                    alt=""
+                    className="max-h-8 max-w-[140px] object-contain brightness-0 invert opacity-80"
+                  />
                 </div>
               )}
-              <span className="text-xs text-muted-foreground mb-2">{c.industry}</span>
-              <h3 className="text-lg font-semibold mb-3">{c.client}</h3>
-              <p className="text-2xl font-display text-primary mb-4">{c.highlight}</p>
-              <p className="text-sm text-muted-foreground leading-relaxed flex-1">{c.result}</p>
+              <p className="text-3xl font-display mb-2">{c.highlight}</p>
+              <span className="text-xs text-white/60 mb-4 block">{c.industry} · {c.client}</span>
+              <p className="text-sm text-white/80 leading-relaxed flex-1">{c.result}</p>
             </article>
           ))}
         </div>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Mail, Phone, Send, CheckCircle, AlertCircle } from "lucide-react";
 import { serviceSelectOptions } from "@/data/services";
 import { CONTACT_EMAIL, WHATSAPP_DISPLAY, waLink } from "@/lib/whatsapp";
@@ -20,9 +22,13 @@ export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const setField = (name: string, value: string) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -83,7 +89,6 @@ export function ContactForm() {
       <div className="container mx-auto max-w-content px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           <div>
-            <p className="badge-pill mb-4">Contacto</p>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-ink tracking-tight mb-4">
               Agenda tu diagnóstico gratuito
             </h2>
@@ -153,22 +158,25 @@ export function ContactForm() {
                   <label htmlFor="servicio_interes" className="block text-sm font-medium mb-1.5">
                     Servicio de interés *
                   </label>
-                  <select
-                    id="servicio_interes"
-                    name="servicio_interes"
-                    required
+                  <Select
                     value={formData.servicio_interes}
-                    onChange={handleChange}
-                    className="flex h-12 w-full rounded-xl border border-input bg-background px-3 text-sm"
+                    onValueChange={(value) => setField("servicio_interes", value)}
+                    required
                   >
-                    <option value="">Selecciona un módulo</option>
-                    {serviceSelectOptions.map((o) => (
-                      <option key={o.value} value={o.label}>
-                        {o.label}
-                      </option>
-                    ))}
-                    <option value="Ecosistema completo / no sé aún">Ecosistema completo / no sé aún</option>
-                  </select>
+                    <SelectTrigger id="servicio_interes" className="h-12 rounded-xl">
+                      <SelectValue placeholder="Selecciona un módulo" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {serviceSelectOptions.map((o) => (
+                        <SelectItem key={o.value} value={o.label}>
+                          {o.label}
+                        </SelectItem>
+                      ))}
+                      <SelectItem value="Ecosistema completo / no sé aún">
+                        Ecosistema completo / no sé aún
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -209,13 +217,13 @@ export function ContactForm() {
                   <label htmlFor="nota_detalle" className="block text-sm font-medium mb-1.5">
                     Nota de detalle (opcional)
                   </label>
-                  <textarea
+                  <Textarea
                     id="nota_detalle"
                     name="nota_detalle"
                     rows={3}
                     value={formData.nota_detalle}
                     onChange={handleChange}
-                    className="flex w-full rounded-xl border border-input bg-background px-3 py-3 text-sm"
+                    className="rounded-xl"
                     placeholder="Cuéntanos brevemente tu reto..."
                   />
                 </div>

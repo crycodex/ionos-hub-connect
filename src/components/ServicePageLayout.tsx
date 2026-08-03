@@ -17,6 +17,15 @@ interface Props {
   service: ServiceModule;
 }
 
+const serviceHeroImages: Record<string, string> = {
+  "estrategia-contenido": "/imgs/cajeraRestaurante.png",
+  "produccion-visual-audiovisual": "/imgs/pixelart3d.png",
+  "pauta-publicidad-digital": "/imgs/dashboards/reporteventas/image.png",
+  "ionic-agente-ia": "/imgs/agenteVirtual.png",
+  "software-a-medida": "/imgs/imgsMovil/appMovil2.png",
+  "analitica-resultados": "/imgs/dashboards/reporteIncidencias/image.png",
+};
+
 export function ServicePageLayout({ service }: Props) {
   const relatedCase = service.caseSlug ? getCaseBySlug(service.caseSlug) : undefined;
   const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
@@ -57,25 +66,41 @@ export function ServicePageLayout({ service }: Props) {
       <main className="pt-16">
         <section className="section-band bg-white border-b border-border">
           <div className="container mx-auto max-w-content px-4">
-            <p className="badge-pill mb-4">{service.moduleCode}</p>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-ink tracking-tight max-w-3xl mb-5">
-              {service.title}
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed">
-              {service.subtitle}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <button type="button" onClick={scrollToContact} className="btn-pill-cta">
-                Consulta si este módulo es para ti
-              </button>
-              <a
-                href={waLink(service.waMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-pill-secondary"
-              >
-                WhatsApp
-              </a>
+            <div className="grid lg:grid-cols-[1fr_360px] gap-12 items-center">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-wider text-primary mb-4 block">
+                  {service.moduleCode}
+                </span>
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-ink tracking-tight max-w-3xl mb-5">
+                  {service.title}
+                </h1>
+                <p className="text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed">
+                  {service.subtitle}
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <button type="button" onClick={scrollToContact} className="btn-pill-cta">
+                    Consulta si este módulo es para ti
+                  </button>
+                  <a
+                    href={waLink(service.waMessage)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-pill-secondary"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+              {serviceHeroImages[service.slug] && (
+                <div className="hidden lg:block rounded-3xl border border-[hsl(var(--border))] overflow-hidden shadow-[0_16px_40px_hsl(0_0%_0%_/_0.1)]">
+                  <img
+                    src={serviceHeroImages[service.slug]}
+                    alt=""
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -90,11 +115,11 @@ export function ServicePageLayout({ service }: Props) {
         <section className="section-band">
           <div className="container mx-auto max-w-content px-4">
             <h2 className="font-display text-3xl text-ink mb-8">Qué incluye</h2>
-            <ul className="grid sm:grid-cols-2 gap-4">
+            <ul className="grid sm:grid-cols-2 gap-x-10">
               {service.includes.map((item) => (
-                <li key={item} className="feature-card flex gap-3 items-start">
-                  <span className="mt-1.5 h-2 w-2 rounded-full bg-primary shrink-0" />
-                  <span className="text-sm leading-relaxed">{item}</span>
+                <li key={item} className="feature-row flex gap-3 items-start">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                  <span className="text-sm leading-relaxed text-foreground">{item}</span>
                 </li>
               ))}
             </ul>
@@ -138,11 +163,17 @@ export function ServicePageLayout({ service }: Props) {
         <section className="section-band">
           <div className="container mx-auto max-w-content px-4 max-w-2xl">
             <h2 className="font-display text-3xl text-ink mb-6">Preguntas frecuentes</h2>
-            <Accordion type="single" collapsible>
+            <Accordion type="single" collapsible className="space-y-3">
               {service.faqs.map((f, i) => (
-                <AccordionItem key={f.question} value={`faq-${i}`}>
-                  <AccordionTrigger className="text-left font-semibold">{f.question}</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">{f.answer}</AccordionContent>
+                <AccordionItem
+                  key={f.question}
+                  value={`faq-${i}`}
+                  className="rounded-2xl border border-[hsl(var(--border))] bg-card px-6 border-b-0 data-[state=open]:border-primary/30"
+                >
+                  <AccordionTrigger className="text-left font-semibold text-ink py-5 hover:no-underline [&>svg]:h-5 [&>svg]:w-5 [&>svg]:rounded-full [&>svg]:bg-[hsl(var(--surface-strong))] [&>svg]:p-1 [&[data-state=open]>svg]:bg-primary [&[data-state=open]>svg]:text-primary-foreground [&[data-state=open]>svg]:rotate-45">
+                    {f.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pt-0">{f.answer}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>

@@ -171,6 +171,34 @@ html {
     @apply rounded-3xl bg-[hsl(var(--surface-dark-elevated))] p-8 text-white;
   }
 
+  /* Media card — screenshot/dashboard proof leads, copy follows */
+  .feature-card-media {
+    @apply rounded-3xl border border-[hsl(var(--border))] bg-card overflow-hidden transition-shadow hover:shadow-[0_10px_24px_hsl(0_0%_0%_/_0.08)];
+  }
+
+  .feature-card-media-frame {
+    @apply relative aspect-[16/10] w-full overflow-hidden bg-[hsl(var(--surface-soft))];
+  }
+
+  .feature-card-media-body {
+    @apply p-6;
+  }
+
+  /* Metric card — dark ground, one number carries the section */
+  .feature-card-metric {
+    @apply rounded-3xl bg-[hsl(var(--surface-dark))] p-8 text-white relative overflow-hidden;
+  }
+
+  .feature-card-metric::before {
+    content: "";
+    @apply absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[hsl(var(--accent))]/10 blur-2xl;
+  }
+
+  /* Dense row — hairline separators, no boxed card; for FAQ-style lists */
+  .feature-row {
+    @apply border-b border-[hsl(var(--border))] py-2 last:border-b-0;
+  }
+
   .badge-pill {
     @apply inline-flex items-center rounded-full bg-[hsl(var(--surface-strong))] px-3 py-1 text-xs font-semibold text-foreground;
   }

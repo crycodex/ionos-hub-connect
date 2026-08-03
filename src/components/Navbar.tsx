@@ -37,7 +37,7 @@ export function Navbar() {
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/60 bg-white/90 backdrop-blur-md">
       <nav className="mx-auto max-w-content px-4 sm:px-6 h-16 flex items-center justify-between">
         <button onClick={handleHomeClick} className="flex items-center gap-2" aria-label="Ir al inicio">
-          <img src="/imgs/logo%20remove.png" alt="IonosHub" className="h-9 w-auto" />
+          <img src="/imgs/logo.png" alt="IonosHub" className="h-9 w-auto" />
         </button>
 
         <div className="hidden lg:flex items-center gap-1">

@@ -18,7 +18,6 @@ export default function CasosDeExito() {
       <main className="pt-16">
         <section className="section-band">
           <div className="container mx-auto max-w-content px-4">
-            <p className="badge-pill mb-4">Resultados</p>
             <h1 className="font-display text-4xl sm:text-5xl text-ink tracking-tight mb-4 max-w-2xl">
               Casos de éxito
             </h1>
@@ -44,8 +43,10 @@ export default function CasosDeExito() {
                         </div>
                       )}
                       <p className="text-xs text-muted-foreground mb-1">{c.industry}</p>
-                      <h2 className="text-2xl font-semibold mb-2">{c.client}</h2>
-                      <p className="font-display text-3xl text-primary">{c.highlight}</p>
+                      <h2 className="text-2xl font-semibold mb-3">{c.client}</h2>
+                      <span className="inline-block rounded-xl bg-[hsl(var(--surface-dark))] px-4 py-2 font-display text-2xl text-white">
+                        {c.highlight}
+                      </span>
                       {related && (
                         <Link to={related.route} className="inline-block mt-4 text-sm font-semibold text-primary">
                           Módulo: {related.shortTitle} →

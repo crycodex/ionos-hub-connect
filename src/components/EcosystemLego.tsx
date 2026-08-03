@@ -11,7 +11,6 @@ export function EcosystemLego() {
       <div className="container mx-auto max-w-content px-4">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <div>
-            <p className="badge-pill mb-4">Sistema LEGO</p>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-ink tracking-tight mb-5">
               Arma tu ecosistema pieza por pieza
             </h2>
@@ -28,14 +27,15 @@ export function EcosystemLego() {
             </button>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+          <div className="relative grid grid-cols-2 gap-3 sm:gap-4">
             {services.map((s, i) => (
               <Link
                 key={s.slug}
                 to={s.route}
-                className={`feature-card !p-5 hover:border-primary/40 group ${
-                  i === 0 ? "col-span-2 sm:col-span-1" : ""
+                className={`feature-card !p-5 hover:border-primary/40 hover:-translate-y-1 group transition-all flex flex-col ${
+                  i === 0 ? "col-span-2 sm:col-span-1 sm:row-span-2" : ""
                 }`}
+                style={{ transform: i % 2 === 0 ? "none" : "translateY(0.75rem)" }}
               >
                 <span className="text-[10px] font-semibold uppercase tracking-wider text-primary mb-2 block">
                   {s.moduleCode}
@@ -43,6 +43,9 @@ export function EcosystemLego() {
                 <span className="font-semibold text-sm group-hover:text-primary transition-colors">
                   {s.shortTitle}
                 </span>
+                {i === 0 && (
+                  <p className="text-xs text-muted-foreground leading-relaxed mt-3">{s.subtitle}</p>
+                )}
               </Link>
             ))}
           </div>

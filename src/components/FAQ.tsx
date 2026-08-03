@@ -33,19 +33,24 @@ export function FAQ() {
     <section className="section-band" id="faq">
       <div className="container mx-auto max-w-content px-4">
         <div className="max-w-2xl mx-auto text-center mb-12">
-          <p className="badge-pill mb-4">FAQ</p>
           <h2 className="font-display text-3xl sm:text-4xl text-ink tracking-tight mb-3">
-            Preguntas frecuentes
+            Antes de agendar, resolvemos esto
           </h2>
           <p className="text-muted-foreground">
-            Resolvemos las dudas más comunes antes de agendar tu diagnóstico.
+            Las dudas que más nos hacen antes de armar un diagnóstico.
           </p>
         </div>
-        <Accordion type="single" collapsible className="max-w-2xl mx-auto">
+        <Accordion type="single" collapsible className="max-w-2xl mx-auto space-y-3">
           {faqs.map((f, i) => (
-            <AccordionItem key={f.q} value={`item-${i}`}>
-              <AccordionTrigger className="text-left font-semibold">{f.q}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
+            <AccordionItem
+              key={f.q}
+              value={`item-${i}`}
+              className="rounded-2xl border border-[hsl(var(--border))] bg-card px-6 border-b-0 data-[state=open]:border-primary/30"
+            >
+              <AccordionTrigger className="text-left font-semibold text-ink py-5 hover:no-underline [&>svg]:h-5 [&>svg]:w-5 [&>svg]:rounded-full [&>svg]:bg-[hsl(var(--surface-strong))] [&>svg]:p-1 [&[data-state=open]>svg]:bg-primary [&[data-state=open]>svg]:text-primary-foreground [&[data-state=open]>svg]:rotate-45">
+                {f.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pt-0">
                 {f.a}
               </AccordionContent>
             </AccordionItem>

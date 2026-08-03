@@ -1,5 +1,4 @@
 import { openWhatsApp } from "@/lib/whatsapp";
-import { SplineScene } from "@/components/ui/spline";
 import LogoLoop, { LogoItem } from "@/components/LogoLoop";
 
 const ecosystemItems: LogoItem[] = [
@@ -40,17 +39,9 @@ export function Hero() {
         <div className="absolute right-1/4 bottom-1/4 h-40 w-40 rounded-full border border-primary/5" />
       </div>
 
-      <div className="absolute inset-0 z-0 opacity-25 lg:z-30 lg:opacity-100 lg:inset-y-0 lg:left-auto lg:right-0 lg:w-[65%] animate-fade-in-up">
-        <SplineScene
-          scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-          className="h-full w-full"
-        />
-      </div>
-
       <div className="container relative z-10 mx-auto max-w-content px-4 py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="animate-fade-in">
-            <p className="badge-pill mb-6">Ecosistema digital · Ecuador</p>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.05] tracking-tight text-ink mb-6">
               Transformación digital con un{" "}
               <span className="text-primary">ecosistema</span>, no servicios sueltos
@@ -73,7 +64,40 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="hidden lg:block" aria-hidden />
+          <div className="relative hidden lg:block animate-fade-in-up" aria-hidden>
+            <div className="relative mx-auto max-w-md">
+              {/* Primary proof: real reporting dashboard, framed as a browser window */}
+              <div className="rounded-2xl border border-[hsl(var(--border))] bg-card shadow-[0_20px_50px_hsl(0_0%_0%_/_0.12)] overflow-hidden rotate-[1.5deg]">
+                <div className="flex items-center gap-1.5 border-b border-[hsl(var(--border))] bg-[hsl(var(--surface-soft))] px-4 py-2.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[hsl(var(--border))]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[hsl(var(--border))]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[hsl(var(--border))]" />
+                </div>
+                <img
+                  src="/imgs/dashboards/reporteventas/image.png"
+                  alt="Panel de analítica IonosHub con métricas de ventas en tiempo real"
+                  className="w-full h-auto"
+                  loading="eager"
+                />
+              </div>
+
+              {/* Secondary proof: IONIC agent, offset lower-left */}
+              <div className="absolute -left-10 -bottom-10 w-40 rounded-2xl border border-[hsl(var(--border))] bg-card shadow-[0_16px_36px_hsl(0_0%_0%_/_0.14)] overflow-hidden -rotate-[4deg]">
+                <img
+                  src="/imgs/imgsMovil/appMovil1.png"
+                  alt="Vista de app móvil desarrollada por IonosHub"
+                  className="w-full h-auto"
+                  loading="eager"
+                />
+              </div>
+
+              {/* Live-metric chip, upper-right */}
+              <div className="absolute -right-6 -top-6 flex items-center gap-2 rounded-2xl bg-[hsl(var(--surface-dark))] text-white px-5 py-3 shadow-[0_16px_36px_hsl(0_0%_0%_/_0.2)]">
+                <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+                <p className="text-xs font-semibold">Analítica en tiempo real</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

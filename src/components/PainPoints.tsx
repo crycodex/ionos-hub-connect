@@ -22,25 +22,31 @@ export function PainPoints() {
   return (
     <section className="section-band-soft" id="dolor">
       <div className="container mx-auto max-w-content px-4">
-        <div className="max-w-2xl mb-14">
-          <p className="badge-pill mb-4">El problema</p>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-ink tracking-tight mb-4">
-            Lo que frena a los negocios que quieren digitalizarse
-          </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            No es falta de ganas: es falta de un sistema que conecte cada pieza.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {pains.map(({ icon: Icon, title, text }) => (
-            <div key={title} className="feature-card bg-white">
-              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-surface-strong">
-                <Icon className="h-5 w-5 text-primary" aria-hidden />
+        <div className="grid lg:grid-cols-[minmax(0,320px)_1fr] gap-10 lg:gap-16">
+          <div>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-ink tracking-tight mb-4">
+              Lo que frena a los negocios que quieren digitalizarse
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              No es falta de ganas: es falta de un sistema que conecte cada pieza.
+            </p>
+          </div>
+          <div>
+            {pains.map(({ icon: Icon, title, text }) => (
+              <div
+                key={title}
+                className="flex items-start gap-5 border-b border-[hsl(var(--border))] py-6 first:pt-0 last:border-b-0"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[hsl(var(--surface-dark))]">
+                  <Icon className="h-5 w-5 text-white" aria-hidden />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-ink mb-1">{title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{text}</p>
+                </div>
               </div>
-              <h3 className="text-lg font-semibold mb-2">{title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{text}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

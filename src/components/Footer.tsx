@@ -20,7 +20,7 @@ export function Footer() {
       <div className="container mx-auto max-w-content px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
           <div className="space-y-5">
-            <img src="/imgs/logo%20remove.png" alt="IonosHub" className="h-9 w-auto opacity-90" />
+            <img src="/imgs/logo.png" alt="IonosHub" className="h-9 w-auto opacity-90" />
             <p className="text-sm text-muted-foreground leading-relaxed">
               De datos a resultados. Ecosistemas digitales modulares para empresas en Ecuador — no servicios sueltos.
             </p>
