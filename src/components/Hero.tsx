@@ -8,15 +8,24 @@ const ecosystemItems: LogoItem[] = [
   "IONIC · Agente IA",
   "Software a medida",
   "Analítica en tiempo real",
-].map((item) => ({
-  node: (
-    <span className="badge-pill gap-2 whitespace-nowrap">
-      <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-      {item}
-    </span>
-  ),
-  ariaLabel: item,
-}));
+].map((item) => {
+  const isFlagship = item.startsWith("IONIC");
+  return {
+    node: (
+      <span
+        className={`badge-pill gap-2 whitespace-nowrap border transition-colors duration-200 ${
+          isFlagship
+            ? "border-accent/30 bg-accent/10 text-[hsl(22_70%_35%)] hover:border-accent/50 hover:bg-accent/15"
+            : "border-transparent hover:bg-[hsl(var(--border))]"
+        }`}
+      >
+        <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${isFlagship ? "bg-accent" : "bg-primary"}`} />
+        {item}
+      </span>
+    ),
+    ariaLabel: item,
+  };
+});
 
 export function Hero() {
   const scrollToContact = () => {
@@ -67,32 +76,36 @@ export function Hero() {
           <div className="relative hidden lg:block animate-fade-in-up" aria-hidden>
             <div className="relative mx-auto max-w-md">
               {/* Primary proof: real reporting dashboard, framed as a browser window */}
-              <div className="rounded-2xl border border-[hsl(var(--border))] bg-card shadow-[0_20px_50px_hsl(0_0%_0%_/_0.12)] overflow-hidden rotate-[1.5deg]">
+              <div className="group/primary relative z-0 rounded-2xl border border-[hsl(var(--border))] bg-card shadow-[0_20px_50px_hsl(0_0%_0%_/_0.12)] overflow-hidden rotate-[1.5deg] transition-[transform,box-shadow] duration-500 ease-out hover:z-20 hover:-translate-y-1.5 hover:rotate-0 hover:shadow-[0_28px_60px_hsl(0_0%_0%_/_0.18)]">
                 <div className="flex items-center gap-1.5 border-b border-[hsl(var(--border))] bg-[hsl(var(--surface-soft))] px-4 py-2.5">
                   <span className="h-2.5 w-2.5 rounded-full bg-[hsl(var(--border))]" />
                   <span className="h-2.5 w-2.5 rounded-full bg-[hsl(var(--border))]" />
                   <span className="h-2.5 w-2.5 rounded-full bg-[hsl(var(--border))]" />
                 </div>
-                <img
-                  src="/imgs/dashboards/reporteventas/image.png"
-                  alt="Panel de analítica IonosHub con métricas de ventas en tiempo real"
-                  className="w-full h-auto"
-                  loading="eager"
-                />
+                <div className="overflow-hidden">
+                  <img
+                    src="/imgs/dashboards/reporteventas/image.png"
+                    alt="Panel de analítica IonosHub con métricas de ventas en tiempo real"
+                    className="w-full h-auto transition-transform duration-500 ease-out group-hover/primary:scale-[1.03]"
+                    loading="eager"
+                  />
+                </div>
               </div>
 
               {/* Secondary proof: IONIC agent, offset lower-left */}
-              <div className="absolute -left-10 -bottom-10 w-40 rounded-2xl border border-[hsl(var(--border))] bg-card shadow-[0_16px_36px_hsl(0_0%_0%_/_0.14)] overflow-hidden -rotate-[4deg]">
-                <img
-                  src="/imgs/imgsMovil/appMovil1.png"
-                  alt="Vista de app móvil desarrollada por IonosHub"
-                  className="w-full h-auto"
-                  loading="eager"
-                />
+              <div className="group/secondary absolute -left-10 -bottom-10 z-10 w-48 rounded-2xl border border-[hsl(var(--border))] bg-card shadow-[0_16px_36px_hsl(0_0%_0%_/_0.14)] overflow-hidden -rotate-[4deg] transition-[transform,box-shadow] duration-500 ease-out hover:z-20 hover:-translate-y-1 hover:-rotate-1 hover:shadow-[0_24px_48px_hsl(0_0%_0%_/_0.2)]">
+                <div className="overflow-hidden">
+                  <img
+                    src="/imgs/imgsWeb/appWeb2.png"
+                    alt="Vista de app móvil desarrollada por IonosHub"
+                    className="w-full h-auto transition-transform duration-500 ease-out group-hover/secondary:scale-[1.05]"
+                    loading="eager"
+                  />
+                </div>
               </div>
 
               {/* Live-metric chip, upper-right */}
-              <div className="absolute -right-6 -top-6 flex items-center gap-2 rounded-2xl bg-[hsl(var(--surface-dark))] text-white px-5 py-3 shadow-[0_16px_36px_hsl(0_0%_0%_/_0.2)]">
+              <div className="absolute -right-6 -top-6 z-20 flex items-center gap-2 rounded-2xl bg-[hsl(var(--surface-dark))] text-white px-5 py-3 shadow-[0_16px_36px_hsl(0_0%_0%_/_0.2)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_20px_44px_hsl(0_0%_0%_/_0.28)]">
                 <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
                 <p className="text-xs font-semibold">Analítica en tiempo real</p>
               </div>
@@ -102,15 +115,16 @@ export function Hero() {
       </div>
     </section>
 
-    <div className="relative z-10 bg-white py-8 lg:py-10 animate-fade-in">
+    <div className="relative z-10 border-t border-[hsl(var(--border))] bg-white py-7 lg:py-9 animate-fade-in">
       <LogoLoop
         logos={ecosystemItems}
-        speed={40}
+        speed={36}
         direction="left"
-        gap={16}
+        gap={20}
         pauseOnHover
         fadeOut
         fadeOutColor="hsl(0 0% 100%)"
+        scaleOnHover
         ariaLabel="Piezas del ecosistema IonosHub"
       />
     </div>

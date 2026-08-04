@@ -68,7 +68,7 @@ export const teamAreas: TeamArea[] = [
         role: "CMO",
         expertise:
           "Gestión de redes sociales, cobertura de eventos.",
-        photo: "/imgs/equipo/user.png",
+        photo: "/imgs/equipo/cami.PNG",
       },
       {
         name: "Domenica Alvarez",
@@ -87,6 +87,6 @@ export const teamTeaserPhotos = [
   { src: "/imgs/equipo/gris.JPG", alt: "Cristhian Recalde" },
   { src: "/imgs/equipo/deivid.JPG", alt: "David Villarreal" },
   { src: "/imgs/equipo/alan.JPG", alt: "Alan Rodríguez" },
-  { src: "/imgs/equipo/user.png", alt: "Camila Navarrete" },
+  { src: "/imgs/equipo/cami.PNG", alt: "Camila Navarrete" },
   { src: "/imgs/equipo/dome.png", alt: "Domenica Alvarez" },
 ];
