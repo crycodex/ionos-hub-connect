@@ -186,7 +186,11 @@ html {
 
   /* Metric card — dark ground, one number carries the section */
   .feature-card-metric {
-    @apply rounded-3xl bg-[hsl(var(--surface-dark))] p-8 text-white relative overflow-hidden;
+    @apply rounded-3xl bg-[hsl(var(--surface-dark))] p-8 text-white relative overflow-hidden transition-[transform,box-shadow,background-color] duration-300 ease-out;
+  }
+
+  .feature-card-metric-link {
+    @apply hover:-translate-y-1 hover:bg-[hsl(var(--surface-dark-elevated))] hover:shadow-[0_20px_44px_hsl(0_0%_0%_/_0.28)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--blue-vivid))] focus-visible:ring-offset-2;
   }
 
   .feature-card-metric::before {

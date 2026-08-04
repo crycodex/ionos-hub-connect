@@ -31,7 +31,11 @@ export default function CasosDeExito() {
                   ? services.find((s) => s.slug === c.relatedService)
                   : undefined;
                 return (
-                  <article key={c.slug} className="feature-card grid lg:grid-cols-3 gap-6">
+                  <article
+                    key={c.slug}
+                    id={c.slug}
+                    className="feature-card scroll-mt-24 grid lg:grid-cols-3 gap-6 transition-shadow duration-300 target:ring-2 target:ring-primary/40 target:shadow-[0_10px_24px_hsl(0_0%_0%_/_0.08)]"
+                  >
                     <div>
                       {c.logo && (
                         <div className="mb-4 h-14 flex items-center">

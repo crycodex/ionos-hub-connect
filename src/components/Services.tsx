@@ -7,7 +7,7 @@ const serviceImages: Record<string, string> = {
   "produccion-visual-audiovisual": "/imgs/pixelart3d.png",
   "pauta-publicidad-digital": "/imgs/dashboards/reporteventas/image.png",
   "ionic-agente-ia": "/imgs/agenteVirtual.png",
-  "software-a-medida": "/imgs/imgsMovil/appMovil2.png",
+  "software-a-medida": "/imgs/imgsMovil/appMovil1.png",
   "analitica-resultados": "/imgs/dashboards/reporteIncidencias/image.png",
 };
 
